@@ -465,6 +465,12 @@ case "${host}" in
 	sys_dir=amdgcn
 	have_crt0="no"
 	;;
+  arm*-*-eabi*)
+	sys_dir=pados
+	machine_dir=arm
+	have_crt0="no"
+	newlib_cflags="${newlib_cflags} -DREENTRANT_SYSCALLS_PROVIDED"
+	;;
   arm*-*-*)
 	sys_dir=arm
 	if [ "x${newlib_may_supply_syscalls}" = "xno" ] ; then

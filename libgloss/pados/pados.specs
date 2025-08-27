@@ -1,0 +1,16 @@
+%rename link_gcc_c_sequence                pados_link_gcc_c_sequence
+
+*pados_libgloss:
+-lpados
+
+*pados_libc:
+%{!specs=nano.specs:-lc} %{specs=nano.specs:-lc_nano}
+
+*link_gcc_c_sequence:
+%(pados_link_gcc_c_sequence) --start-group %G %(pados_libc) %(pados_libgloss) --end-group
+
+*link_libgcc:
+%{pthread:-lpthread} %{!pthread:}
+
+*cpp:
+%{pthread:-D_POSIX_THREADS -D_REENTRANT}

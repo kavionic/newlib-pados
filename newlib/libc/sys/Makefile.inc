@@ -31,6 +31,9 @@ endif
 if HAVE_LIBC_SYS_OR1K_DIR
 include %D%/or1k/Makefile.inc
 endif
+if HAVE_LIBC_SYS_PADOS_DIR
+include %D%/Pados/Makefile.inc
+endif
 if HAVE_LIBC_SYS_RDOS_DIR
 include %D%/rdos/Makefile.inc
 endif
