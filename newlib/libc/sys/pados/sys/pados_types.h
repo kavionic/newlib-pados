@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2025 Kurt Skauen. All rights reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 #pragma once
 
 #include <stddef.h>
@@ -18,18 +36,24 @@ typedef int64_t  ssize64_t;
 
 typedef uint16_t wchar16_t;
 
-#ifdef __cplusplus
-constexpr
+#ifdef __cpp_constexpr
+constexpr handler_id INVALID_HANDLE = -1;
 #else
-static const
+#define INVALID_HANDLE ((handler_id)-1)
 #endif
-handler_id	INVALID_HANDLE = -1;
 
-#ifdef __cplusplus
+
+#ifdef __cpp_constexpr
 constexpr
 #else
 static const
 #endif
 size_t		INVALID_INDEX = (size_t)-1;
+
+#ifdef __cpp_constexpr
+constexpr size_t OS_NAME_LENGTH = 32;
+#else
+#define OS_NAME_LENGTH ((size_t)32)
+#endif
 
 

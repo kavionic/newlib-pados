@@ -18,10 +18,11 @@
 
 #include <unistd.h>
 #include <stdint.h>
-#include <time.h>
 #include <errno.h>
-#include <sys/stat.h>
+
 #include "sys/pados_syscalls.h"
-#include <sched.h>
 
-
+int sched_yield(void)
+{
+    return sys_yield();
+}

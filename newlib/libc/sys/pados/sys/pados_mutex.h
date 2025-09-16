@@ -16,15 +16,16 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
-#include <stdint.h>
-#include <errno.h>
+#pragma once
 
-#include "reent.h"
-#include "sys/pados_syscalls.h"
+#include <inttypes.h>
 
-int _execve_r(struct _reent*, const char*, char* const*, char* const*)
+
+typedef enum 
 {
-    errno = ENOSYS;
-    return -1;
-}
+    PEMutexRecursionMode_Block,
+    PEMutexRecursionMode_Recurse,
+    PEMutexRecursionMode_RaiseError
+} PEMutexRecursionMode;
+
+

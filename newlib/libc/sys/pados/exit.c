@@ -16,12 +16,15 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
-#include <stdint.h>
-#include <time.h>
-#include <errno.h>
-#include <sys/stat.h>
+#include <stdlib.h>
 #include "sys/pados_syscalls.h"
-#include <sched.h>
 
+void _exit(int exitCode)
+{
+    sys_exit(exitCode);
+}
 
+void exit(int exitCode)
+{
+    sys_exit(exitCode);
+}

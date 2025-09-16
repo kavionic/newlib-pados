@@ -17,11 +17,20 @@
  */
 
 #include <unistd.h>
-#include <stdint.h>
 #include <time.h>
 #include <errno.h>
-#include <sys/stat.h>
-#include "sys/pados_syscalls.h"
-#include <sched.h>
+
+#include <sys/pados_timeutils.h>
+#include <sys/pados_syscalls.h>
 
 
+int clock_setres(clockid_t clk_id, struct timespec* tp)
+{
+    status_t result = sys_set_clock_resolution(clk_id, timespec_to_nanos(tp));
+    if (result != 0)
+    {
+        errno = result;
+        return -1;
+    }
+    return 0;
+}

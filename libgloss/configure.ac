@@ -188,9 +188,8 @@ case "${target}" in
   rx*-*-elf)
 	config_rx=true
 	;;
-  arm*-*-eabi*)
+  arm*-*-pados-eabi*)
 	# Enable ARM; add pados to the configured subdirs and generate its Makefile
-	config_arm=true
 	AC_CONFIG_FILES([pados/Makefile])
 	subdirs="$subdirs pados"
 	;;

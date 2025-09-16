@@ -423,6 +423,32 @@ extern "C" {
 
 #endif
 
+#ifdef __pados__
+#undef _DEFAULT_SOURCE
+#define	_DEFAULT_SOURCE		1
+#define _POSIX_VERSION			199309L
+#define _POSIX_FSYNC			1
+#define _POSIX_MONOTONIC_CLOCK		200112L
+#define _POSIX_CLOCK_SELECTION		200112L
+#define _POSIX_TIMERS			1
+#define _POSIX_SPIN_LOCKS               200112L
+
+/* In P1003.1b but defined by drafts at least as early as P1003.1c/D10  */
+#define _POSIX_THREADS				1
+#define _POSIX_THREAD_ATTR_STACKADDR		1
+#define _POSIX_THREAD_ATTR_STACKSIZE		1
+#define _POSIX_THREAD_SAFE_FUNCTIONS		1
+
+/* P1003.4b/D8 defines the constants below this comment. */
+#define _POSIX_TIMEOUTS				1
+#define _POSIX_CPUTIME				1
+#define _POSIX_THREAD_CPUTIME			1
+
+/* POSIX 1003.26-2003 defined device control method */
+#define _POSIX_26_VERSION			200312L
+#define __GNU_VISIBLE				1
+#endif /* __pados__ */
+
 /* XMK loosely adheres to POSIX -- 1003.1 */
 #ifdef __XMK__
 #define _POSIX_THREADS				1

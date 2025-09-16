@@ -16,12 +16,31 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
-#include <stdint.h>
-#include <time.h>
+#pragma once
+
 #include <errno.h>
-#include <sys/stat.h>
-#include "sys/pados_syscalls.h"
-#include <sched.h>
 
+#ifdef __cplusplus
+#define PCREAT_ERROR_CODE(NAME, ERRORCODE) NAME = ERRORCODE
+enum class PErrorCode : int
+#else
+#define PCREAT_ERROR_CODE(NAME, ERRORCODE) PErrorCode_##NAME = ERRORCODE
+typedef enum
+#endif
+{
+    PCREAT_ERROR_CODE(Success,          0),
+    PCREAT_ERROR_CODE(NoMemory,         ENOMEM),
+    PCREAT_ERROR_CODE(NotImplemented,   ENOSYS),
+    PCREAT_ERROR_CODE(InvalidArg,       EINVAL),
+    PCREAT_ERROR_CODE(Buzy,             EBUSY),
+    PCREAT_ERROR_CODE(TryAgain,         EAGAIN),
+    PCREAT_ERROR_CODE(Interrupted,      EINTR)
 
+}
+#ifdef __cplusplus
+;
+#else
+PErrorCode;
+#endif
+
+#undef PCREAT_ERROR_CODE

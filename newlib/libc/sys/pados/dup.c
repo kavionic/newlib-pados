@@ -23,7 +23,7 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _dup_r(struct _reent* reent, int oldFile)
+int dup(int oldFile)
 {
     return sys_dup(oldFile);
 }

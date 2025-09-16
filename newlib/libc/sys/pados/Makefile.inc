@@ -1,9 +1,14 @@
 libc_a_SOURCES += \
+	%D%/clock_getcpuclockid.c \
+	%D%/clock_getres.c \
+	%D%/clock_gettime.c \
+	%D%/clock_setres.c \
+	%D%/clock_settime.c \
 	%D%/close.c \
 	%D%/dup.c \
-	%D%/execve.c \
+	%D%/dup2.c \
+	%D%/exit.c \
 	%D%/fcntl.c \
-	%D%/fork.c \
 	%D%/fstat.c \
 	%D%/getentropy.c \
 	%D%/getpid.c \
@@ -13,13 +18,17 @@ libc_a_SOURCES += \
 	%D%/link.c \
 	%D%/lseek.c \
 	%D%/mkdir.c \
+	%D%/nanosleep.c \
 	%D%/open.c \
 	%D%/read.c \
 	%D%/rename.c \
 	%D%/sbrk.c \
+	%D%/sched_yield.c \
+	%D%/sleep.c \
 	%D%/stat.c \
-	%D%/syscalls.c \
+	%D%/stubs.c \
+	%D%/sysconf.c \
 	%D%/times.c \
 	%D%/unlink.c \
-	%D%/wait.c \
+	%D%/usleep.c \
 	%D%/write.c

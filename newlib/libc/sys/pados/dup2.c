@@ -23,8 +23,7 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _fork_r(struct _reent*)
+int dup2(int oldFile, int newFile)
 {
-    errno = ENOSYS;
-    return -1;
+    return sys_dup2(oldFile, newFile);
 }

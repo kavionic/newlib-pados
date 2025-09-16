@@ -23,7 +23,13 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _kill_r(struct _reent*, int pid, int sig)
+int _kill_r(struct _reent* reent, pid_t pid, int sig)
 {
-    return sys_kill(pid, sig);
+    PErrorCode result = sys_kill(pid, sig);
+    if (result != PErrorCode_Success)
+    {
+        _REENT_ERRNO(reent) = result;
+        return -1;
+    }
+    return 0;
 }

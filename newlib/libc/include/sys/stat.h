@@ -38,7 +38,7 @@ struct	stat
   time_t	st_atime;
   time_t	st_mtime;
   time_t	st_ctime;
-#elif defined(__mips__) && !defined(__rtems__)
+#elif defined(__mips__) && !defined(__rtems__) && !defined(__pados__)
   time_t	st_atime;
   long		st_spare1;
   time_t	st_mtime;
@@ -54,7 +54,7 @@ struct	stat
   struct timespec st_ctim;
   blksize_t     st_blksize;
   blkcnt_t	st_blocks;
-#if !defined(__rtems__)
+#if !defined(__rtems__) && !defined(__pados__)
   long		st_spare4[2];
 #endif
 #endif
@@ -139,7 +139,7 @@ struct	stat
 #define	S_ISLNK(m)	(((m)&_IFMT) == _IFLNK)
 #define	S_ISSOCK(m)	(((m)&_IFMT) == _IFSOCK)
 
-#if defined(__CYGWIN__) || defined(__rtems__)
+#if defined(__CYGWIN__) || defined(__rtems__) || defined(__pados__)
 /* Special tv_nsec values for futimens(2) and utimensat(2). */
 #define UTIME_NOW	-2L
 #define UTIME_OMIT	-1L
@@ -157,7 +157,7 @@ int	mkfifo (const char *__path, mode_t __mode );
 int	stat (const char *__restrict __path, struct stat *__restrict __sbuf );
 mode_t	umask (mode_t __mask );
 
-#if defined (__SPU__) || defined(__rtems__) || defined(__CYGWIN__)
+#if defined (__SPU__) || defined(__rtems__) || defined(__CYGWIN__) || defined(__pados__)
 int	lstat (const char *__restrict __path, struct stat *__restrict __buf );
 int	mknod (const char *__path, mode_t __mode, dev_t __dev );
 #endif

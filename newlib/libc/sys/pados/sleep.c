@@ -18,10 +18,18 @@
 
 #include <unistd.h>
 #include <stdint.h>
-#include <time.h>
 #include <errno.h>
-#include <sys/stat.h>
+
 #include "sys/pados_syscalls.h"
-#include <sched.h>
 
-
+unsigned sleep(unsigned int seconds)
+{
+    const bigtime_t startTime = sys_get_real_time();
+    const bigtime_t useconds = ((bigtime_t)seconds) * 1000000;
+    if (sys_snooze_us(useconds) != 0)
+    {
+        const bigtime_t remainingUs = sys_get_real_time() - startTime;
+        return remainingUs / 1000000;
+    }
+    return 0;
+}

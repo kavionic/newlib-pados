@@ -249,6 +249,10 @@
 #define __DYNAMIC_REENT__
 #endif
 
+#if defined(__pados__)
+#define _READ_WRITE_RETURN_TYPE _ssize_t
+#endif
+
 #ifndef __EXPORT
 #define __EXPORT
 #endif

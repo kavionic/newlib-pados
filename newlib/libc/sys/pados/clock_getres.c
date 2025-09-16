@@ -17,15 +17,19 @@
  */
 
 #include <unistd.h>
-#include <stdint.h>
+#include <time.h>
 #include <errno.h>
 
-#include "reent.h"
-#include "sys/pados_syscalls.h"
+#include <sys/pados_timeutils.h>
+#include <sys/pados_syscalls.h>
 
 
-int _wait_r(struct _reent*, int*)
+int clock_getres(clockid_t clk_id, struct timespec* tp)
 {
-    errno = ENOSYS;
-    return -1;
+    bigtime_t resolutionNanos;
+    status_t result = sys_get_clock_resolution(clk_id, &resolutionNanos);
+    if (result == 0) {
+        *tp = nanos_to_timespec(resolutionNanos);
+    }
+    return result;
 }

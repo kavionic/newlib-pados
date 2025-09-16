@@ -20,10 +20,28 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _rename_r(struct _reent*, const char* oldPath, const char* newPath)
+int nanosleep(const struct timespec* requested, struct timespec* remaining)
 {
-    return sys_rename(oldPath, newPath);
+    const bigtime_t useconds = ((bigtime_t)requested->tv_sec) * 1000000 + (requested->tv_nsec + 999) / 1000;
+    if (remaining != NULL)
+    {
+        const bigtime_t startTime = sys_get_real_time();
+        if (sys_snooze_us(useconds) != 0)
+        {
+            const bigtime_t remainingUs = sys_get_real_time() - startTime;
+            if (remainingUs > 0)
+            {
+                remaining->tv_sec = (time_t)(remainingUs / 1000000);
+                remaining->tv_nsec = (long int)((remainingUs % 1000000) * 1000);
+                return -1;
+            }
+        }
+        return 0;
+    }
+    else
+    {
+        return sys_snooze_us(useconds);
+    }
 }

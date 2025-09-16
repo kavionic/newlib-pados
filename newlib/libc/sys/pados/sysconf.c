@@ -17,11 +17,23 @@
  */
 
 #include <unistd.h>
-#include <stdint.h>
-#include <time.h>
-#include <errno.h>
-#include <sys/stat.h>
-#include "sys/pados_syscalls.h"
-#include <sched.h>
+#include <sys/pados_syscalls.h>
+
+
+long sysconf(int name)
+{
+    long value;
+    const PErrorCode result = sys_sysconf(name, &value);
+
+    if (result == PErrorCode_Success)
+    {
+        return value;
+    }
+    else
+    {
+        errno = result;
+        return -1;
+    }
+}
 
 

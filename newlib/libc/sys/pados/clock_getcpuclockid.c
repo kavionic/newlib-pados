@@ -17,11 +17,23 @@
  */
 
 #include <unistd.h>
-#include <stdint.h>
 #include <time.h>
 #include <errno.h>
-#include <sys/stat.h>
+
+#include "sys/pados_timeutils.h"
 #include "sys/pados_syscalls.h"
-#include <sched.h>
 
-
+int clock_getcpuclockid(pid_t pid, clockid_t* clk_id)
+{
+    if (pid == 0)
+    {
+        *clk_id = THREADID_TO_CLOCKID(sys_get_thread_id());
+        return 0;
+    }
+    else if (pid != INVALID_HANDLE)
+    {
+        *clk_id = THREADID_TO_CLOCKID(pid);
+        return 0;
+    }
+    return EINVAL;
+}

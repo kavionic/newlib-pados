@@ -23,8 +23,7 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _unlink_r(struct _reent*, const char*)
+int _unlink_r(struct _reent*, const char* path)
 {
-    errno = ENOSYS;
-    return -1;
+    return sys_unlink(path);
 }

@@ -23,8 +23,7 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _mkdir_r(struct _reent*, const char*, int)
+int mkdir(const char* path, mode_t mode)
 {
-    errno = ENOSYS;
-    return -1;
+    return sys_create_directory(path, mode);
 }

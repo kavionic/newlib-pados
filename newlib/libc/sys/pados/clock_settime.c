@@ -17,11 +17,25 @@
  */
 
 #include <unistd.h>
-#include <stdint.h>
 #include <time.h>
 #include <errno.h>
-#include <sys/stat.h>
+
 #include "sys/pados_syscalls.h"
-#include <sched.h>
 
+int clock_settime(clockid_t clockID, const struct timespec* newTime)
+{
+    if (clockID != CLOCK_REALTIME || clockID != CLOCK_REALTIME_COARSE)
+    {
+        errno = EINVAL;
+        return -1;
+    }
 
+    status_t result = sys_set_real_time(((bigtime_t)newTime->tv_sec) * 1000000 + newTime->tv_nsec / 1000, true);
+    if (result != 0)
+    {
+        errno = result;
+        return -1;
+
+    }
+    return 0;
+}
