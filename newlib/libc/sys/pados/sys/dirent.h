@@ -44,6 +44,11 @@ typedef	__ino_t		ino_t;
 #define	_INO_T_DECLARED
 #endif
 
+#ifndef _DEV_T_DECLARED
+typedef	__dev_t		dev_t;
+#define	_DEV_T_DECLARED
+#endif
+
 #ifndef _OFF_T_DECLARED
 typedef	__off_t		off_t;
 #define	_OFF_T_DECLARED
@@ -78,28 +83,26 @@ typedef struct _dirdesc {
  * There is code depending on d_name being last.
  */
 
-struct dirent {
-	ino_t      d_fileno;		/* file number of entry */
-	off_t      d_off;		/* directory offset of entry */
-	__uint16_t d_reclen;		/* length of this record */
-	__uint8_t  d_type;		/* file type, see below */
-	__uint16_t d_namlen;		/* length of string in d_name */
-	char	d_name[NAME_MAX + 1];	/* name must be no longer than this */
+struct dirent
+{
+    ino_t      d_ino;       /* file number of entry */
+    dev_t      d_volumeid;  /* unique identifier of the volume hosting the entry */
+    off_t      d_off;       /* directory offset of entry */
+    __uint32_t d_type;      /* file type, see below */
+    __uint16_t d_reclen;    /* length of this record */
+    __uint16_t d_namlen;    /* length of string in d_name */
+    char       d_name[NAME_MAX + 1]; /* name must be no longer than this */
 };
+#define	d_fileno    d_ino
+
+typedef struct dirent dirent_t;
 
 #if __BSD_VISIBLE
 #define	MAXNAMLEN	NAME_MAX
 #endif
 
-/*
- * XXX this is probably illegal in the __XSI_VISIBLE case, but brings us closer
- * to the specification.
- */
-#define	d_ino		d_fileno	/* backward and XSI compatibility */
 
 #define	__dirfd(dp)	((dp)->dd_fd)
-
-#if __BSD_VISIBLE || __POSIX_VISIBLE >= 202405
 
 /*
  * File types
@@ -120,6 +123,5 @@ struct dirent {
 #define	IFTODT(mode)	(((mode) & 0170000) >> 12)
 #define	DTTOIF(dirtype)	((dirtype) << 12)
 
-#endif /* __BSD_VISIBLE */
 
 #endif /* !_SYS_DIRENT_H_ */

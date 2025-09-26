@@ -24,6 +24,7 @@
 
 typedef thread_id   pthread_t;
 typedef sem_id      pthread_mutex_t;
+typedef sem_id      pthread_rwlock_t;
 typedef handle_id   pthread_cond_t;
 typedef tls_id      pthread_key_t;
 typedef int         pthread_once_t;
@@ -77,12 +78,15 @@ typedef struct
   clockid_t clock_id;
 } pthread_mutexattr_t;
 
+typedef pthread_mutexattr_t pthread_rwlockattr_t;
+
 #define _PTHREAD_MUTEX_INITIALIZER                  ((pthread_mutex_t)INVALID_HANDLE - 1)
 #define _PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP     ((pthread_mutex_t)INVALID_HANDLE - 2)
 #define _PTHREAD_ERRORCHECK_MUTEX_INITIALIZER_NP    ((pthread_mutex_t)INVALID_HANDLE - 3)
 #define _PTHREAD_MUTEX_INITIALIZER_MIN              ((pthread_mutex_t)INVALID_HANDLE - 3)
 #define _PTHREAD_MUTEX_INITIALIZER_MAX              ((pthread_mutex_t)INVALID_HANDLE - 1)
 #define _PTHREAD_MUTEX_INITING                      ((pthread_mutex_t)INVALID_HANDLE - 4)
+#define _PTHREAD_RWLOCK_INITIALIZER                 _PTHREAD_MUTEX_INITIALIZER
 
 
 #define _PTHREAD_COND_INITIALIZER   ((pthread_cond_t)INVALID_HANDLE - 1)

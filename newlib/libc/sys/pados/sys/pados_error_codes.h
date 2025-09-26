@@ -32,10 +32,15 @@ typedef enum
     PCREAT_ERROR_CODE(NoMemory,         ENOMEM),
     PCREAT_ERROR_CODE(NotImplemented,   ENOSYS),
     PCREAT_ERROR_CODE(InvalidArg,       EINVAL),
-    PCREAT_ERROR_CODE(Buzy,             EBUSY),
+    PCREAT_ERROR_CODE(Busy,             EBUSY),
     PCREAT_ERROR_CODE(TryAgain,         EAGAIN),
-    PCREAT_ERROR_CODE(Interrupted,      EINTR)
-
+    PCREAT_ERROR_CODE(Interrupted,      EINTR),
+    PCREAT_ERROR_CODE(Timeout,          ETIMEDOUT),
+    PCREAT_ERROR_CODE(Deadlock,         EDEADLK),
+    PCREAT_ERROR_CODE(WouldBlock,       EWOULDBLOCK),
+    PCREAT_ERROR_CODE(Exist,            EEXIST),
+    PCREAT_ERROR_CODE(NoEntry,          ENOENT),
+    PCREAT_ERROR_CODE(Overflow,         EOVERFLOW)
 }
 #ifdef __cplusplus
 ;

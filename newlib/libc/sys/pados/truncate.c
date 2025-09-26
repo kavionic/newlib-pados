@@ -18,11 +18,16 @@
 
 #include <unistd.h>
 #include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include <sys/types.h>
+#include "sys/pados_syscalls.h"
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int truncate(const char* path, off_t length)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    int fd = sys_open(path, O_WRONLY, 0);
+    if (fd < 0) {
+        return -1;
+    }
+    int result = ftruncate(fd, length);
+    sys_close(fd);
+    return result;
 }

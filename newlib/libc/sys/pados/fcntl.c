@@ -23,8 +23,17 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _fcntl_r(struct _reent*, int, int, int)
+int _fcntl_r(struct _reent*, int fd, int cmd, int arg)
 {
-    errno = ENOSYS;
-    return -1;
+    int output = 0;
+    const PErrorCode result = sys_fcntl(fd, cmd, arg, &output);
+    if (result == PErrorCode_Success)
+    {
+        return output;
+    }
+    else
+    {
+        _REENT_ERRNO(reent) = result;
+        return -1;
+    }
 }

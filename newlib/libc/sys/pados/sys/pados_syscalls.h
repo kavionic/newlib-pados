@@ -20,6 +20,7 @@
 
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/dirent.h>
 #include <stdbool.h>
 #include <sys/pados_types.h>
 #include <sys/pados_error_codes.h>
@@ -36,20 +37,29 @@ typedef void (*TLSDestructor_t)(void*);
  * IO functions
  */
 
-int sys_open(const char* path, int flags);
-int sys_close(int file);
-int sys_dup(int oldFile);
-int sys_dup2(int oldFile, int newFile);
-int sys_rename(const char* oldPath, const char* newPath);
-int sys_fstat(int file, struct stat* buf);
-int sys_stat(const char* path, struct stat* buf);
-int sys_isatty(int file);
-off64_t sys_lseek(int file, off64_t offset, int whence);
-ssize_t sys_read(int file, void* buffer, size_t length);
-ssize_t sys_write(int file, const void* buffer, size_t length);
-int sys_create_directory(const char* name, mode_t permission);
-int sys_create_directory_base(int baseFolderFD, const char* name, int permission);
-int sys_unlink(const char* path);
+int         sys_open(const char* path, int flags, mode_t mode);
+int         sys_openat(int dirfd, const char* path, int flags, mode_t mode);
+int         sys_close(int file);
+PErrorCode  sys_fcntl(int file, int cmd, int arg, int* outResult);
+int         sys_dup(int oldFile);
+int         sys_dup2(int oldFile, int newFile);
+int         sys_rename(const char* oldPath, const char* newPath);
+int         sys_fstat(int file, struct stat* buf);
+int         sys_stat(const char* path, struct stat* buf);
+int         sys_write_stat(int file, const struct stat* value, uint32_t mask);
+int         sys_isatty(int file);
+off64_t     sys_lseek(int file, off64_t offset, int whence);
+ssize_t     sys_read(int file, void* buffer, size_t length);
+ssize_t     sys_write(int file, const void* buffer, size_t length);
+int         sys_create_directory(const char* name, mode_t permission);
+int         sys_create_directory_base(int baseFolderFD, const char* name, int permission);
+int         sys_read_directory(int handle, dirent_t* entry, size_t bufSize);
+int         sys_unlink_file(int dirfd, const char* path);
+int         sys_remove_directory(int dirfd, const char* path);
+PErrorCode  sys_readlink(int dirfd, const char* path, char* buffer, size_t bufferSize, size_t* outResultLength);
+PErrorCode  sys_symlink(const char* targetPath, int dirfd, const char* symlinkPath);
+int         sys_chdir(const char* path);
+char*       sys_getcwd(char* pathBuffer, size_t bufferSize);
 
 /*
  * Time functions
@@ -94,38 +104,55 @@ void        sys_exit(int exitCode) _ATTRIBUTE((__noreturn__));
 PErrorCode  sys_sysconf(int name, long* outValue);
 
 /*
+ * Semaphore functions
+ */
+
+PErrorCode sys_semaphore_create(sem_id* outHandle, const char* name, clockid_t clockID, int count);
+PErrorCode sys_semaphore_duplicate(sem_id* outNewHandle, sem_id handle);
+PErrorCode sys_semaphore_delete(sem_id handle);
+PErrorCode sys_semaphore_create_public(sem_id* outHandle, const char* name, clockid_t clockID, int flags, mode_t mode, int count);
+PErrorCode sys_semaphore_unlink_public(const char* name);
+PErrorCode sys_semaphore_acquire(sem_id handle);
+PErrorCode sys_semaphore_acquire_timeout(sem_id handle, bigtime_t timeout);
+PErrorCode sys_semaphore_acquire_deadline(sem_id handle, bigtime_t deadline);
+PErrorCode sys_semaphore_acquire_clock(sem_id handle, clockid_t clockID, bigtime_t deadline);
+PErrorCode sys_semaphore_try_acquire(sem_id handle);
+PErrorCode sys_semaphore_release(sem_id handle);
+PErrorCode sys_semaphore_get_count(sem_id handle, int* outCount);
+
+/*
  * Mutex functions
  */
 
-PErrorCode  sys_create_mutex(sem_id* outHandle, const char* name, PEMutexRecursionMode recursionMode, clockid_t clockID);
-PErrorCode  sys_duplicate_mutex(sem_id* outNewHandle, sem_id handle);
-status_t sys_delete_mutex(sem_id handle);
-status_t sys_lock_mutex(sem_id handle);
-status_t sys_lock_mutex_timeout(sem_id handle, bigtime_t timeout);
-status_t sys_lock_mutex_deadline(sem_id handle, bigtime_t deadline);
-status_t sys_lock_mutex_clock(sem_id handle, clockid_t clockID, bigtime_t deadline);
-status_t sys_try_lock_mutex(sem_id handle);
-status_t sys_unlock_mutex(sem_id handle);
+PErrorCode sys_mutex_create(sem_id* outHandle, const char* name, PEMutexRecursionMode recursionMode, clockid_t clockID);
+PErrorCode sys_mutex_duplicate(sem_id* outNewHandle, sem_id handle);
+PErrorCode sys_mutex_delete(sem_id handle);
+PErrorCode sys_mutex_lock(sem_id handle);
+PErrorCode sys_mutex_lock_timeout(sem_id handle, bigtime_t timeout);
+PErrorCode sys_mutex_lock_deadline(sem_id handle, bigtime_t deadline);
+PErrorCode sys_mutex_lock_clock(sem_id handle, clockid_t clockID, bigtime_t deadline);
+PErrorCode sys_mutex_try_lock(sem_id handle);
+PErrorCode sys_mutex_unlock(sem_id handle);
 
-status_t sys_lock_mutex_shared(sem_id handle);
-status_t sys_lock_mutex_shared_timeout(sem_id handle, bigtime_t timeout);
-status_t sys_lock_mutex_shared_deadline(sem_id handle, bigtime_t deadline);
-status_t sys_try_lock_mutex_shared(sem_id handle);
-status_t sys_unlock_mutex_shared(sem_id handle);
-status_t sys_islocked_mutex(sem_id handle);
+PErrorCode sys_mutex_lock_shared(sem_id handle);
+PErrorCode sys_mutex_lock_shared_timeout(sem_id handle, bigtime_t timeout);
+PErrorCode sys_mutex_lock_shared_deadline(sem_id handle, bigtime_t deadline);
+PErrorCode sys_mutex_lock_shared_clock(sem_id handle, clockid_t clockID, bigtime_t deadline);
+PErrorCode sys_mutex_try_lock_shared(sem_id handle);
+PErrorCode sys_mutex_islocked(sem_id handle);
 
 /*
  * Condition variable functions
  */
 
 PErrorCode  sys_condition_var_create(handle_id* outHandle, const char* name, clockid_t clockID);
-status_t    sys_condition_var_delete(handle_id handle);
-status_t    sys_condition_var_wait(handle_id handle, handle_id mutexHandle);
-status_t    sys_condition_var_wait_timeout(handle_id handle, handle_id mutexHandle, bigtime_t timeout);
-status_t    sys_condition_var_wait_deadline(handle_id handle, handle_id mutexHandle, bigtime_t deadline);
-status_t    sys_condition_var_wait_clock(handle_id handle, handle_id mutexHandle, clockid_t clockID, bigtime_t deadline);
-status_t    sys_condition_var_wakeup(handle_id handle, int threadCount);
-status_t    sys_condition_var_wakeup_all(handle_id handle);
+PErrorCode  sys_condition_var_delete(handle_id handle);
+PErrorCode  sys_condition_var_wait(handle_id handle, handle_id mutexHandle);
+PErrorCode  sys_condition_var_wait_timeout(handle_id handle, handle_id mutexHandle, bigtime_t timeout);
+PErrorCode  sys_condition_var_wait_deadline(handle_id handle, handle_id mutexHandle, bigtime_t deadline);
+PErrorCode  sys_condition_var_wait_clock(handle_id handle, handle_id mutexHandle, clockid_t clockID, bigtime_t deadline);
+PErrorCode  sys_condition_var_wakeup(handle_id handle, int threadCount);
+PErrorCode  sys_condition_var_wakeup_all(handle_id handle);
 
 /*
  * Thread local functions

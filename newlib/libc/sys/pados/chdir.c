@@ -16,13 +16,9 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
-#include <fcntl.h>
 #include <sys/pados_syscalls.h>
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int chdir(const char* path)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    return sys_chdir(path);
 }

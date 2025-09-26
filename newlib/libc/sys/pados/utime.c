@@ -16,13 +16,23 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
+#include <time.h>
+#include <utime.h>
 #include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include <sys/types.h>
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int utime(const char* path, const struct utimbuf* times)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    if (times != nullptr)
+    {
+        const timespec_t timeSpecs[2] = {
+            {.tv_sec = times->actime, .tv_nsec = 0 },
+            {.tv_sec = times->modtime, .tv_nsec = 0 }
+        };
+        return utimensat(AT_FDCWD, path, timeSpecs, 0);
+    }
+    else
+    {
+        return utimensat(AT_FDCWD, path, NULL, 0);
+    }
 }

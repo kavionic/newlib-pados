@@ -18,11 +18,19 @@
 
 #include <unistd.h>
 #include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
-#include "reent.h"
+#include "sys/pados_syscalls.h"
 
-int _unlink_r(struct _reent*, const char* path)
+int lstat(const char* path, struct stat* statbuf)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    int fd = sys_open(path, O_RDONLY | O_NOFOLLOW, 0);
+    if (fd != -1)
+    {
+        int result = fstat(fd, statbuf);
+        sys_close(fd);
+        return result;
+    }
+    return -1;
 }

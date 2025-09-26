@@ -25,6 +25,6 @@
 
 _CLOCK_T_ _times_r(struct _reent*, struct tms*)
 {
-    errno = ENOSYS;
+    _REENT_ERRNO(reent) = ENOSYS;
     return -1;
 }

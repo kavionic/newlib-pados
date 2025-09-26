@@ -20,9 +20,13 @@
 #include <fcntl.h>
 #include <sys/pados_syscalls.h>
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int symlink(const char* targetPath, const char* symlinkPath)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    const PErrorCode result = sys_symlink(AT_FDCWD, targetPath, symlinkPath);
+
+    if (result == PErrorCode_Success) {
+        return 0;
+    }
+    errno = result;
+    return -1;
 }

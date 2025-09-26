@@ -16,13 +16,21 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
+#include <time.h>
+#include <utime.h>
 #include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include <sys/types.h>
+#include "sys/pados_syscalls.h"
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int utimensat(int dirfd, const char* path, const struct timespec times[2], int flags)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    //    if (flags & AT_SYMLINK_NOFOLLOW) {
+    //    }
+    int fd = sys_openat(dirfd, path, O_WRONLY, 0);
+    if (fd < 0) {
+        return -1;
+    }
+    int result = futimens(fd, times);
+    sys_close(fd);
+    return result;
 }

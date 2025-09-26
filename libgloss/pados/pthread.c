@@ -443,7 +443,7 @@ int pthread_mutex_init(pthread_mutex_t* mutex, const pthread_mutexattr_t* attr)
         clockID = attr->clock_id;
     }
     pthread_mutex_t handle;
-    const PErrorCode result = sys_create_mutex(&handle, "ptmtx", mode, clockID);
+    const PErrorCode result = sys_mutex_create(&handle, "ptmtx", mode, clockID);
 
     if (result != PErrorCode_Success) {
         return result;
@@ -454,32 +454,32 @@ int pthread_mutex_init(pthread_mutex_t* mutex, const pthread_mutexattr_t* attr)
 
 int pthread_mutex_destroy(pthread_mutex_t* mutex)
 {
-    return sys_delete_mutex(get_mutex_handle(mutex));
+    return sys_mutex_delete(get_mutex_handle(mutex));
 }
 
 int pthread_mutex_lock(pthread_mutex_t* mutex)
 {
-    return sys_lock_mutex(get_mutex_handle(mutex));
+    return sys_mutex_lock(get_mutex_handle(mutex));
 }
 
 int pthread_mutex_trylock(pthread_mutex_t* mutex)
 {
-    return sys_try_lock_mutex(get_mutex_handle(mutex));
+    return sys_mutex_try_lock(get_mutex_handle(mutex));
 }
 
 int pthread_mutex_timedlock(pthread_mutex_t* mutex, const struct timespec* abstime)
 {
-    return sys_lock_mutex_deadline(get_mutex_handle(mutex), timespec_to_micros(abstime));
+    return sys_mutex_lock_deadline(get_mutex_handle(mutex), timespec_to_micros(abstime));
 }
 
 int pthread_mutex_clocklock(pthread_mutex_t* mutex, clockid_t clockID, const struct timespec* abstime)
 {
-    return sys_lock_mutex_clock(get_mutex_handle(mutex), clockID, timespec_to_micros(abstime));
+    return sys_mutex_lock_clock(get_mutex_handle(mutex), clockID, timespec_to_micros(abstime));
 }
 
 int pthread_mutex_unlock(pthread_mutex_t* mutex)
 {
-    return sys_unlock_mutex(get_mutex_handle(mutex));
+    return sys_mutex_unlock(get_mutex_handle(mutex));
 }
 
 int pthread_mutexattr_init(pthread_mutexattr_t* attr)
@@ -616,6 +616,75 @@ int pthread_condattr_getclock(const pthread_condattr_t* attr, clockid_t* clock_i
     return 0;
 }
 
+int pthread_rwlock_init(pthread_rwlock_t* rwlock, const pthread_rwlockattr_t* attr)
+{
+    pthread_rwlockattr_t defaultAttr;
+    if (attr == NULL)
+    {
+        pthread_mutexattr_init(&defaultAttr);
+        defaultAttr.type = PTHREAD_MUTEX_NORMAL;
+        attr = &defaultAttr;
+    }
+    return pthread_mutex_init(rwlock, attr);
+}
+int pthread_rwlock_destroy(pthread_rwlock_t* rwlock)
+{
+    return pthread_mutex_destroy(rwlock);
+}
+
+int pthread_rwlock_rdlock(pthread_rwlock_t* rwlock)
+{
+    return sys_mutex_lock_shared(get_mutex_handle(rwlock));
+}
+
+int pthread_rwlock_tryrdlock(pthread_rwlock_t* rwlock)
+{
+    return pthread_mutex_trylock(rwlock);
+}
+
+int pthread_rwlock_timedrdlock(pthread_rwlock_t* rwlock, const struct timespec* abstime)
+{
+    return pthread_mutex_timedlock(rwlock, abstime);
+}
+
+int pthread_rwlock_wrlock(pthread_rwlock_t* rwlock)
+{
+    return pthread_mutex_lock(rwlock);
+}
+
+int pthread_rwlock_trywrlock(pthread_rwlock_t* rwlock)
+{
+    return pthread_mutex_trylock(rwlock);
+}
+
+int pthread_rwlock_timedwrlock(pthread_rwlock_t* rwlock, const struct timespec* abstime)
+{
+    return pthread_mutex_timedlock(rwlock, abstime);
+}
+
+int pthread_rwlock_unlock(pthread_rwlock_t* rwlock)
+{
+    return pthread_mutex_unlock(rwlock);
+}
+
+int pthread_rwlockattr_init(pthread_rwlockattr_t* attr)
+{
+    int result = pthread_mutexattr_init(attr);
+    if (result == 0) {
+        attr->type = PTHREAD_MUTEX_NORMAL;
+    }
+    return result;
+}
+
+int pthread_rwlockattr_destroy(pthread_rwlockattr_t* attr)
+{
+    return pthread_mutexattr_destroy(attr);
+}
+
+//int   pthread_rwlockattr_setpshared(pthread_rwlockattr_t* attr, int pshared);
+//int   pthread_rwlockattr_getpshared(const pthread_rwlockattr_t* attr, int* pshared);
+
+
 enum { SPIN_UNLOCKED = 0, SPIN_LOCKED = 1 };
 
 int pthread_spin_init(pthread_spinlock_t* lock, int pshared)
@@ -683,4 +752,3 @@ int pthread_yield(void)
 {
     return sys_yield();
 }
-

@@ -16,13 +16,16 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
-#include <fcntl.h>
+#include <semaphore.h>
 #include <sys/pados_syscalls.h>
+#include <sys/pados_timeutils.h>
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int sem_clockwait(sem_t* semaphore, __clockid_t clockID, const struct timespec* abstime)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    const PErrorCode result = sys_semaphore_acquire_clock(*semaphore, clockID, timespec_to_micros(abstime));
+    if (result == PErrorCode_Success) {
+        return 0;
+    }
+    errno = result;
+    return -1;
 }

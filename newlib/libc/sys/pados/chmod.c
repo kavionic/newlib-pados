@@ -16,13 +16,17 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
 #include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include <sys/stat.h>
+#include "sys/pados_syscalls.h"
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int chmod(const char* path, mode_t mode)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    int fd = sys_open(path, O_WRONLY, 0);
+    if (fd < 0) {
+        return -1;
+    }
+    int result = fchmod(fd, mode);
+    sys_close(fd);
+    return result;
 }

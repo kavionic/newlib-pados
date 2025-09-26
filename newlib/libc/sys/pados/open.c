@@ -17,9 +17,10 @@
  */
 
 #include "reent.h"
+#include <stdarg.h>
 #include "sys/pados_syscalls.h"
 
 int _open_r(struct _reent* reent, const char* path, int flags, int mode)
 {
-    return sys_open(path, flags);
+    return sys_open(path, flags, mode);
 }

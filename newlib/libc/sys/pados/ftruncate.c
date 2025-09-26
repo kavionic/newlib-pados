@@ -17,12 +17,13 @@
  */
 
 #include <unistd.h>
-#include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include "sys/pados_syscalls.h"
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int ftruncate(int fd, off_t length)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    struct stat newStat;
+    newStat.st_size = length;
+    return sys_write_stat(fd, &newStat, WSTAT_SIZE);
 }

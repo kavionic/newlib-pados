@@ -16,13 +16,18 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
-#include <fcntl.h>
+#include <stdlib.h>
+#include <semaphore.h>
 #include <sys/pados_syscalls.h>
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int sem_close(sem_t* semaphore)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    const PErrorCode result = sys_semaphore_delete(*semaphore);
+    free(semaphore);
+
+    if (result == PErrorCode_Success) {
+        return 0;
+    }
+    errno = result;
+    return -1;
 }

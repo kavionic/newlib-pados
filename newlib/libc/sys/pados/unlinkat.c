@@ -18,11 +18,13 @@
 
 #include <unistd.h>
 #include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include "sys/pados_syscalls.h"
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int unlinkat(int dirfd, const char* path, int flags)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    if (flags & AT_REMOVEDIR) {
+        return sys_remove_directory(dirfd, path);
+    } else {
+        return sys_unlink_file(dirfd, path);
+    }
 }

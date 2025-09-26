@@ -20,9 +20,14 @@
 #include <fcntl.h>
 #include <sys/pados_syscalls.h>
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+ssize_t readlink(const char* path, char* buffer, size_t bufferSize)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    size_t resultLength;
+    const PErrorCode result = sys_readlink(AT_FDCWD, path, buffer, bufferSize, &resultLength);
+
+    if (result == PErrorCode_Success) {
+        return resultLength;
+    }
+    errno = result;
+    return -1;
 }

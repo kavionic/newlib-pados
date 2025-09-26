@@ -35,5 +35,5 @@
 inline timespec_t micros_to_timespec(bigtime_t micros) { return (timespec_t){ .tv_sec = (micros / 1000000), .tv_nsec = (long int)((micros % 1000000) * 1000) }; }
 inline bigtime_t timespec_to_micros(const timespec_t* time) { return ((bigtime_t)time->tv_sec) * 1000000 + time->tv_nsec / 1000; }
 
-inline timespec_t nanos_to_timespec(bigtime_t nanos) { (timespec_t){ .tv_sec = nanos / 1000000000, .tv_nsec = nanos % 1000000000 }; }
+inline timespec_t nanos_to_timespec(bigtime_t nanos) { return (timespec_t){ .tv_sec = nanos / 1000000000, .tv_nsec = nanos % 1000000000 }; }
 inline bigtime_t timespec_to_nanos(const timespec_t* time) { return time->tv_sec * 1000000000 + time->tv_nsec; }

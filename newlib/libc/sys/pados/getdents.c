@@ -17,12 +17,11 @@
  */
 
 #include <unistd.h>
-#include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include <errno.h>
+#include <sys/dirent.h>
+#include "sys/pados_syscalls.h"
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int getdents(int fd, void* dp, int bufSize)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    return sys_read_directory(fd, dp, bufSize);
 }

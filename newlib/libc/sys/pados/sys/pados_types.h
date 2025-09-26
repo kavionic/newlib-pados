@@ -56,4 +56,16 @@ constexpr size_t OS_NAME_LENGTH = 32;
 #define OS_NAME_LENGTH ((size_t)32)
 #endif
 
+static const uint32_t WSTAT_MODE  = 0x0001;
+static const uint32_t WSTAT_UID   = 0x0002;
+static const uint32_t WSTAT_GID   = 0x0004;
+static const uint32_t WSTAT_SIZE  = 0x0008;
+static const uint32_t WSTAT_ATIME = 0x0010;
+static const uint32_t WSTAT_MTIME = 0x0020;
+static const uint32_t WSTAT_CTIME = 0x0040;
+static const uint32_t WSTAT_MASK  = 0x007f;
+
+static const uint32_t WFSSTAT_NAME = 0x0001;
+
+static const uint32_t  FSINFO_VERSION = 1;
 

@@ -16,13 +16,13 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
+#include <sys/stat.h>
 #include <fcntl.h>
-#include <sys/pados_syscalls.h>
+#include "sys/pados_syscalls.h"
 
-#include "reent.h"
-
-int _unlink_r(struct _reent*, const char* path)
+int fchmod(int fd, mode_t mode)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    struct stat newStat;
+    newStat.st_mode = mode;
+    return sys_write_stat(fd, &newStat, WSTAT_MODE);
 }

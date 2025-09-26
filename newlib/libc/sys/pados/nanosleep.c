@@ -20,28 +20,32 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "sys/pados_syscalls.h"
+#include <sys/pados_timeutils.h>
+#include <sys/pados_syscalls.h>
 
 int nanosleep(const struct timespec* requested, struct timespec* remaining)
 {
-    const bigtime_t useconds = ((bigtime_t)requested->tv_sec) * 1000000 + (requested->tv_nsec + 999) / 1000;
+    const bigtime_t uSeconds = timespec_to_micros(requested);
     if (remaining != NULL)
     {
-        const bigtime_t startTime = sys_get_real_time();
-        if (sys_snooze_us(useconds) != 0)
+        const bigtime_t startTime = sys_get_system_time();
+        if (sys_snooze_us(uSeconds) != 0)
         {
-            const bigtime_t remainingUs = sys_get_real_time() - startTime;
+            const bigtime_t lapsedUs = sys_get_system_time() - startTime;
+            const bigtime_t remainingUs = uSeconds - lapsedUs;
             if (remainingUs > 0)
             {
-                remaining->tv_sec = (time_t)(remainingUs / 1000000);
-                remaining->tv_nsec = (long int)((remainingUs % 1000000) * 1000);
+                *remaining = micros_to_timespec(remainingUs);
+                errno = EINTR;
                 return -1;
             }
         }
+        remaining->tv_sec = 0;
+        remaining->tv_nsec = 0;
         return 0;
     }
     else
     {
-        return sys_snooze_us(useconds);
+        return sys_snooze_us(uSeconds);
     }
 }

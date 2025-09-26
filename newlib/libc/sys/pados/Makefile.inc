@@ -1,15 +1,24 @@
 libc_a_SOURCES += \
+	%D%/chdir.c \
+	%D%/chmod.c \
 	%D%/clock_getcpuclockid.c \
 	%D%/clock_getres.c \
 	%D%/clock_gettime.c \
 	%D%/clock_setres.c \
 	%D%/clock_settime.c \
 	%D%/close.c \
+	%D%/crt0.c \
 	%D%/dup.c \
 	%D%/dup2.c \
 	%D%/exit.c \
+	%D%/fchmod.c \
+	%D%/fchmodat.c \
 	%D%/fcntl.c \
 	%D%/fstat.c \
+	%D%/ftruncate.c \
+	%D%/futimens.c \
+	%D%/getcwd.c \
+	%D%/getdents.c \
 	%D%/getentropy.c \
 	%D%/getpid.c \
 	%D%/gettimeofday.c \
@@ -17,18 +26,41 @@ libc_a_SOURCES += \
 	%D%/kill.c \
 	%D%/link.c \
 	%D%/lseek.c \
+	%D%/lstat.c \
 	%D%/mkdir.c \
 	%D%/nanosleep.c \
 	%D%/open.c \
+	%D%/openat.c \
+	%D%/readlink.c \
+	%D%/readlinkat.c \
 	%D%/read.c \
 	%D%/rename.c \
 	%D%/sbrk.c \
 	%D%/sched_yield.c \
+	%D%/sem_clockwait.c \
+	%D%/sem_close.c \
+	%D%/sem_destroy.c \
+	%D%/sem_getvalue.c \
+	%D%/sem_init.c \
+	%D%/sem_open.c \
+	%D%/sem_post.c \
+	%D%/sem_timedwait.c \
+	%D%/sem_trywait.c \
+	%D%/sem_unlink.c \
+	%D%/sem_wait.c \
 	%D%/sleep.c \
 	%D%/stat.c \
 	%D%/stubs.c \
+	%D%/symlink.c \
+	%D%/symlinkat.c \
 	%D%/sysconf.c \
 	%D%/times.c \
+	%D%/timespec_get.c \
+	%D%/truncate.c \
 	%D%/unlink.c \
+	%D%/unlinkat.c \
 	%D%/usleep.c \
+	%D%/utime.c \
+	%D%/utimensat.c \
+	%D%/utimes.c \
 	%D%/write.c

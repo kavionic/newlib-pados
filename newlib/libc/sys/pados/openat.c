@@ -16,13 +16,18 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/pados_syscalls.h>
-
 #include "reent.h"
+#include <stdarg.h>
+#include "sys/pados_syscalls.h"
 
-int _unlink_r(struct _reent*, const char* path)
+int openat(int dirfd, const char* path, int flags, ...)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    va_list ap;
+    mode_t mode;
+
+    va_start(ap, flags);
+    mode = va_arg(ap, mode_t);
+    va_end(ap);
+
+    return sys_openat(dirfd, path, flags, mode);
 }
