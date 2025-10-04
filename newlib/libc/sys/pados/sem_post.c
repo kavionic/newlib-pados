@@ -21,7 +21,7 @@
 
 int sem_post(sem_t* semaphore)
 {
-    const PErrorCode result = sys_semaphore_release(*semaphore);
+    const PErrorCode result = __semaphore_release(*semaphore);
 
     if (result == PErrorCode_Success) {
         return 0;

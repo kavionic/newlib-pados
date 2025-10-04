@@ -25,17 +25,17 @@
 
 int nanosleep(const struct timespec* requested, struct timespec* remaining)
 {
-    const bigtime_t uSeconds = timespec_to_micros(requested);
+    const bigtime_t nSeconds = timespec_to_nanos(requested);
     if (remaining != NULL)
     {
-        const bigtime_t startTime = sys_get_system_time();
-        if (sys_snooze_us(uSeconds) != 0)
+        const bigtime_t startTime = __get_system_time();
+        if (__snooze_ns(nSeconds) != 0)
         {
-            const bigtime_t lapsedUs = sys_get_system_time() - startTime;
-            const bigtime_t remainingUs = uSeconds - lapsedUs;
-            if (remainingUs > 0)
+            const bigtime_t lapsedNs = __get_system_time() - startTime;
+            const bigtime_t remainingNs = nSeconds - lapsedNs;
+            if (remainingNs > 0)
             {
-                *remaining = micros_to_timespec(remainingUs);
+                *remaining = nanos_to_timespec(remainingNs);
                 errno = EINTR;
                 return -1;
             }
@@ -46,6 +46,6 @@ int nanosleep(const struct timespec* requested, struct timespec* remaining)
     }
     else
     {
-        return sys_snooze_us(uSeconds);
+        return __snooze_ns(nSeconds);
     }
 }

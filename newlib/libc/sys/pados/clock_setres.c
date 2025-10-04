@@ -26,7 +26,7 @@
 
 int clock_setres(clockid_t clk_id, struct timespec* tp)
 {
-    status_t result = sys_set_clock_resolution(clk_id, timespec_to_nanos(tp));
+    status_t result = __set_clock_resolution(clk_id, timespec_to_nanos(tp));
     if (result != 0)
     {
         errno = result;

@@ -21,7 +21,7 @@
 
 int sem_trywait(sem_t* semaphore)
 {
-    const PErrorCode result = sys_semaphore_try_acquire(*semaphore);
+    const PErrorCode result = __semaphore_try_acquire(*semaphore);
 
     if (result == PErrorCode_Success) {
         return 0;

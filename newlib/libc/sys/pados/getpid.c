@@ -25,5 +25,5 @@
 
 int _getpid_r(struct _reent*)
 {
-    return sys_getpid();
+    return __getpid();
 }

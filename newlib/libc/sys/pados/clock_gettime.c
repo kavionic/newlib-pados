@@ -24,17 +24,15 @@
 
 int clock_gettime(clockid_t clk_id, struct timespec* tp)
 {
-    const bigtime_t timeOffsetUs = sys_get_clock_time_offset(clk_id);
-
     if (clk_id == CLOCK_MONOTONIC_COARSE || clk_id == CLOCK_REALTIME_COARSE)
     {
-        const bigtime_t systemTime_uS = sys_get_system_time() + timeOffsetUs;
-        *tp = micros_to_timespec(systemTime_uS);
+        const bigtime_t systemTime = __get_clock_time(clk_id);
+        *tp = nanos_to_timespec(systemTime);
     }
     else
     {
-        const bigtime_t systemTime_nS = sys_get_system_time_hires() + timeOffsetUs * 1000;
-        *tp = nanos_to_timespec(systemTime_nS);
+        const bigtime_t systemTime = __get_clock_time_hires(clk_id);
+        *tp = nanos_to_timespec(systemTime);
     }
     return 0;
 }

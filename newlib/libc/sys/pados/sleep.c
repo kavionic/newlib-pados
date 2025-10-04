@@ -24,12 +24,12 @@
 
 unsigned sleep(unsigned int seconds)
 {
-    const bigtime_t startTime = sys_get_real_time();
-    const bigtime_t useconds = ((bigtime_t)seconds) * 1000000;
-    if (sys_snooze_us(useconds) != 0)
+    const bigtime_t startTime = __get_real_time();
+    const bigtime_t nseconds = ((bigtime_t)seconds) * 1000000000;
+    if (__snooze_ns(nseconds) != 0)
     {
-        const bigtime_t remainingUs = sys_get_real_time() - startTime;
-        return remainingUs / 1000000;
+        const bigtime_t remainingNs = __get_real_time() - startTime;
+        return remainingNs / 1000000000;
     }
     return 0;
 }

@@ -25,5 +25,5 @@
 
 void* _sbrk_r(struct _reent*, ptrdiff_t size)
 {
-    return sys_sbrk(size);
+    return __sbrk(size);
 }

@@ -21,7 +21,7 @@
 
 int sem_destroy(sem_t* semaphore)
 {
-    const PErrorCode result = sys_semaphore_delete(*semaphore);
+    const PErrorCode result = __semaphore_delete(*semaphore);
     if (result == PErrorCode_Success) {
         return 0;
     }

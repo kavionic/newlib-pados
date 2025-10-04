@@ -21,7 +21,7 @@
 
 int sem_getvalue(sem_t* semaphore, int* outCount)
 {
-    const PErrorCode result = sys_semaphore_get_count(*semaphore, outCount);
+    const PErrorCode result = __semaphore_get_count(*semaphore, outCount);
 
     if (result == PErrorCode_Success) {
         return 0;

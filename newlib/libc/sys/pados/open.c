@@ -22,5 +22,5 @@
 
 int _open_r(struct _reent* reent, const char* path, int flags, int mode)
 {
-    return sys_open(path, flags, mode);
+    return __open(path, flags, mode);
 }

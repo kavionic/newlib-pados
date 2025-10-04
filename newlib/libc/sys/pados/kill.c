@@ -25,7 +25,7 @@
 
 int _kill_r(struct _reent* reent, pid_t pid, int sig)
 {
-    PErrorCode result = sys_kill(pid, sig);
+    PErrorCode result = __kill(pid, sig);
     if (result != PErrorCode_Success)
     {
         _REENT_ERRNO(reent) = result;

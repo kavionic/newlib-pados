@@ -25,5 +25,5 @@
 
 _off_t _lseek_r(struct _reent* ptr, int fd, _off_t pos, int whence)
 {
-    return sys_lseek(fd, pos, whence);
+    return __lseek(fd, pos, whence);
 }

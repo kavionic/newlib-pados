@@ -30,7 +30,7 @@ int clock_settime(clockid_t clockID, const struct timespec* newTime)
         return -1;
     }
 
-    status_t result = sys_set_real_time(((bigtime_t)newTime->tv_sec) * 1000000 + newTime->tv_nsec / 1000, true);
+    status_t result = __set_real_time(((bigtime_t)newTime->tv_sec) * 1000000000 + newTime->tv_nsec, true);
     if (result != 0)
     {
         errno = result;

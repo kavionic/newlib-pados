@@ -23,7 +23,7 @@
 ssize_t readlink(const char* path, char* buffer, size_t bufferSize)
 {
     size_t resultLength;
-    const PErrorCode result = sys_readlink(AT_FDCWD, path, buffer, bufferSize, &resultLength);
+    const PErrorCode result = __readlink(AT_FDCWD, path, buffer, bufferSize, &resultLength);
 
     if (result == PErrorCode_Success) {
         return resultLength;

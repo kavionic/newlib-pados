@@ -25,5 +25,5 @@
 
 int mkdir(const char* path, mode_t mode)
 {
-    return sys_create_directory(path, mode);
+    return __create_directory(path, mode);
 }

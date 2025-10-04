@@ -25,5 +25,5 @@
 
 int _isatty_r(struct _reent*, int fd)
 {
-    return sys_isatty(fd);
+    return __isatty(fd);
 }

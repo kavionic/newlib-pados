@@ -27,7 +27,7 @@ int clock_getcpuclockid(pid_t pid, clockid_t* clk_id)
 {
     if (pid == 0)
     {
-        *clk_id = THREADID_TO_CLOCKID(sys_get_thread_id());
+        *clk_id = THREADID_TO_CLOCKID(__get_thread_id());
         return 0;
     }
     else if (pid != INVALID_HANDLE)

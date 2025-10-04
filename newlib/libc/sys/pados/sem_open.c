@@ -43,7 +43,7 @@ sem_t* sem_open(const char* name, int oflag, ...)
         va_end(ap);
     }
 
-    const PErrorCode result = sys_semaphore_create_public(semaphore, name, CLOCK_REALTIME_COARSE, oflag, mode, value);
+    const PErrorCode result = __semaphore_create_public(semaphore, name, CLOCK_REALTIME_COARSE, oflag, mode, value);
     if (result == PErrorCode_Success)
     {
         return semaphore;

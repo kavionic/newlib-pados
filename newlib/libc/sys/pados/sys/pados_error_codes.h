@@ -40,7 +40,17 @@ typedef enum
     PCREAT_ERROR_CODE(WouldBlock,       EWOULDBLOCK),
     PCREAT_ERROR_CODE(Exist,            EEXIST),
     PCREAT_ERROR_CODE(NoEntry,          ENOENT),
-    PCREAT_ERROR_CODE(Overflow,         EOVERFLOW)
+    PCREAT_ERROR_CODE(Overflow,         EOVERFLOW),
+    PCREAT_ERROR_CODE(BadFile,          EBADF),
+    PCREAT_ERROR_CODE(IsDirectory,      EISDIR),
+    PCREAT_ERROR_CODE(NoDevice,         ENODEV),
+    PCREAT_ERROR_CODE(IOError,          EIO),
+    PCREAT_ERROR_CODE(NoPermission,     EPERM),
+    PCREAT_ERROR_CODE(NoAccess,         EACCES),
+    PCREAT_ERROR_CODE(FileTooLarge,     EFBIG),
+    PCREAT_ERROR_CODE(NoSpace,          ENOSPC),
+    PCREAT_ERROR_CODE(BrokenPipe,       EPIPE),
+    PCREAT_ERROR_CODE(ConnectionRefused, ECONNREFUSED)
 }
 #ifdef __cplusplus
 ;

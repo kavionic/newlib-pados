@@ -22,11 +22,11 @@
 
 int chmod(const char* path, mode_t mode)
 {
-    int fd = sys_open(path, O_WRONLY, 0);
+    int fd = __open(path, O_WRONLY, 0);
     if (fd < 0) {
         return -1;
     }
     int result = fchmod(fd, mode);
-    sys_close(fd);
+    __close(fd);
     return result;
 }

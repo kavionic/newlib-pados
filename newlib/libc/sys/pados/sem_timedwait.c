@@ -22,7 +22,7 @@
 
 int sem_timedwait(sem_t* semaphore, const struct timespec* abstime)
 {
-    const PErrorCode result = sys_semaphore_acquire_deadline(*semaphore, timespec_to_micros(abstime));
+    const PErrorCode result = __semaphore_acquire_deadline_ns(*semaphore, timespec_to_nanos(abstime));
     if (result == PErrorCode_Success) {
         return 0;
     }

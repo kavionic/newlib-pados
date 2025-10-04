@@ -16,17 +16,20 @@
  * limitations under the License.
  */
 
+#include <_ansi.h>
 #include <unistd.h>
-#include <stdint.h>
-#include <errno.h>
+#include <reent.h>
+#include <sys/pados_syscalls.h>
 
-#include "reent.h"
-#include "sys/pados_syscalls.h"
-
-int _gettimeofday_r(struct _reent*, struct timeval* time, void* __tzp)
+ssize_t pread(int fd, void *buffer, size_t length, off_t offset)
 {
-    bigtime_t timeNs = __get_real_time();
-    time->tv_sec = (time_t)(timeNs / 1000000000);
-    time->tv_usec = (suseconds_t)(timeNs % 1000000000) / 1000;
-    return 0;
+    _ssize_t bytesRead;
+    const PErrorCode result = __read_pos(fd, buffer, length, offset, &bytesRead);
+    if (result != PErrorCode_Success)
+    {
+        errno = result;
+        return -1;
+    }
+    return bytesRead;
 }
+

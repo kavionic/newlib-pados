@@ -23,5 +23,5 @@
 
 int getdents(int fd, void* dp, int bufSize)
 {
-    return sys_read_directory(fd, dp, bufSize);
+    return __read_directory(fd, dp, bufSize);
 }

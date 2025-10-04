@@ -20,5 +20,5 @@
 
 char* getcwd(char* buffer, size_t size)
 {
-    return sys_getcwd(buffer, size);
+    return __getcwd(buffer, size);
 }

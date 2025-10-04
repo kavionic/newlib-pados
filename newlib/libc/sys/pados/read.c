@@ -23,7 +23,14 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-_ssize_t _read_r(struct _reent*, int fd, void* buffer, size_t length)
+_ssize_t _read_r(struct _reent* reent, int fd, void* buffer, size_t length)
 {
-    return sys_read(fd, buffer, length);
+    _ssize_t bytesRead;
+    const PErrorCode result = __read(fd, buffer, length, &bytesRead);
+    if (result != PErrorCode_Success)
+    {
+        _REENT_ERRNO(reent) = result;
+        return -1;
+    }
+    return bytesRead;
 }

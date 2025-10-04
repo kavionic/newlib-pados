@@ -25,5 +25,5 @@
 
 int dup2(int oldFile, int newFile)
 {
-    return sys_dup2(oldFile, newFile);
+    return __dup2(oldFile, newFile);
 }

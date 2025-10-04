@@ -22,7 +22,7 @@
 
 int sem_close(sem_t* semaphore)
 {
-    const PErrorCode result = sys_semaphore_delete(*semaphore);
+    const PErrorCode result = __semaphore_delete(*semaphore);
     free(semaphore);
 
     if (result == PErrorCode_Success) {

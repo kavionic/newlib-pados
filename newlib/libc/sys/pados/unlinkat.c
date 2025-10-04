@@ -23,8 +23,8 @@
 int unlinkat(int dirfd, const char* path, int flags)
 {
     if (flags & AT_REMOVEDIR) {
-        return sys_remove_directory(dirfd, path);
+        return __remove_directory(dirfd, path);
     } else {
-        return sys_unlink_file(dirfd, path);
+        return __unlink_file(dirfd, path);
     }
 }

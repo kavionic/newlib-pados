@@ -23,7 +23,7 @@
 long sysconf(int name)
 {
     long value;
-    const PErrorCode result = sys_sysconf(name, &value);
+    const PErrorCode result = __sysconf(name, &value);
 
     if (result == PErrorCode_Success)
     {

@@ -21,10 +21,10 @@
 
 void _exit(int exitCode)
 {
-    sys_exit(exitCode);
+    __exit(exitCode);
 }
 
 void exit(int exitCode)
 {
-    sys_exit(exitCode);
+    __exit(exitCode);
 }

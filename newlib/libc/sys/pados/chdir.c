@@ -20,5 +20,5 @@
 
 int chdir(const char* path)
 {
-    return sys_chdir(path);
+    return __chdir(path);
 }

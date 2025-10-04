@@ -55,7 +55,7 @@ int futimens(int fd, const struct timespec times[2])
         mask = WSTAT_ATIME | WSTAT_MTIME;
     }
     if (mask != 0) {
-        return sys_write_stat(fd, &newStat, mask);
+        return __write_stat(fd, &newStat, mask);
     } else {
         return 0;
     }

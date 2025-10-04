@@ -24,5 +24,5 @@
 
 int _unlink_r(struct _reent*, const char* path)
 {
-    return sys_unlink_file(AT_FDCWD, path);
+    return __unlink_file(AT_FDCWD, path);
 }

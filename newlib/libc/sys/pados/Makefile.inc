@@ -31,6 +31,8 @@ libc_a_SOURCES += \
 	%D%/nanosleep.c \
 	%D%/open.c \
 	%D%/openat.c \
+	%D%/pread.c \
+	%D%/pwrite.c \
 	%D%/readlink.c \
 	%D%/readlinkat.c \
 	%D%/read.c \
@@ -53,6 +55,7 @@ libc_a_SOURCES += \
 	%D%/stubs.c \
 	%D%/symlink.c \
 	%D%/symlinkat.c \
+	%D%/syscalls.c \
 	%D%/sysconf.c \
 	%D%/times.c \
 	%D%/timespec_get.c \

@@ -16,17 +16,10 @@
  * limitations under the License.
  */
 
-#include <unistd.h>
-#include <stdint.h>
-#include <errno.h>
+#pragma once
 
-#include "reent.h"
-#include "sys/pados_syscalls.h"
-
-int _gettimeofday_r(struct _reent*, struct timeval* time, void* __tzp)
+typedef enum
 {
-    bigtime_t timeNs = __get_real_time();
-    time->tv_sec = (time_t)(timeNs / 1000000000);
-    time->tv_usec = (suseconds_t)(timeNs % 1000000000) / 1000;
-    return 0;
-}
+    BootMode_BootLoader = 0,
+    BootMode_Application = 1
+} BootMode;

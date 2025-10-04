@@ -26,7 +26,7 @@
 int _fcntl_r(struct _reent*, int fd, int cmd, int arg)
 {
     int output = 0;
-    const PErrorCode result = sys_fcntl(fd, cmd, arg, &output);
+    const PErrorCode result = __fcntl(fd, cmd, arg, &output);
     if (result == PErrorCode_Success)
     {
         return output;

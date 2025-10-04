@@ -24,5 +24,5 @@
 
 int sched_yield(void)
 {
-    return sys_yield();
+    return __yield();
 }

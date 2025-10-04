@@ -24,5 +24,5 @@ int fchmod(int fd, mode_t mode)
 {
     struct stat newStat;
     newStat.st_mode = mode;
-    return sys_write_stat(fd, &newStat, WSTAT_MODE);
+    return __write_stat(fd, &newStat, WSTAT_MODE);
 }

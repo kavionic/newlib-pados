@@ -23,7 +23,14 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-_ssize_t _write_r(struct _reent*, int fd, const void* buffer, size_t length)
+_ssize_t _write_r(struct _reent* reent, int fd, const void* buffer, size_t length)
 {
-    return sys_write(fd, buffer, length);
+    _ssize_t bytesWritten;
+    const PErrorCode result = __write(fd, buffer, length, &bytesWritten);
+    if (result != PErrorCode_Success)
+    {
+        _REENT_ERRNO(reent) = result;
+        return -1;
+    }
+    return bytesWritten;
 }

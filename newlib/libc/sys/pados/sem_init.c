@@ -21,7 +21,7 @@
 
 int sem_init(sem_t* semaphore, int shared, unsigned int count)
 {
-    const PErrorCode result = sys_semaphore_create(semaphore, "psem", CLOCK_REALTIME_COARSE, count);
+    const PErrorCode result = __semaphore_create(semaphore, "psem", CLOCK_REALTIME_COARSE, count);
     if (result == PErrorCode_Success) {
         return 0;
     }

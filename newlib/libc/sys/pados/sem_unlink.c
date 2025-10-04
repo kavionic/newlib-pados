@@ -21,7 +21,7 @@
 
 int sem_unlink(const char* name)
 {
-    const PErrorCode result = sys_semaphore_unlink_public(name);
+    const PErrorCode result = __semaphore_unlink_public(name);
 
     if (result == PErrorCode_Success) {
         return 0;

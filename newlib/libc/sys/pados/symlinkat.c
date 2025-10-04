@@ -22,7 +22,7 @@
 
 int symlinkat(const char* targetPath, int dirfd, const char* symlinkPath)
 {
-    const PErrorCode result = sys_symlink(dirfd, targetPath, symlinkPath);
+    const PErrorCode result = __symlink(targetPath, dirfd, symlinkPath);
 
     if (result == PErrorCode_Success) {
         return 0;

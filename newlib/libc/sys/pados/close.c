@@ -25,5 +25,5 @@
 
 int _close_r(struct _reent*, int file)
 {
-    return sys_close(file);
+    return __close(file);
 }

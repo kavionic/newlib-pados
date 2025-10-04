@@ -25,5 +25,5 @@
 
 int _rename_r(struct _reent*, const char* oldPath, const char* newPath)
 {
-    return sys_rename(oldPath, newPath);
+    return __rename(oldPath, newPath);
 }

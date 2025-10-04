@@ -25,5 +25,5 @@
 
 int _fstat_r(struct _reent* ptr, int fd, struct stat* pstat)
 {
-    return sys_fstat(fd, pstat);
+    return __fstat(fd, pstat);
 }

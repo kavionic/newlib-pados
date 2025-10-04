@@ -25,5 +25,5 @@
 
 int _stat_r(struct _reent*, const char* path, struct stat* pstat)
 {
-    return sys_stat(path, pstat);
+    return __stat(path, pstat);
 }
