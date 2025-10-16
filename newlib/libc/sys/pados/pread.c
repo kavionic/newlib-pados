@@ -20,16 +20,10 @@
 #include <unistd.h>
 #include <reent.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 ssize_t pread(int fd, void *buffer, size_t length, off_t offset)
 {
-    _ssize_t bytesRead;
-    const PErrorCode result = __read_pos(fd, buffer, length, offset, &bytesRead);
-    if (result != PErrorCode_Success)
-    {
-        errno = result;
-        return -1;
-    }
-    return bytesRead;
+    return PSysRetUpdateErrno(__read_pos(fd, buffer, length, offset));
 }
 

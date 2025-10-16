@@ -23,11 +23,11 @@
 
 int truncate(const char* path, off_t length)
 {
-    int fd = __open(path, O_WRONLY, 0);
+    int fd = open(path, O_WRONLY, 0);
     if (fd < 0) {
         return -1;
     }
     int result = ftruncate(fd, length);
-    __close(fd);
+    close(fd);
     return result;
 }

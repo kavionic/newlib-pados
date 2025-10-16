@@ -16,19 +16,20 @@
  * limitations under the License.
  */
 
-#include <sys/stat.h>
+#include <unistd.h>
 #include <fcntl.h>
+#include <sys/stat.h>
 #include "sys/pados_syscalls.h"
 
 int fchmodat(int dirfd, const char* path, mode_t mode, int flags)
 {
     //    if (flags & AT_SYMLINK_NOFOLLOW) {
     //    }
-    int fd = __openat(dirfd, path, O_WRONLY, 0);
+    int fd = openat(dirfd, path, O_WRONLY, 0);
     if (fd < 0) {
         return -1;
     }
     int result = fchmod(fd, mode);
-    __close(fd);
+    close(fd);
     return result;
 }

@@ -19,11 +19,16 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <errno.h>
+#include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 #include "reent.h"
-#include "sys/pados_syscalls.h"
 
 void* _sbrk_r(struct _reent*, ptrdiff_t size)
 {
-    return __sbrk(size);
+    _Static_assert(
+        sizeof(PSysRetUpdateErrno((PSysRetPair)0)) >= sizeof(void*),
+        "PSysRetUpdateErrno must return a type at least pointer-sized."
+    );
+    return (void*)PSysRetUpdateErrno(__sbrk(size));
 }

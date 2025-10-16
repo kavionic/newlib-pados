@@ -27,9 +27,13 @@
 int clock_getres(clockid_t clk_id, struct timespec* tp)
 {
     bigtime_t resolutionNanos;
-    status_t result = __get_clock_resolution(clk_id, &resolutionNanos);
-    if (result == 0) {
-        *tp = nanos_to_timespec(resolutionNanos);
+    const PErrorCode result = __get_clock_resolution_ns(clk_id, &resolutionNanos);
+    if (result != PErrorCode_Success)
+    {
+        errno = result;
+        return -1;
     }
-    return result;
+    *tp = nanos_to_timespec(resolutionNanos);
+
+    return 0;
 }

@@ -21,14 +21,15 @@
 #include <errno.h>
 
 #include "sys/pados_syscalls.h"
+#include <PadOS/Time.h>
 
 unsigned sleep(unsigned int seconds)
 {
-    const bigtime_t startTime = __get_real_time();
+    const bigtime_t startTime = get_real_time_ns();
     const bigtime_t nseconds = ((bigtime_t)seconds) * 1000000000;
     if (__snooze_ns(nseconds) != 0)
     {
-        const bigtime_t remainingNs = __get_real_time() - startTime;
+        const bigtime_t remainingNs = get_real_time_ns() - startTime;
         return remainingNs / 1000000000;
     }
     return 0;

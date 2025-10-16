@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
+#include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
+#include <PadOS/Filesystem.h>
 
-int chdir(const char* path)
+PErrorCode get_directory_path(int handle, char* buffer, size_t bufferSize)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return __get_directory_path(handle, buffer, bufferSize);
 }

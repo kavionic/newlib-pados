@@ -16,11 +16,22 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
-#include <PadOS/SyscallReturns.h>
+#pragma once
 
-int chdir(const char* path)
-{
-    return PErrorCodeUpdateErrno(__chdir(path));
+#include <sys/pados_types.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef void (*TLSDestructor_t)(void*);
+
+PErrorCode  thread_local_create_key(tls_id* outKey, TLSDestructor_t destructor);
+PErrorCode  thread_local_delete_key(tls_id key);
+PErrorCode  thread_local_set(tls_id key, const void* value);
+void*       thread_local_get(tls_id key);
+
+
+#ifdef __cplusplus
 }
+#endif

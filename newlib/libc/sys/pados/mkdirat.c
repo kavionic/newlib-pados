@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
+#include <unistd.h>
+#include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-int chdir(const char* path)
+int mkdirat(int dirfd, const char* path, mode_t mode)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return PErrorCodeUpdateErrno(__create_directory(dirfd, path, mode));
 }

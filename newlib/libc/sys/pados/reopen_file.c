@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
+#include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
+#include <PadOS/Filesystem.h>
 
-int chdir(const char* path)
+int reopen_file(int oldHandle, int openFlags)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return PSysRetUpdateErrno(__reopen_file(oldHandle, openFlags));
 }

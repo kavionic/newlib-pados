@@ -16,11 +16,14 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
 #include <sys/pados_syscalls.h>
-#include <PadOS/SyscallReturns.h>
+#include <PadOS/Threads.h>
+#include <PadOS/ThreadLocal.h>
 
-int chdir(const char* path)
+void* thread_local_get(tls_id key)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    if (key < 0 || key >= current_thread_control_block->TLSSlotCount) {
+        return nullptr;
+    }
+    return current_thread_control_block->TLSSlots[key];
 }

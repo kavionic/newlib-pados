@@ -26,6 +26,7 @@
 #include <sys/cdefs.h>
 #include <sys/pados_timeutils.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/ThreadLocal.h>
 #include <pthread.h>
 
 
@@ -403,27 +404,22 @@ int pthread_once(pthread_once_t* once_control, void (*init_routine)(void))
 
 int pthread_key_create(pthread_key_t* key, void (*destructor)(void*))
 {
-    pthread_key_t handle = __thread_local_create_key(destructor);
-    if (handle < 0) {
-        return errno;
-    }
-    *key = handle;
-    return 0;
+    return thread_local_create_key(key, destructor);
 }
 
 int pthread_key_delete(pthread_key_t key)
 {
-    return __thread_local_delete_key(key);
+    return thread_local_delete_key(key);
 }
 
 int pthread_setspecific(pthread_key_t key, const void* value)
 {
-    return __thread_local_set(key, value);
+    return thread_local_set(key, value);
 }
 
 void* pthread_getspecific(pthread_key_t key)
 {
-    return __thread_local_get(key);
+    return thread_local_get(key);
 }
 
 int pthread_mutex_init(pthread_mutex_t* mutex, const pthread_mutexattr_t* attr)

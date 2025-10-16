@@ -19,6 +19,7 @@
 #include "reent.h"
 #include <stdarg.h>
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int openat(int dirfd, const char* path, int flags, ...)
 {
@@ -29,5 +30,5 @@ int openat(int dirfd, const char* path, int flags, ...)
     mode = va_arg(ap, mode_t);
     va_end(ap);
 
-    return __openat(dirfd, path, flags, mode);
+    return PSysRetUpdateErrno(__openat(dirfd, path, flags, mode));
 }

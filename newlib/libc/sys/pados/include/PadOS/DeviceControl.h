@@ -16,11 +16,20 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
-#include <PadOS/SyscallReturns.h>
+#pragma once
 
-int chdir(const char* path)
+#include <sys/types.h>
+
+struct device_geometry
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
-}
+    off_t   sector_count;
+    size_t  bytes_per_sector;
+    bool    read_only;
+    bool    removable;
+};
+
+enum DeviceControlID
+{
+    DEVCTL_GET_DEVICE_GEOMETRY = 1000000000,
+    DEVCTL_REREAD_PARTITION_TABLE
+};

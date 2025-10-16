@@ -23,7 +23,13 @@
 #include "reent.h"
 #include "sys/pados_syscalls.h"
 
-_off_t _lseek_r(struct _reent* ptr, int fd, _off_t pos, int whence)
+_off_t _lseek_r(struct _reent* reent, int fd, _off_t offset, int whence)
 {
-    return __lseek(fd, pos, whence);
+    const PErrorCode result = __seek(fd, &offset, whence);
+    if (result != PErrorCode_Success)
+    {
+        _REENT_ERRNO(reent) = result;
+        return -1;
+    }
+    return offset;
 }

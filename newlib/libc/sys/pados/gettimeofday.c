@@ -21,11 +21,11 @@
 #include <errno.h>
 
 #include "reent.h"
-#include "sys/pados_syscalls.h"
+#include "PadOS/Time.h"
 
 int _gettimeofday_r(struct _reent*, struct timeval* time, void* __tzp)
 {
-    bigtime_t timeNs = __get_real_time();
+    bigtime_t timeNs = get_real_time_ns();
     time->tv_sec = (time_t)(timeNs / 1000000000);
     time->tv_usec = (suseconds_t)(timeNs % 1000000000) / 1000;
     return 0;

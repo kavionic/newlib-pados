@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
+#include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
+#include <PadOS/Filesystem.h>
 
-int chdir(const char* path)
+PErrorCode mount(const char* devicePath, const char* directoryPath, const char* filesystemName, uint32_t flags, const char* args, size_t argLength)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return __mount(devicePath, directoryPath, filesystemName, flags, args, argLength);
 }

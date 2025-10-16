@@ -8,6 +8,7 @@ libc_a_SOURCES += \
 	%D%/clock_settime.c \
 	%D%/close.c \
 	%D%/crt0.c \
+	%D%/device_control.c \
 	%D%/dup.c \
 	%D%/dup2.c \
 	%D%/exit.c \
@@ -22,21 +23,36 @@ libc_a_SOURCES += \
 	%D%/getentropy.c \
 	%D%/getpid.c \
 	%D%/gettimeofday.c \
+	%D%/get_clock_time_hires_ns.c \
+	%D%/get_clock_time_ns.c \
+	%D%/get_clock_time_offset_ns.c \
+	%D%/get_directory_path.c \
+	%D%/get_idle_time_ns.c \
+	%D%/get_monotonic_time_hires_ns.c \
+	%D%/get_monotonic_time_ns.c \
+	%D%/get_real_time_hires_ns.c \
+	%D%/get_real_time_ns.c \
 	%D%/isatty.c \
 	%D%/kill.c \
 	%D%/link.c \
 	%D%/lseek.c \
 	%D%/lstat.c \
 	%D%/mkdir.c \
+	%D%/mkdirat.c \
+	%D%/mount.c \
 	%D%/nanosleep.c \
 	%D%/open.c \
 	%D%/openat.c \
+	%D%/posix_getdents.c \
 	%D%/pread.c \
 	%D%/pwrite.c \
 	%D%/readlink.c \
 	%D%/readlinkat.c \
 	%D%/read.c \
 	%D%/rename.c \
+	%D%/reopen_file.c \
+	%D%/rewind_directory.c \
+	%D%/rmdir.c \
 	%D%/sbrk.c \
 	%D%/sched_yield.c \
 	%D%/sem_clockwait.c \
@@ -50,6 +66,7 @@ libc_a_SOURCES += \
 	%D%/sem_trywait.c \
 	%D%/sem_unlink.c \
 	%D%/sem_wait.c \
+	%D%/set_real_time_ns.c \
 	%D%/sleep.c \
 	%D%/stat.c \
 	%D%/stubs.c \
@@ -57,6 +74,10 @@ libc_a_SOURCES += \
 	%D%/symlinkat.c \
 	%D%/syscalls.c \
 	%D%/sysconf.c \
+	%D%/thread_local_create_key.c \
+	%D%/thread_local_delete_key.c \
+	%D%/thread_local_get.c \
+	%D%/thread_local_set.c \
 	%D%/times.c \
 	%D%/timespec_get.c \
 	%D%/truncate.c \

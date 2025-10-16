@@ -16,11 +16,18 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
 #include <sys/pados_syscalls.h>
-#include <PadOS/SyscallReturns.h>
+#include <sys/pados_error_codes.h>
+#include <PadOS/Time.h>
 
-int chdir(const char* path)
+time_t get_clock_time_hires_ns(clockid_t clockID)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    time_t timeValue;
+    const PErrorCode result = __get_clock_time_hires_ns(clockID, &timeValue);
+    if (result != PErrorCode_Success)
+    {
+        errno = result;
+        return -1;
+    }
+    return timeValue;
 }

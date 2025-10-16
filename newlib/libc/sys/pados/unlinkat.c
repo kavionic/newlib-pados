@@ -19,12 +19,13 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int unlinkat(int dirfd, const char* path, int flags)
 {
     if (flags & AT_REMOVEDIR) {
-        return __remove_directory(dirfd, path);
+        return PErrorCodeUpdateErrno(__remove_directory(dirfd, path));
     } else {
-        return __unlink_file(dirfd, path);
+        return PErrorCodeUpdateErrno(__unlink_file(dirfd, path));
     }
 }

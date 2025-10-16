@@ -19,11 +19,12 @@
 #include <unistd.h>
 #include <stdint.h>
 #include <errno.h>
+#include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 #include "reent.h"
-#include "sys/pados_syscalls.h"
 
-int _close_r(struct _reent*, int file)
+int _close_r(struct _reent* reent, int file)
 {
-    return __close(file);
+    return PErrorCodeUpdateErrno(__close(file));
 }

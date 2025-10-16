@@ -16,11 +16,12 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-int chdir(const char* path)
+int rmdir(const char* path)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return PErrorCodeUpdateErrno(__remove_directory(AT_FDCWD, path));
 }

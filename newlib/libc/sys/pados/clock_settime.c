@@ -20,7 +20,9 @@
 #include <time.h>
 #include <errno.h>
 
-#include "sys/pados_syscalls.h"
+#include <sys/pados_error_codes.h>
+#include <sys/pados_timeutils.h>
+#include <PadOS/Time.h>
 
 int clock_settime(clockid_t clockID, const struct timespec* newTime)
 {
@@ -30,8 +32,8 @@ int clock_settime(clockid_t clockID, const struct timespec* newTime)
         return -1;
     }
 
-    status_t result = __set_real_time(((bigtime_t)newTime->tv_sec) * 1000000000 + newTime->tv_nsec, true);
-    if (result != 0)
+    const PErrorCode result = set_real_time_ns(timespec_to_nanos(newTime), true);
+    if (result != PErrorCode_Success)
     {
         errno = result;
         return -1;

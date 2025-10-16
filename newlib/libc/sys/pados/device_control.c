@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
+#include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
+#include <PadOS/Filesystem.h>
 
-int chdir(const char* path)
+PErrorCode device_control(int handle, int request, const void* inData, size_t inDataLength, void* outData, size_t outDataLength)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return __device_control(handle, request, inData, inDataLength, outData, outDataLength);
 }

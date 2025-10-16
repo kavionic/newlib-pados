@@ -16,11 +16,14 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
 #include <sys/pados_syscalls.h>
-#include <PadOS/SyscallReturns.h>
+#include <PadOS/Threads.h>
+#include <PadOS/ThreadLocal.h>
 
-int chdir(const char* path)
+PThreadControlBlock* current_thread_control_block;
+
+PErrorCode thread_local_create_key(tls_id* outKey, TLSDestructor_t destructor)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return __thread_local_create_key(outKey, destructor);
 }
+

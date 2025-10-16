@@ -20,15 +20,9 @@
 #include <unistd.h>
 #include <reent.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 ssize_t pwrite(int fd, const void *buffer, size_t length, off_t offset)
 {
-    _ssize_t bytesWritten;
-    const PErrorCode result = __write_pos(fd, buffer, length, offset, &bytesWritten);
-    if (result != PErrorCode_Success)
-    {
-        errno = result;
-        return -1;
-    }
-    return bytesWritten;
+    return PSysRetUpdateErrno(__write_pos(fd, buffer, length, offset));
 }

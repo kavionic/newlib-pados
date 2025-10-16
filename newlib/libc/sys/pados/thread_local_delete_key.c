@@ -16,11 +16,10 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
 #include <sys/pados_syscalls.h>
-#include <PadOS/SyscallReturns.h>
+#include <PadOS/ThreadLocal.h>
 
-int chdir(const char* path)
+PErrorCode thread_local_delete_key(tls_id key)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return __thread_local_delete_key(key);
 }

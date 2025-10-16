@@ -17,11 +17,9 @@
  */
 
 #include <unistd.h>
-#include <errno.h>
-#include <sys/dirent.h>
-#include "sys/pados_syscalls.h"
+#include <dirent.h>
 
 int getdents(int fd, void* dp, int bufSize)
 {
-    return __read_directory(fd, dp, bufSize);
+    return posix_getdents(fd, dp, bufSize, 0);
 }

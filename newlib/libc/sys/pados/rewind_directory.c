@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
+#include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
+#include <PadOS/Filesystem.h>
 
-int chdir(const char* path)
+PErrorCode rewind_directory(int handle)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return __rewind_directory(handle);
 }

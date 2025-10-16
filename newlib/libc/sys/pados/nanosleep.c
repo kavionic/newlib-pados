@@ -22,16 +22,18 @@
 
 #include <sys/pados_timeutils.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/Time.h>
+
 
 int nanosleep(const struct timespec* requested, struct timespec* remaining)
 {
     const bigtime_t nSeconds = timespec_to_nanos(requested);
     if (remaining != NULL)
     {
-        const bigtime_t startTime = __get_system_time();
+        const bigtime_t startTime = get_monotonic_time_ns();
         if (__snooze_ns(nSeconds) != 0)
         {
-            const bigtime_t lapsedNs = __get_system_time() - startTime;
+            const bigtime_t lapsedNs = get_monotonic_time_ns() - startTime;
             const bigtime_t remainingNs = nSeconds - lapsedNs;
             if (remainingNs > 0)
             {

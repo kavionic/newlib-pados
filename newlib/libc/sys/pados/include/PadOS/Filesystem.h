@@ -16,11 +16,24 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
-#include <PadOS/SyscallReturns.h>
+#pragma once
 
-int chdir(const char* path)
-{
-    return PErrorCodeUpdateErrno(__chdir(path));
+#include <stdint.h>
+#include <sys/pados_error_codes.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int reopen_file(int oldHandle, int openFlags);
+
+PErrorCode device_control(int handle, int request, const void* inData, size_t inDataLength, void* outData, size_t outDataLength);
+
+PErrorCode rewind_directory(int handle);
+PErrorCode get_directory_path(int handle, char* buffer, size_t bufferSize);
+
+PErrorCode mount(const char* devicePath, const char* directoryPath, const char* filesystemName, uint32_t flags, const char* args, size_t argLength);
+
+#ifdef __cplusplus
 }
+#endif

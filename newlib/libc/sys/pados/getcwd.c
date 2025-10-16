@@ -16,9 +16,11 @@
  * limitations under the License.
  */
 
+#include <sys/unistd.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 char* getcwd(char* buffer, size_t size)
 {
-    return __getcwd(buffer, size);
+    return (PErrorCodeUpdateErrno(__getcwd(buffer, size)) == 0) ? buffer : NULL;
 }

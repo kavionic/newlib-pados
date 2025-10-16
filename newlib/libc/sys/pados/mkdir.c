@@ -17,13 +17,11 @@
  */
 
 #include <unistd.h>
-#include <stdint.h>
-#include <errno.h>
-
-#include "reent.h"
+#include <sys/fcntl.h>
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int mkdir(const char* path, mode_t mode)
 {
-    return __create_directory(path, mode);
+    return PErrorCodeUpdateErrno(__create_directory(AT_FDCWD, path, mode));
 }

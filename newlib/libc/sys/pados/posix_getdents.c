@@ -16,11 +16,13 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
-#include <sys/pados_syscalls.h>
+#include <unistd.h>
+#include <errno.h>
+#include <sys/dirent.h>
+#include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-int chdir(const char* path)
+int posix_getdents(int fd, void* dp, size_t bufSize, int flags)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return PSysRetUpdateErrno(__read_directory(fd, dp, bufSize));
 }

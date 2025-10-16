@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-#include <sys/unistd.h>
 #include <sys/pados_syscalls.h>
-#include <PadOS/SyscallReturns.h>
+#include <sys/pados_error_codes.h>
+#include <PadOS/Time.h>
 
-int chdir(const char* path)
+PErrorCode set_real_time_ns(time_t time, bool updateRTC)
 {
-    return PErrorCodeUpdateErrno(__chdir(path));
+    return __set_real_time_ns(time, updateRTC);
 }

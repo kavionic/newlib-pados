@@ -19,10 +19,11 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 #include "reent.h"
 
 int _unlink_r(struct _reent*, const char* path)
 {
-    return __unlink_file(AT_FDCWD, path);
+    return PErrorCodeUpdateErrno(__unlink_file(AT_FDCWD, path));
 }

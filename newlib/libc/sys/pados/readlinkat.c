@@ -19,15 +19,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 ssize_t readlinkat(int dirfd, const char* path, char* buffer, size_t bufferSize)
 {
-    size_t resultLength;
-    const PErrorCode result = __readlink(dirfd, path, buffer, bufferSize, &resultLength);
-
-    if (result == PErrorCode_Success) {
-        return resultLength;
-    }
-    errno = result;
-    return -1;
+    return PSysRetUpdateErrno(__readlink(dirfd, path, buffer, bufferSize));
 }
