@@ -33,6 +33,7 @@ time_t      get_real_time_hires_ns();
 PErrorCode  set_real_time_ns(time_t time, bool updateRTC);
 
 time_t      get_idle_time_ns();
+time_t      get_total_irq_time_ns();
 
 time_t      get_clock_time_ns(clockid_t clockID);
 time_t      get_clock_time_hires_ns(clockid_t clockID);
@@ -50,6 +51,7 @@ TimeValNanos get_real_time_hires();
 PErrorCode   set_real_time(TimeValNanos time, bool updateRTC);
 
 TimeValNanos get_idle_time();
+TimeValNanos get_total_irq_time();
 
 TimeValNanos get_clock_time(clockid_t clockID);
 TimeValNanos get_clock_time_hires(clockid_t clockID);

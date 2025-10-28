@@ -31,7 +31,7 @@ int nanosleep(const struct timespec* requested, struct timespec* remaining)
     if (remaining != NULL)
     {
         const bigtime_t startTime = get_monotonic_time_ns();
-        if (__snooze_ns(nSeconds) != 0)
+        if (snooze_ns(nSeconds) != 0)
         {
             const bigtime_t lapsedNs = get_monotonic_time_ns() - startTime;
             const bigtime_t remainingNs = nSeconds - lapsedNs;
@@ -48,6 +48,6 @@ int nanosleep(const struct timespec* requested, struct timespec* remaining)
     }
     else
     {
-        return __snooze_ns(nSeconds);
+        return snooze_ns(nSeconds);
     }
 }

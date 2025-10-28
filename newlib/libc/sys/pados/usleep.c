@@ -24,5 +24,5 @@
 
 int usleep(useconds_t useconds)
 {
-    return __snooze_ns(useconds * 1000);
+    return snooze_ns(useconds * 1000);
 }

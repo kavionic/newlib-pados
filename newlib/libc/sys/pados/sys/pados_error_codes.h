@@ -32,6 +32,7 @@ typedef enum
     PCREAT_ERROR_CODE(NoMemory,             ENOMEM),
     PCREAT_ERROR_CODE(NotImplemented,       ENOSYS),
     PCREAT_ERROR_CODE(InvalidArg,           EINVAL),
+    PCREAT_ERROR_CODE(InvalidFileType,      EFTYPE),
     PCREAT_ERROR_CODE(Range,                ERANGE),
     PCREAT_ERROR_CODE(Fault,                EFAULT),
     PCREAT_ERROR_CODE(Busy,                 EBUSY),

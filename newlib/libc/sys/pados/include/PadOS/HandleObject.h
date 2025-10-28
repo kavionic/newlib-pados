@@ -16,15 +16,19 @@
  * limitations under the License.
  */
 
-#include <semaphore.h>
-#include <sys/pados_syscalls.h>
+#pragma once
 
-int sem_destroy(sem_t* semaphore)
-{
-    const PErrorCode result = semaphore_delete(*semaphore);
-    if (result == PErrorCode_Success) {
-        return 0;
-    }
-    errno = result;
-    return -1;
+#include <sys/pados_types.h>
+#include <sys/pados_error_codes.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+PErrorCode duplicate_handle(handle_id handle, handle_id* outNewHandle);
+PErrorCode delete_handle(handle_id handle);
+
+#ifdef __cplusplus
 }
+#endif

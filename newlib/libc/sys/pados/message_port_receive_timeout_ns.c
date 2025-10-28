@@ -16,15 +16,14 @@
  * limitations under the License.
  */
 
-#include <semaphore.h>
-#include <sys/pados_syscalls.h>
+#include <stdarg.h>
+#include "sys/pados_syscalls.h"
+#include <PadOS/MessagePort.h>
+#include <PadOS/SyscallReturns.h>
 
-int sem_destroy(sem_t* semaphore)
+ssize_t message_port_receive_timeout_ns(port_id handle, handler_id* targetHandler, int32_t* code, void* buffer, size_t bufferSize, bigtime_t timeout)
 {
-    const PErrorCode result = semaphore_delete(*semaphore);
-    if (result == PErrorCode_Success) {
-        return 0;
-    }
-    errno = result;
-    return -1;
+    return PSysRetUpdateErrno(__message_port_receive_timeout_ns(handle, targetHandler, code, buffer, bufferSize, timeout));
 }
+
+

@@ -89,7 +89,7 @@ static inline pthread_mutex_t lazy_mutex_init(pthread_mutex_t* mutex)
         {
             do
             {
-                __yield();
+                yield();
                 handle = atomic_load_explicit(mutex, memory_order_acquire);
             } while (handle == _PTHREAD_MUTEX_INITING);
             if (handle != prevHandle) return handle;
@@ -132,7 +132,7 @@ static inline pthread_cond_t lazy_cond_init(pthread_cond_t* cond)
         {
             do
             {
-                __yield();
+                yield();
                 handle = atomic_load_explicit(cond, memory_order_acquire);
             } while (handle == _PTHREAD_COND_INITING);
             if (handle != _PTHREAD_COND_INITIALIZER) return handle;
@@ -155,7 +155,7 @@ int pthread_create(pthread_t* thread, const pthread_attr_t* attr, pthread_start_
 {
     PThreadAttribs nativeAttribs;
 
-    __thread_attribs_init(&nativeAttribs);
+    thread_attribs_init(&nativeAttribs);
 
     nativeAttribs.Name = "pthread";
     nativeAttribs.DetachState = PThreadDetachState_Joinable;
@@ -167,27 +167,27 @@ int pthread_create(pthread_t* thread, const pthread_attr_t* attr, pthread_start_
         nativeAttribs.StackAddress  = attr->stackaddr;
         nativeAttribs.StackSize     = attr->stacksize;
     }
-    return __thread_spawn(thread, &nativeAttribs, start_routine, arg);
+    return thread_spawn(thread, &nativeAttribs, start_routine, arg);
 }
 
 void pthread_exit(void* retval)
 {
-    __thread_exit(retval);
+    thread_exit(retval);
 }
 
 int pthread_join(pthread_t thread, void** retval)
 {
-    return __thread_join(thread, retval);
+    return thread_join(thread, retval);
 }
 
 int pthread_detach(pthread_t thread)
 {
-    return __thread_detach(thread);
+    return thread_detach(thread);
 }
 
 pthread_t pthread_self(void)
 {
-    return __get_thread_id();
+    return get_thread_id();
 }
 
 int pthread_equal(pthread_t t1, pthread_t t2)
@@ -197,13 +197,13 @@ int pthread_equal(pthread_t t1, pthread_t t2)
 
 int pthread_kill(pthread_t thread, int sig)
 {
-    return __thread_kill(thread, sig);
+    return thread_kill(thread, sig);
 }
 
 int pthread_getschedparam(pthread_t thread, int* policy, struct sched_param* param)
 {
     int priority;
-    int result = __thread_get_priority(thread, &priority);
+    int result = thread_get_priority(thread, &priority);
     if (result == 0)
     {
         *policy = SCHED_RR;
@@ -214,12 +214,12 @@ int pthread_getschedparam(pthread_t thread, int* policy, struct sched_param* par
 
 int pthread_setschedparam(pthread_t thread, int policy, const struct sched_param* param)
 {
-    return __thread_set_priority(thread, param->sched_priority);
+    return thread_set_priority(thread, param->sched_priority);
 }
 
 int pthread_setschedprio(pthread_t thread, int priority)
 {
-    return __thread_set_priority(thread, priority);
+    return thread_set_priority(thread, priority);
 }
 
 static int g_dummy_pthread_concurrency = 0;
@@ -439,7 +439,7 @@ int pthread_mutex_init(pthread_mutex_t* mutex, const pthread_mutexattr_t* attr)
         clockID = attr->clock_id;
     }
     pthread_mutex_t handle;
-    const PErrorCode result = __mutex_create(&handle, "ptmtx", mode, clockID);
+    const PErrorCode result = mutex_create(&handle, "ptmtx", mode, clockID);
 
     if (result != PErrorCode_Success) {
         return result;
@@ -450,32 +450,32 @@ int pthread_mutex_init(pthread_mutex_t* mutex, const pthread_mutexattr_t* attr)
 
 int pthread_mutex_destroy(pthread_mutex_t* mutex)
 {
-    return __mutex_delete(get_mutex_handle(mutex));
+    return mutex_delete(get_mutex_handle(mutex));
 }
 
 int pthread_mutex_lock(pthread_mutex_t* mutex)
 {
-    return __mutex_lock(get_mutex_handle(mutex));
+    return mutex_lock(get_mutex_handle(mutex));
 }
 
 int pthread_mutex_trylock(pthread_mutex_t* mutex)
 {
-    return __mutex_try_lock(get_mutex_handle(mutex));
+    return mutex_try_lock(get_mutex_handle(mutex));
 }
 
 int pthread_mutex_timedlock(pthread_mutex_t* mutex, const struct timespec* abstime)
 {
-    return __mutex_lock_deadline_ns(get_mutex_handle(mutex), timespec_to_nanos(abstime));
+    return mutex_lock_deadline_ns(get_mutex_handle(mutex), timespec_to_nanos(abstime));
 }
 
 int pthread_mutex_clocklock(pthread_mutex_t* mutex, clockid_t clockID, const struct timespec* abstime)
 {
-    return __mutex_lock_clock_ns(get_mutex_handle(mutex), clockID, timespec_to_nanos(abstime));
+    return mutex_lock_clock_ns(get_mutex_handle(mutex), clockID, timespec_to_nanos(abstime));
 }
 
 int pthread_mutex_unlock(pthread_mutex_t* mutex)
 {
-    return __mutex_unlock(get_mutex_handle(mutex));
+    return mutex_unlock(get_mutex_handle(mutex));
 }
 
 int pthread_mutexattr_init(pthread_mutexattr_t* attr)
@@ -548,7 +548,7 @@ int pthread_cond_init(pthread_cond_t* cond, const pthread_condattr_t* attr)
         clockID = attr->clock;
     }
     handle_id handle;
-    const PErrorCode result = __condition_var_create(&handle, "ptcnd", clockID);
+    const PErrorCode result = condition_var_create(&handle, "ptcnd", clockID);
 
     if (result != PErrorCode_Success) {
         return result;
@@ -559,32 +559,32 @@ int pthread_cond_init(pthread_cond_t* cond, const pthread_condattr_t* attr)
 
 int pthread_cond_destroy(pthread_cond_t* cond)
 {
-    return __condition_var_delete(get_cond_handle(cond));
+    return condition_var_delete(get_cond_handle(cond));
 }
 
 int pthread_cond_wait(pthread_cond_t* cond, pthread_mutex_t* mutex)
 {
-    return __condition_var_wait(get_cond_handle(cond), get_mutex_handle(mutex));
+    return condition_var_wait(get_cond_handle(cond), get_mutex_handle(mutex));
 }
 
 int pthread_cond_timedwait(pthread_cond_t* cond, pthread_mutex_t* mutex, const struct timespec* abstime)
 {
-    return __condition_var_wait_deadline_ns(get_cond_handle(cond), get_mutex_handle(mutex), timespec_to_nanos(abstime));
+    return condition_var_wait_deadline_ns(get_cond_handle(cond), get_mutex_handle(mutex), timespec_to_nanos(abstime));
 }
 
 int pthread_cond_clockwait(pthread_cond_t* cond, pthread_mutex_t* mutex, clockid_t clockID, const struct timespec* abstime)
 {
-    return __condition_var_wait_clock_ns(get_cond_handle(cond), get_mutex_handle(mutex), clockID, timespec_to_nanos(abstime));
+    return condition_var_wait_clock_ns(get_cond_handle(cond), get_mutex_handle(mutex), clockID, timespec_to_nanos(abstime));
 }
 
 int pthread_cond_signal(pthread_cond_t* cond)
 {
-    return __condition_var_wakeup(get_cond_handle(cond), 1);
+    return condition_var_wakeup(get_cond_handle(cond), 1);
 }
 
 int pthread_cond_broadcast(pthread_cond_t* cond)
 {
-    return __condition_var_wakeup_all(get_cond_handle(cond));
+    return condition_var_wakeup_all(get_cond_handle(cond));
 }
 
 int pthread_condattr_init(pthread_condattr_t* attr)
@@ -630,7 +630,7 @@ int pthread_rwlock_destroy(pthread_rwlock_t* rwlock)
 
 int pthread_rwlock_rdlock(pthread_rwlock_t* rwlock)
 {
-    return __mutex_lock_shared(get_mutex_handle(rwlock));
+    return mutex_lock_shared(get_mutex_handle(rwlock));
 }
 
 int pthread_rwlock_tryrdlock(pthread_rwlock_t* rwlock)
@@ -746,5 +746,5 @@ int pthread_getcpuclockid(pthread_t thread, clockid_t* clock_id)
 
 int pthread_yield(void)
 {
-    return __yield();
+    return yield();
 }

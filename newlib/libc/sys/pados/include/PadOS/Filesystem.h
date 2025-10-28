@@ -36,4 +36,33 @@ PErrorCode mount(const char* devicePath, const char* directoryPath, const char* 
 
 #ifdef __cplusplus
 }
-#endif
+
+#include <sys/pados_syscalls.h>
+#include <System/ExceptionHandling.h>
+
+inline int open_trw(const char* path, int flags, int mode = 0)
+{
+    return PERROR_SYSRET_THROW_ON_FAIL(__open(path, flags, mode));
+}
+
+inline void device_control_trw(int handle, int request, const void* inData, size_t inDataLength, void* outData, size_t outDataLength)
+{
+    PERROR_ERRORCODE_THROW_ON_FAIL(__device_control(handle, request, inData, inDataLength, outData, outDataLength));
+}
+
+inline void rewind_directory_trw(int handle)
+{
+    PERROR_ERRORCODE_THROW_ON_FAIL(__rewind_directory(handle));
+}
+
+inline void get_directory_path_trw(int handle, char* buffer, size_t bufferSize)
+{
+    PERROR_ERRORCODE_THROW_ON_FAIL(__get_directory_path(handle, buffer, bufferSize));
+}
+
+inline void mount_trw(const char* devicePath, const char* directoryPath, const char* filesystemName, uint32_t flags, const char* args, size_t argLength)
+{
+    PERROR_ERRORCODE_THROW_ON_FAIL(__mount(devicePath, directoryPath, filesystemName, flags, args, argLength));
+}
+
+#endif // __cplusplus

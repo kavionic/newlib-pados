@@ -32,11 +32,15 @@ libc_a_SOURCES += \
 	%D%/get_monotonic_time_ns.c \
 	%D%/get_real_time_hires_ns.c \
 	%D%/get_real_time_ns.c \
+	%D%/get_total_irq_time_ns.c \
 	%D%/isatty.c \
 	%D%/kill.c \
 	%D%/link.c \
 	%D%/lseek.c \
 	%D%/lstat.c \
+	%D%/message_port_receive.c \
+	%D%/message_port_receive_deadline_ns.c \
+	%D%/message_port_receive_timeout_ns.c \
 	%D%/mkdir.c \
 	%D%/mkdirat.c \
 	%D%/mount.c \

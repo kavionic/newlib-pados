@@ -24,8 +24,8 @@
 #include "sys/pados_syscalls.h"
 #include <sched.h>
 
-#define PEXPAND_SYSCALL(RETTYPE, FNAME, SIGNATURE) \
-  __attribute__((naked)) RETTYPE __##FNAME SIGNATURE { \
+#define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) \
+  __attribute__((naked)) RETTYPE FPREFIX##FNAME SIGNATURE { \
     __asm volatile ( \
         "mrs    r12, CONTROL                    \n" \
         "tst    r12, #1                         \n" \

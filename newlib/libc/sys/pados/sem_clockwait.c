@@ -22,7 +22,7 @@
 
 int sem_clockwait(sem_t* semaphore, __clockid_t clockID, const struct timespec* abstime)
 {
-    const PErrorCode result = __semaphore_acquire_clock_ns(*semaphore, clockID, timespec_to_nanos(abstime));
+    const PErrorCode result = semaphore_acquire_clock_ns(*semaphore, clockID, timespec_to_nanos(abstime));
     if (result == PErrorCode_Success) {
         return 0;
     }

@@ -16,15 +16,18 @@
  * limitations under the License.
  */
 
-#include <semaphore.h>
 #include <sys/pados_syscalls.h>
+#include <sys/pados_error_codes.h>
+#include <PadOS/Time.h>
 
-int sem_destroy(sem_t* semaphore)
+time_t get_total_irq_time_ns()
 {
-    const PErrorCode result = semaphore_delete(*semaphore);
-    if (result == PErrorCode_Success) {
-        return 0;
+    time_t timeValue;
+    const PErrorCode result = __get_total_irq_time_ns(&timeValue);
+    if (result != PErrorCode_Success)
+    {
+        errno = result;
+        return -1;
     }
-    errno = result;
-    return -1;
+    return timeValue;
 }
