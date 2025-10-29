@@ -20,10 +20,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int ftruncate(int fd, off_t length)
 {
     struct stat newStat;
     newStat.st_size = length;
-    return __write_stat(fd, &newStat, WSTAT_SIZE);
+    return PErrorCodeUpdateErrno(__write_stat(fd, &newStat, WSTAT_SIZE));
 }

@@ -16,18 +16,6 @@
  * limitations under the License.
  */
 
-#include <sys/pados_syscalls.h>
-#include <sys/pados_error_codes.h>
-#include <PadOS/Time.h>
+#include <PadOS/Threads.h>
 
-time_t get_monotonic_time_hires_ns()
-{
-    time_t timeValue;
-    const PErrorCode result = __get_monotonic_time_hires_ns(&timeValue);
-    if (result != PErrorCode_Success)
-    {
-        errno = result;
-        return -1;
-    }
-    return timeValue;
-}
+PThreadControlBlock* current_thread_control_block;

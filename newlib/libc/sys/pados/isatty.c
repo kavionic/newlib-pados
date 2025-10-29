@@ -22,8 +22,9 @@
 
 #include "reent.h"
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int _isatty_r(struct _reent*, int fd)
 {
-    return __isatty(fd);
+    return PErrorCodeUpdateErrno(__isatty(fd));
 }

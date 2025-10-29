@@ -19,6 +19,7 @@
 #pragma once
 
 #include <sys/pados_types.h>
+#include <sys/pados_error_codes.h>
 
 #ifdef __cplusplus
 extern "C" {

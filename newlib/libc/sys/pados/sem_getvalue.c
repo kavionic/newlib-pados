@@ -18,14 +18,9 @@
 
 #include <semaphore.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 int sem_getvalue(sem_t* semaphore, int* outCount)
 {
-    const PErrorCode result = semaphore_get_count(*semaphore, outCount);
-
-    if (result == PErrorCode_Success) {
-        return 0;
-    }
-    errno = result;
-    return -1;
+    return PErrorCodeUpdateErrno(semaphore_get_count(*semaphore, outCount));
 }

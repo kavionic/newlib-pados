@@ -44,8 +44,7 @@ sem_t* sem_open(const char* name, int oflag, ...)
     }
 
     const PErrorCode result = semaphore_create_public(semaphore, name, CLOCK_REALTIME_COARSE, oflag, mode, value);
-    if (result == PErrorCode_Success)
-    {
+    if (result == PErrorCode_Success) {
         return semaphore;
     }
 

@@ -22,8 +22,9 @@
 
 #include "reent.h"
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int _fstat_r(struct _reent* ptr, int fd, struct stat* pstat)
 {
-    return __fstat(fd, pstat);
+    return PErrorCodeUpdateErrno(__fstat(fd, pstat));
 }

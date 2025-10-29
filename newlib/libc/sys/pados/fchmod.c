@@ -19,10 +19,11 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int fchmod(int fd, mode_t mode)
 {
     struct stat newStat;
     newStat.st_mode = mode;
-    return __write_stat(fd, &newStat, WSTAT_MODE);
+    return PErrorCodeUpdateErrno(__write_stat(fd, &newStat, WSTAT_MODE));
 }

@@ -22,8 +22,9 @@
 
 #include "reent.h"
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int _rename_r(struct _reent*, const char* oldPath, const char* newPath)
 {
-    return __rename(oldPath, newPath);
+    return PErrorCodeUpdateErrno(__rename(oldPath, newPath));
 }

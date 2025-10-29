@@ -18,14 +18,9 @@
 
 #include <semaphore.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 int sem_post(sem_t* semaphore)
 {
-    const PErrorCode result = semaphore_release(*semaphore);
-
-    if (result == PErrorCode_Success) {
-        return 0;
-    }
-    errno = result;
-    return -1;
+    return PErrorCodeUpdateErrno(semaphore_release(*semaphore));
 }

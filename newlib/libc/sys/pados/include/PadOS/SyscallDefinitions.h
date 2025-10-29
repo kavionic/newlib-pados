@@ -49,12 +49,12 @@ PEXPAND_SYSCALL(PSysRetPair,    __, write,              (int file, const void* b
 PEXPAND_SYSCALL(PSysRetPair,    __, write_pos,          (int file, const void* buffer, size_t length, off_t position))
 PEXPAND_SYSCALL(PSysRetPair,    __, writev,             (int file, const struct iovec* segments, size_t segmentCount))
 PEXPAND_SYSCALL(PSysRetPair,    __, writev_pos,         (int file, const struct iovec* segments, size_t segmentCount, off_t position))
-PEXPAND_SYSCALL(PErrorCode,     __, device_control,     (int handle, int request, const void* inData, size_t inDataLength, void* outData, size_t outDataLength))
+PEXPAND_SYSCALL(PErrorCode,       , device_control,     (int handle, int request, const void* inData, size_t inDataLength, void* outData, size_t outDataLength))
 
 PEXPAND_SYSCALL(PErrorCode,     __, fsync,              (int file))
 PEXPAND_SYSCALL(PErrorCode,     __, create_directory,   (int dirfd, const char* name, mode_t permission))
 PEXPAND_SYSCALL(PSysRetPair,    __, read_directory,     (int handle, dirent_t* entry, size_t bufSize))
-PEXPAND_SYSCALL(PErrorCode,     __, rewind_directory,   (int handle))
+PEXPAND_SYSCALL(PErrorCode,       , rewind_directory,   (int handle))
 
 PEXPAND_SYSCALL(PErrorCode,     __, unlink_file,        (int dirfd, const char* path))
 PEXPAND_SYSCALL(PErrorCode,     __, remove_directory,   (int dirfd, const char* path))
@@ -63,23 +63,23 @@ PEXPAND_SYSCALL(PErrorCode,     __, symlink,            (const char* targetPath,
 PEXPAND_SYSCALL(PErrorCode,     __, chdir,              (const char* path))
 PEXPAND_SYSCALL(PErrorCode,     __, getcwd,             (char* pathBuffer, size_t bufferSize))
 
-PEXPAND_SYSCALL(PErrorCode,     __, mount,              (const char* devicePath, const char* directoryPath, const char* filesystemName, uint32_t flags, const char* args, size_t argLength))
+PEXPAND_SYSCALL(PErrorCode,       , mount,              (const char* devicePath, const char* directoryPath, const char* filesystemName, uint32_t flags, const char* args, size_t argLength))
 
-PEXPAND_SYSCALL(PErrorCode,     __, get_directory_path, (int handle, char* buffer, size_t bufferSize))
+PEXPAND_SYSCALL(PErrorCode,       , get_directory_path, (int handle, char* buffer, size_t bufferSize))
 
 /*
  * Time functions
  */
 
-PEXPAND_SYSCALL(PErrorCode,     __, get_monotonic_time_ns,      (time_t* outTime))
-PEXPAND_SYSCALL(PErrorCode,     __, get_monotonic_time_hires_ns,(time_t* outTime))
-PEXPAND_SYSCALL(PErrorCode,     __, get_real_time_ns,           (time_t* outTime))
-PEXPAND_SYSCALL(PErrorCode,     __, get_real_time_hires_ns,     (time_t* outTime))
-PEXPAND_SYSCALL(PErrorCode,     __, set_real_time_ns,           (time_t time, bool updateRTC))
+PEXPAND_SYSCALL(time_t,           , get_monotonic_time_ns,      ())
+PEXPAND_SYSCALL(time_t,           , get_monotonic_time_hires_ns,())
+PEXPAND_SYSCALL(time_t,           , get_real_time_ns,           ())
+PEXPAND_SYSCALL(time_t,           , get_real_time_hires_ns,     ())
+PEXPAND_SYSCALL(PErrorCode,       , set_real_time_ns,           (time_t time, bool updateRTC))
 PEXPAND_SYSCALL(PErrorCode,     __, get_clock_time_offset_ns,   (clockid_t clockID, time_t* outOffset))
 PEXPAND_SYSCALL(PErrorCode,     __, get_clock_time_ns,          (clockid_t clockID, time_t* outTime))
-PEXPAND_SYSCALL(PErrorCode,     __, get_idle_time_ns,           (time_t* outTime))
-PEXPAND_SYSCALL(PErrorCode,     __, get_total_irq_time_ns,      (bigtime_t* outTime))
+PEXPAND_SYSCALL(time_t,           , get_idle_time_ns,           ())
+PEXPAND_SYSCALL(time_t,           , get_total_irq_time_ns,      ())
 
 PEXPAND_SYSCALL(PErrorCode,     __, get_clock_time_hires_ns,    (clockid_t clockID, time_t* outTime))
 PEXPAND_SYSCALL(PErrorCode,     __, get_clock_resolution_ns,    (clockid_t clockID, time_t* outResolutionNanos))
@@ -111,7 +111,7 @@ PEXPAND_SYSCALL(PErrorCode, , thread_kill,            (pid_t pid, int sig))
 PEXPAND_SYSCALL(PSysRetPair,    __, getpid,     (void))
 PEXPAND_SYSCALL(PErrorCode,     __, kill,       (pid_t pid, int sig))
 PEXPAND_SYSCALL(PSysRetPair,    __, sbrk,       (ptrdiff_t size))
-PEXPAND_SYSCALL(__attribute__((noreturn)) void, __, exit, (int exitCode))
+PEXPAND_SYSCALL(__attribute__((noreturn)) void, _, exit, (int exitCode))
 PEXPAND_SYSCALL(PErrorCode,     __, sysconf,    (int name, long* outValue))
 PEXPAND_SYSCALL(PErrorCode,     __, reboot,     (BootMode bootMode))
 
@@ -191,8 +191,8 @@ PEXPAND_SYSCALL(PErrorCode, , object_wait_group_wait_deadline_ns, (handle_id han
  * Thread local functions
  */
 
-PEXPAND_SYSCALL(PErrorCode, __, thread_local_create_key,    (tls_id* outKey, TLSDestructor_t destructor))
-PEXPAND_SYSCALL(PErrorCode, __, thread_local_delete_key,    (tls_id key))
+PEXPAND_SYSCALL(PErrorCode,   , thread_local_create_key,    (tls_id* outKey, TLSDestructor_t destructor))
+PEXPAND_SYSCALL(PErrorCode,   , thread_local_delete_key,    (tls_id key))
 
 /*
  * Message port functions

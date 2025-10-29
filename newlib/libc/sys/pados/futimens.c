@@ -20,6 +20,7 @@
 #include <sys/time.h>
 #include <utime.h>
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int futimens(int fd, const struct timespec times[2])
 {
@@ -55,7 +56,7 @@ int futimens(int fd, const struct timespec times[2])
         mask = WSTAT_ATIME | WSTAT_MTIME;
     }
     if (mask != 0) {
-        return __write_stat(fd, &newStat, mask);
+        return PErrorCodeUpdateErrno(__write_stat(fd, &newStat, mask));
     } else {
         return 0;
     }

@@ -19,15 +19,11 @@
 #include <stdlib.h>
 #include <semaphore.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 int sem_close(sem_t* semaphore)
 {
-    const PErrorCode result = semaphore_delete(*semaphore);
+    const int result = PErrorCodeUpdateErrno(semaphore_delete(*semaphore));
     free(semaphore);
-
-    if (result == PErrorCode_Success) {
-        return 0;
-    }
-    errno = result;
-    return -1;
+    return result;
 }

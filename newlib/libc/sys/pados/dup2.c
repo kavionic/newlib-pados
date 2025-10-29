@@ -22,8 +22,9 @@
 
 #include "reent.h"
 #include "sys/pados_syscalls.h"
+#include <PadOS/SyscallReturns.h>
 
 int dup2(int oldFile, int newFile)
 {
-    return __dup2(oldFile, newFile);
+    return PSysRetUpdateErrno(__dup2(oldFile, newFile));
 }

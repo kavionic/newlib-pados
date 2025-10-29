@@ -19,13 +19,9 @@
 #include <semaphore.h>
 #include <sys/pados_syscalls.h>
 #include <sys/pados_timeutils.h>
+#include <PadOS/SyscallReturns.h>
 
 int sem_clockwait(sem_t* semaphore, __clockid_t clockID, const struct timespec* abstime)
 {
-    const PErrorCode result = semaphore_acquire_clock_ns(*semaphore, clockID, timespec_to_nanos(abstime));
-    if (result == PErrorCode_Success) {
-        return 0;
-    }
-    errno = result;
-    return -1;
+    return PErrorCodeUpdateErrno(semaphore_acquire_clock_ns(*semaphore, clockID, timespec_to_nanos(abstime)));
 }

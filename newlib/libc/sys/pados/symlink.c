@@ -19,14 +19,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
 
 int symlink(const char* targetPath, const char* symlinkPath)
 {
-    const PErrorCode result = __symlink(targetPath, AT_FDCWD, symlinkPath);
-
-    if (result == PErrorCode_Success) {
-        return 0;
-    }
-    errno = result;
-    return -1;
+    return PErrorCodeUpdateErrno(__symlink(targetPath, AT_FDCWD, symlinkPath));
 }

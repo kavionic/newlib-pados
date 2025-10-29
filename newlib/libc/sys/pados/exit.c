@@ -19,12 +19,7 @@
 #include <stdlib.h>
 #include "sys/pados_syscalls.h"
 
-void _exit(int exitCode)
-{
-    __exit(exitCode);
-}
-
 void exit(int exitCode)
 {
-    __exit(exitCode);
+    _exit(exitCode);
 }
