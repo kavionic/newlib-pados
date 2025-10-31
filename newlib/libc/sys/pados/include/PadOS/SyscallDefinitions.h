@@ -207,3 +207,9 @@ PEXPAND_SYSCALL(PErrorCode,    , message_port_send_deadline_ns,     (port_id han
 PEXPAND_SYSCALL(PSysRetPair, __, message_port_receive,              (port_id handle, handler_id* targetHandler, int32_t* code, void* buffer, size_t bufferSize))
 PEXPAND_SYSCALL(PSysRetPair, __, message_port_receive_timeout_ns,   (port_id handle, handler_id* targetHandler, int32_t* code, void* buffer, size_t bufferSize, bigtime_t timeout))
 PEXPAND_SYSCALL(PSysRetPair, __, message_port_receive_deadline_ns,  (port_id handle, handler_id* targetHandler, int32_t* code, void* buffer, size_t bufferSize, bigtime_t deadline))
+
+/*
+ * Debug functions
+ */
+
+PEXPAND_SYSCALL(bool, , is_debugger_attached, ())

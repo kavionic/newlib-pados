@@ -165,8 +165,8 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_get_total_irq_time_ns               121
 #define SYS_duplicate_handle                    122
 #define SYS_delete_handle                       123
-
-#define SYS_COUNT                               124
+#define SYS_is_debugger_attached                124
+#define SYS_COUNT                               125
 
 #define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME SIGNATURE;
 
