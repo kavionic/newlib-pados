@@ -45,6 +45,16 @@ inline int open_trw(const char* path, int flags, int mode = 0)
     return PERROR_SYSRET_THROW_ON_FAIL(__open(path, flags, mode));
 }
 
+inline int read_trw(int file, void* buffer, size_t length)
+{
+    return PERROR_SYSRET_THROW_ON_FAIL(__read(file, buffer, length));
+}
+
+inline int write_trw(int file, const void* buffer, size_t length)
+{
+    return PERROR_SYSRET_THROW_ON_FAIL(__write(file, buffer, length));
+}
+
 inline void device_control_trw(int handle, int request, const void* inData, size_t inDataLength, void* outData, size_t outDataLength)
 {
     PERROR_ERRORCODE_THROW_ON_FAIL(device_control(handle, request, inData, inDataLength, outData, outDataLength));

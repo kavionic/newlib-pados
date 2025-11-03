@@ -166,7 +166,16 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_duplicate_handle                    122
 #define SYS_delete_handle                       123
 #define SYS_is_debugger_attached                124
-#define SYS_COUNT                               125
+#define SYS_digital_pin_set_direction           125
+#define SYS_digital_pin_set_drive_strength      126
+#define SYS_digital_pin_set_pull_mode           127
+#define SYS_digital_pin_set_peripheral_mux      128
+#define SYS_digital_pin_read                    129
+#define SYS_digital_pin_write                   130
+#define SYS_write_backup_register               131
+#define SYS_read_backup_register                132
+#define SYS_beep_seconds                        133
+#define SYS_COUNT                               134
 
 #define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME SIGNATURE;
 

@@ -18,6 +18,12 @@
 
 #ifdef __cplusplus
 enum class ObjectWaitMode : int;
+enum class DigitalPinID : uint32_t;
+enum class DigitalPinDirection_e : uint32_t;
+enum class DigitalPinDriveStrength_e : uint32_t;
+enum class PinPullMode_e : uint32_t;
+enum class DigitalPinPeripheralID : int32_t;
+
 #endif
 
 #ifndef PEXPAND_SYSCALL
@@ -213,3 +219,19 @@ PEXPAND_SYSCALL(PSysRetPair, __, message_port_receive_deadline_ns,  (port_id han
  */
 
 PEXPAND_SYSCALL(bool, , is_debugger_attached, ())
+
+/*
+ * Misc functions
+ */
+
+PEXPAND_SYSCALL(PErrorCode, , digital_pin_set_direction,        (DigitalPinID pinID, DigitalPinDirection_e dir))
+PEXPAND_SYSCALL(PErrorCode, , digital_pin_set_drive_strength,   (DigitalPinID pinID, DigitalPinDriveStrength_e strength))
+PEXPAND_SYSCALL(PErrorCode, , digital_pin_set_pull_mode,        (DigitalPinID pinID, PinPullMode_e mode))
+PEXPAND_SYSCALL(PErrorCode, , digital_pin_set_peripheral_mux,   (DigitalPinID pinID, DigitalPinPeripheralID peripheral))
+PEXPAND_SYSCALL(PErrorCode, , digital_pin_read,                 (DigitalPinID pinID, bool* outValue))
+PEXPAND_SYSCALL(PErrorCode, , digital_pin_write,                (DigitalPinID pinID, bool value))
+
+PEXPAND_SYSCALL(PErrorCode, , write_backup_register,    (size_t registerID, uint32_t value))
+PEXPAND_SYSCALL(PErrorCode, , read_backup_register,     (size_t registerID, uint32_t* outValue))
+
+PEXPAND_SYSCALL(PErrorCode, , beep_seconds,             (float duration))
