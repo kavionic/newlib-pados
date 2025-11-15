@@ -235,3 +235,4 @@ PEXPAND_SYSCALL(PErrorCode, , write_backup_register,    (size_t registerID, uint
 PEXPAND_SYSCALL(PErrorCode, , read_backup_register,     (size_t registerID, uint32_t* outValue))
 
 PEXPAND_SYSCALL(PErrorCode, , beep_seconds,             (float duration))
+PEXPAND_SYSCALL(PErrorCode, , add_system_log_message,   (uint32_t category, PLogSeverity severity, const char* message))

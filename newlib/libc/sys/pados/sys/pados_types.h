@@ -69,12 +69,16 @@ static const uint32_t WFSSTAT_NAME = 0x0001;
 
 static const uint32_t  FSINFO_VERSION = 1;
 
-#ifndef __cplusplus
+#ifdef __cplusplus
+enum class PLogSeverity : uint8_t;
+#else // __cplusplus
+
 
 typedef uint32_t DigitalPinID;
 typedef uint32_t DigitalPinDirection_e;
 typedef uint32_t DigitalPinDriveStrength_e;
 typedef uint32_t PinPullMode_e;
 typedef uint32_t DigitalPinPeripheralID;
+typedef uint8_t PLogSeverity;
 
 #endif // __cplusplus

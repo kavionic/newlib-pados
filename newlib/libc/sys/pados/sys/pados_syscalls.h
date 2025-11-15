@@ -175,7 +175,8 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_write_backup_register               131
 #define SYS_read_backup_register                132
 #define SYS_beep_seconds                        133
-#define SYS_COUNT                               134
+#define SYS_add_system_log_message              134
+#define SYS_COUNT                               135
 
 #define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME SIGNATURE;
 
