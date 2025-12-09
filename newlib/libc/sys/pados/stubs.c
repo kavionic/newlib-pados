@@ -24,22 +24,5 @@
 #include "sys/pados_syscalls.h"
 #include <sched.h>
 
-uint32_t __attribute__((weak)) _estack;
-
-
-void* __attribute__((weak)) __aeabi_read_tp(void) { return NULL; }
-//link_warning(__aeabi_read_tp, "__aeabi_read_tp is not implemented and will always fail");
-
-void __attribute__((weak)) Reset_Handler(void) {}
-void __attribute__((weak)) NonMaskableInt_Handler(void) {}
-void __attribute__((weak)) HardFault_Handler(void) {}
-void __attribute__((weak)) MemoryManagement_Handler(void) {}
-void __attribute__((weak)) BusFault_Handler(void) {}
-void __attribute__((weak)) UsageFault_Handler(void) {}
-void __attribute__((weak)) SVCall_Handler(void) {}
-void __attribute__((weak)) DebugMonitor_Handler(void) {}
-void __attribute__((weak)) PendSV_Handler(void) {}
-void __attribute__((weak)) SysTick_Handler(void) {}
-void __attribute__((weak)) KernelHandleIRQ(void) {}
 
 int __attribute__((weak)) pthread_setcancelstate(int state, int* oldstate) { return -1;  }

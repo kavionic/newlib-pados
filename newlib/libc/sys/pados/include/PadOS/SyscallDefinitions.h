@@ -72,6 +72,7 @@ PEXPAND_SYSCALL(PErrorCode,     __, getcwd,             (char* pathBuffer, size_
 PEXPAND_SYSCALL(PErrorCode,       , mount,              (const char* devicePath, const char* directoryPath, const char* filesystemName, uint32_t flags, const char* args, size_t argLength))
 
 PEXPAND_SYSCALL(PErrorCode,       , get_directory_path, (int handle, char* buffer, size_t bufferSize))
+PEXPAND_SYSCALL(PErrorCode,       , get_dirty_disk_cache_blocks, (size_t* outBlocks))
 
 /*
  * Time functions
@@ -95,20 +96,20 @@ PEXPAND_SYSCALL(PErrorCode,     __, set_clock_resolution_ns,    (clockid_t clock
  * Thread functions
  */
 
-PEXPAND_SYSCALL(PErrorCode, , thread_attribs_init,    (PThreadAttribs* attribs))
-PEXPAND_SYSCALL(PErrorCode, , thread_spawn,           (thread_id* outHandle, const PThreadAttribs* attribs, ThreadEntryPoint_t entryPoint, void* arguments))
+PEXPAND_SYSCALL(PErrorCode,   , thread_attribs_init,    (PThreadAttribs* attribs))
+PEXPAND_SYSCALL(PErrorCode, __, thread_spawn,           (thread_id* outHandle, const PThreadAttribs* attribs, ThreadEntryPoint_t entryPoint, void* arguments))
 PEXPAND_SYSCALL(__attribute__((noreturn)) void, , thread_exit, (void* returnValue))
-PEXPAND_SYSCALL(PErrorCode, , thread_detach,          (thread_id handle))
-PEXPAND_SYSCALL(PErrorCode, , thread_join,            (thread_id handle, void** outReturnValue))
-PEXPAND_SYSCALL(thread_id,  , get_thread_id,          ())
-PEXPAND_SYSCALL(PErrorCode, , thread_set_priority,    (thread_id handle, int priority))
-PEXPAND_SYSCALL(PErrorCode, , thread_get_priority,    (thread_id handle, int* outPriority))
-PEXPAND_SYSCALL(PErrorCode, , get_thread_info,        (handle_id handle, ThreadInfo* info))
-PEXPAND_SYSCALL(PErrorCode, , get_next_thread_info,   (ThreadInfo* info))
-PEXPAND_SYSCALL(PErrorCode, , snooze_ns,              (bigtime_t delayNanos))
-PEXPAND_SYSCALL(PErrorCode, , snooze_until_ns,        (bigtime_t resumeTimeNanos))
-PEXPAND_SYSCALL(PErrorCode, , yield,                  ())
-PEXPAND_SYSCALL(PErrorCode, , thread_kill,            (pid_t pid, int sig))
+PEXPAND_SYSCALL(PErrorCode,   , thread_detach,          (thread_id handle))
+PEXPAND_SYSCALL(PErrorCode,   , thread_join,            (thread_id handle, void** outReturnValue))
+PEXPAND_SYSCALL(thread_id,    , get_thread_id,          ())
+PEXPAND_SYSCALL(PErrorCode,   , thread_set_priority,    (thread_id handle, int priority))
+PEXPAND_SYSCALL(PErrorCode,   , thread_get_priority,    (thread_id handle, int* outPriority))
+PEXPAND_SYSCALL(PErrorCode,   , get_thread_info,        (handle_id handle, ThreadInfo* info))
+PEXPAND_SYSCALL(PErrorCode,   , get_next_thread_info,   (ThreadInfo* info))
+PEXPAND_SYSCALL(PErrorCode,   , snooze_ns,              (bigtime_t delayNanos))
+PEXPAND_SYSCALL(PErrorCode,   , snooze_until_ns,        (bigtime_t resumeTimeNanos))
+PEXPAND_SYSCALL(PErrorCode,   , yield,                  ())
+PEXPAND_SYSCALL(PErrorCode,   , thread_kill,            (pid_t pid, int sig))
 
 /*
  * Process functions
@@ -116,7 +117,6 @@ PEXPAND_SYSCALL(PErrorCode, , thread_kill,            (pid_t pid, int sig))
 
 PEXPAND_SYSCALL(PSysRetPair,    __, getpid,     (void))
 PEXPAND_SYSCALL(PErrorCode,     __, kill,       (pid_t pid, int sig))
-PEXPAND_SYSCALL(PSysRetPair,    __, sbrk,       (ptrdiff_t size))
 PEXPAND_SYSCALL(__attribute__((noreturn)) void, _, exit, (int exitCode))
 PEXPAND_SYSCALL(PErrorCode,     __, sysconf,    (int name, long* outValue))
 PEXPAND_SYSCALL(PErrorCode,     __, reboot,     (BootMode bootMode))
@@ -194,13 +194,6 @@ PEXPAND_SYSCALL(PErrorCode, , object_wait_group_wait_timeout_ns,  (handle_id han
 PEXPAND_SYSCALL(PErrorCode, , object_wait_group_wait_deadline_ns, (handle_id handle, handle_id mutexHandle, bigtime_t deadline, void* readyFlagsBuffer, size_t readyFlagsSize))
 
 /*
- * Thread local functions
- */
-
-PEXPAND_SYSCALL(PErrorCode,   , thread_local_create_key,    (tls_id* outKey, TLSDestructor_t destructor))
-PEXPAND_SYSCALL(PErrorCode,   , thread_local_delete_key,    (tls_id key))
-
-/*
  * Message port functions
  */
 
@@ -235,4 +228,15 @@ PEXPAND_SYSCALL(PErrorCode, , write_backup_register,    (size_t registerID, uint
 PEXPAND_SYSCALL(PErrorCode, , read_backup_register,     (size_t registerID, uint32_t* outValue))
 
 PEXPAND_SYSCALL(PErrorCode, , beep_seconds,             (float duration))
-PEXPAND_SYSCALL(PErrorCode, , add_system_log_message,   (uint32_t category, PLogSeverity severity, const char* message))
+
+PEXPAND_SYSCALL(PErrorCode, , system_log_register_category,             (uint32_t categoryHash, PLogChannel channel, const char* categoryName, const char* displayName, PLogSeverity initialLogLevel))
+PEXPAND_SYSCALL(PErrorCode, , system_log_set_category_minimum_severity, (uint32_t categoryHash, PLogSeverity logLevel))
+PEXPAND_SYSCALL(PErrorCode, , system_log_is_category_active,            (uint32_t categoryHash, PLogSeverity logLevel, bool* outIsActive))
+PEXPAND_SYSCALL(PErrorCode, , system_log_get_category_channel,          (uint32_t categoryHash, PLogChannel* outChannel))
+PEXPAND_SYSCALL(PErrorCode, , system_log_get_severity_name,             (PLogSeverity logLevel, char* buffer, size_t bufferLen))
+PEXPAND_SYSCALL(PErrorCode, , system_log_get_category_name,             (uint32_t categoryHash, char* buffer, size_t bufferLen))
+PEXPAND_SYSCALL(PErrorCode, , system_log_get_category_display_name,     (uint32_t categoryHash, char* buffer, size_t bufferLen))
+PEXPAND_SYSCALL(PErrorCode, , system_log_add_message,                   (uint32_t category, PLogSeverity severity, const char* message))
+
+PEXPAND_SYSCALL(PErrorCode, , add_serial_command_handler,               (uint32_t command, port_id messagePortID))
+PEXPAND_SYSCALL(PErrorCode, , serial_command_send_data,                 (void* header, size_t headerSize, const void* data, size_t dataSize))

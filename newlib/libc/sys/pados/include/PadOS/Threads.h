@@ -16,7 +16,12 @@
  * limitations under the License.
  */
 
+#pragma once
+
 #include <stdint.h>
+#include <sys/pados_types.h>
+#include <sys/pados_error_codes.h>
+#include <sys/pados_threads.h>
 
 typedef struct PThreadControlBlock
 {
@@ -24,4 +29,14 @@ typedef struct PThreadControlBlock
     void**      TLSSlots;
 } PThreadControlBlock;
 
-extern PThreadControlBlock* current_thread_control_block;
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern PThreadControlBlock* __current_thread_control_block;
+
+PErrorCode thread_spawn(thread_id* outHandle, const PThreadAttribs* attribs, ThreadEntryPoint_t entryPoint, void* arguments);
+
+#ifdef __cplusplus
+}
+#endif

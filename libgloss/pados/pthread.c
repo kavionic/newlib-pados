@@ -26,6 +26,7 @@
 #include <sys/cdefs.h>
 #include <sys/pados_timeutils.h>
 #include <sys/pados_syscalls.h>
+#include <PadOS/Threads.h>
 #include <PadOS/ThreadLocal.h>
 #include <pthread.h>
 

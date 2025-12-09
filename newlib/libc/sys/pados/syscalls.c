@@ -27,9 +27,6 @@
 #define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) \
   __attribute__((naked)) RETTYPE FPREFIX##FNAME SIGNATURE { \
     __asm volatile ( \
-        "mrs    r12, CONTROL                    \n" \
-        "tst    r12, #1                         \n" \
-        "beq " __XSTRING(sys_##FNAME)          "\n" \
         "ldr r12, =%0                           \n" \
         "svc 0                                  \n" \
         :: "i"(SYS_##FNAME) : "r12", "memory", "cc");                 \

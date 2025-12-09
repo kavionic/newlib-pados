@@ -8,7 +8,6 @@ libc_a_SOURCES += \
 	%D%/clock_settime.c \
 	%D%/close.c \
 	%D%/crt0.c \
-	%D%/current_thread_control_block.c \
 	%D%/dup.c \
 	%D%/dup2.c \
 	%D%/exit.c \
@@ -68,8 +67,6 @@ libc_a_SOURCES += \
 	%D%/symlinkat.c \
 	%D%/syscalls.c \
 	%D%/sysconf.c \
-	%D%/thread_local_get.c \
-	%D%/thread_local_set.c \
 	%D%/times.c \
 	%D%/timespec_get.c \
 	%D%/truncate.c \
