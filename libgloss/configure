@@ -2974,6 +2974,12 @@ case "${target}" in
   rx*-*-elf)
 	config_rx=true
 	;;
+  arm*-*-pados-eabi*)
+	# Enable ARM; add pados to the configured subdirs and generate its Makefile
+	ac_config_files="$ac_config_files pados/Makefile"
+
+	subdirs="$subdirs pados"
+	;;
   arm*-*-elf | arm*-*-coff | arm*-*-*)
 	config_arm=true
 	;;
@@ -3651,7 +3657,7 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
 int
-main ()
+main (void)
 {
 
   ;
@@ -3674,7 +3680,7 @@ $as_echo "$ac_try_echo"; } >&5
 /* end confdefs.h.  */
 
 int
-main ()
+main (void)
 {
 
   ;
@@ -3814,7 +3820,7 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdio.h>
 int
-main ()
+main (void)
 {
 FILE *f = fopen ("conftest.out", "w");
  return ferror (f) || fclose (f) != 0;
@@ -3931,7 +3937,7 @@ else
 /* end confdefs.h.  */
 
 int
-main ()
+main (void)
 {
 
   ;
@@ -3982,7 +3988,7 @@ else
 /* end confdefs.h.  */
 
 int
-main ()
+main (void)
 {
 #ifndef __GNUC__
        choke me
@@ -4023,7 +4029,7 @@ else
 /* end confdefs.h.  */
 
 int
-main ()
+main (void)
 {
 
   ;
@@ -4038,7 +4044,7 @@ else
 /* end confdefs.h.  */
 
 int
-main ()
+main (void)
 {
 
   ;
@@ -4054,7 +4060,7 @@ else
 /* end confdefs.h.  */
 
 int
-main ()
+main (void)
 {
 
   ;
@@ -4103,9 +4109,7 @@ struct stat;
 /* Most of the following tests are stolen from RCS 5.7's src/conf.sh.  */
 struct buf { int x; };
 FILE * (*rcsopen) (struct buf *, struct stat *, int);
-static char *e (p, i)
-     char **p;
-     int i;
+static char *e (char **p, int i)
 {
   return p[i];
 }
@@ -4140,7 +4144,7 @@ int pairnames (int, char **, FILE *(*)(struct buf *, struct stat *, int), int, i
 int argc;
 char **argv;
 int
-main ()
+main (void)
 {
 return f (e, argv, 0) != argv[0]  ||  f (e, argv, 1) != argv[1];
   ;
@@ -4198,7 +4202,7 @@ else
 /* end confdefs.h.  */
 
 int
-main ()
+main (void)
 {
 
   ;
@@ -5172,7 +5176,7 @@ else
 #endif
 
 int
-main ()
+main (void)
 {
 
   ;
@@ -5388,7 +5392,7 @@ $as_echo_n "checking target cpu family... " >&6; }
 #error we are not coldfire
 #endif
 int
-main ()
+main (void)
 {
 
   ;
@@ -5406,7 +5410,7 @@ rm -f conftest.err conftest.i conftest.$ac_ext
 #error we are not fido
 #endif
 int
-main ()
+main (void)
 {
 
   ;
@@ -6640,6 +6644,7 @@ do
     "mep/Makefile") CONFIG_FILES="$CONFIG_FILES mep/Makefile" ;;
     "mt/Makefile") CONFIG_FILES="$CONFIG_FILES mt/Makefile" ;;
     "m32c/Makefile") CONFIG_FILES="$CONFIG_FILES m32c/Makefile" ;;
+    "pados/Makefile") CONFIG_FILES="$CONFIG_FILES pados/Makefile" ;;
     "spu/Makefile") CONFIG_FILES="$CONFIG_FILES spu/Makefile" ;;
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "sparc/libsys/Makefile") CONFIG_FILES="$CONFIG_FILES sparc/libsys/Makefile" ;;
