@@ -44,6 +44,7 @@ libc_a_SOURCES += \
 	%D%/readlink.c \
 	%D%/readlinkat.c \
 	%D%/read.c \
+	%D%/readv.c \
 	%D%/rename.c \
 	%D%/reopen_file.c \
 	%D%/rmdir.c \
@@ -76,4 +77,5 @@ libc_a_SOURCES += \
 	%D%/utime.c \
 	%D%/utimensat.c \
 	%D%/utimes.c \
-	%D%/write.c
+	%D%/write.c \
+	%D%/writev.c
