@@ -29,6 +29,7 @@ typedef enum
     ThreadState_Ready,
     ThreadState_Sleeping,
     ThreadState_Waiting,
+    ThreadState_Stopped,
     ThreadState_Zombie,
     ThreadState_Deleted
 } ThreadState;
@@ -46,8 +47,6 @@ struct _PThreadAttribs
     PThreadDetachState  DetachState;
     void*               StackAddress;
     size_t              StackSize;
-    void*               ThreadLocalStorageAddress;
-    size_t              ThreadLocalStorageSize;
 };
 
 #ifdef __cplusplus
@@ -60,8 +59,6 @@ struct PThreadAttribs : _PThreadAttribs
         DetachState                 = detachState;
         StackAddress                = nullptr;
         StackSize                   = stackSize;
-        ThreadLocalStorageAddress   = nullptr;
-        ThreadLocalStorageSize      = 0;
     }
 };
 #else /* __cplusplus */

@@ -61,6 +61,7 @@ libc_a_SOURCES += \
 	%D%/sem_trywait.c \
 	%D%/sem_unlink.c \
 	%D%/sem_wait.c \
+	%D%/sigaction.c \
 	%D%/sleep.c \
 	%D%/stat.c \
 	%D%/stubs.c \

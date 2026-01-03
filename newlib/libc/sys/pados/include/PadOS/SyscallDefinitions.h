@@ -97,7 +97,7 @@ PEXPAND_SYSCALL(PErrorCode,     __, set_clock_resolution_ns,    (clockid_t clock
  */
 
 PEXPAND_SYSCALL(PErrorCode,   , thread_attribs_init,    (PThreadAttribs* attribs))
-PEXPAND_SYSCALL(PErrorCode, __, thread_spawn,           (thread_id* outHandle, const PThreadAttribs* attribs, ThreadEntryPoint_t entryPoint, void* arguments))
+PEXPAND_SYSCALL(PErrorCode, __, thread_spawn,           (thread_id* outHandle, const PThreadAttribs* attribs, PThreadControlBlock* tlsBlock, ThreadEntryPoint_t entryPoint, void* arguments))
 PEXPAND_SYSCALL(__attribute__((noreturn)) void, , thread_exit, (void* returnValue))
 PEXPAND_SYSCALL(PErrorCode,   , thread_detach,          (thread_id handle))
 PEXPAND_SYSCALL(PErrorCode,   , thread_join,            (thread_id handle, void** outReturnValue))
@@ -110,16 +110,19 @@ PEXPAND_SYSCALL(PErrorCode,   , snooze_ns,              (bigtime_t delayNanos))
 PEXPAND_SYSCALL(PErrorCode,   , snooze_until_ns,        (bigtime_t resumeTimeNanos))
 PEXPAND_SYSCALL(PErrorCode,   , yield,                  ())
 PEXPAND_SYSCALL(PErrorCode,   , thread_kill,            (pid_t pid, int sig))
+PEXPAND_SYSCALL(PErrorCode, __, sigaction,              (int sigNum, const struct sigaction* action, struct sigaction* outPrevAction))
 
 /*
  * Process functions
  */
 
-PEXPAND_SYSCALL(PSysRetPair,    __, getpid,     (void))
-PEXPAND_SYSCALL(PErrorCode,     __, kill,       (pid_t pid, int sig))
+
+PEXPAND_SYSCALL(PErrorCode,     __, spawn_execve,   (const char* name, int priority, PThreadControlBlock* tlsBlock, char* const argv[], char* const envp[]))
+PEXPAND_SYSCALL(PSysRetPair,    __, getpid,         (void))
+PEXPAND_SYSCALL(PErrorCode,     __, kill,           (pid_t pid, int sig))
 PEXPAND_SYSCALL(__attribute__((noreturn)) void, _, exit, (int exitCode))
-PEXPAND_SYSCALL(PErrorCode,     __, sysconf,    (int name, long* outValue))
-PEXPAND_SYSCALL(PErrorCode,     __, reboot,     (BootMode bootMode))
+PEXPAND_SYSCALL(PErrorCode,     __, sysconf,        (int name, long* outValue))
+PEXPAND_SYSCALL(PErrorCode,     __, reboot,         (BootMode bootMode))
 
 /*
  * Handle object functions
@@ -240,3 +243,5 @@ PEXPAND_SYSCALL(PErrorCode, , system_log_add_message,                   (uint32_
 
 PEXPAND_SYSCALL(PErrorCode, , add_serial_command_handler,               (uint32_t command, port_id messagePortID))
 PEXPAND_SYSCALL(PErrorCode, , serial_command_send_data,                 (void* header, size_t headerSize, const void* data, size_t dataSize))
+
+PEXPAND_SYSCALL(void,       , sigreturn,                                (uint8_t* stackPtr))

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Kurt Skauen. All rights reserved.
+ * Copyright (C) 2025-2026 Kurt Skauen. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -19,6 +19,7 @@
 #pragma once
 
 #include <errno.h>
+#include <string.h>
 
 #ifdef __cplusplus
 #define PCREAT_ERROR_CODE(NAME, ERRORCODE) NAME = ERRORCODE
@@ -43,6 +44,7 @@ typedef enum
     PCREAT_ERROR_CODE(WouldBlock,           EWOULDBLOCK),
     PCREAT_ERROR_CODE(Exist,                EEXIST),
     PCREAT_ERROR_CODE(NoEntry,              ENOENT),
+    PCREAT_ERROR_CODE(NoSuchProcess,        ESRCH),
     PCREAT_ERROR_CODE(Overflow,             EOVERFLOW),
     PCREAT_ERROR_CODE(BadFile,              EBADF),
     PCREAT_ERROR_CODE(IsDirectory,          EISDIR),
@@ -59,6 +61,8 @@ typedef enum
     PCREAT_ERROR_CODE(ConnectionRefused,    ECONNREFUSED),
     PCREAT_ERROR_CODE(NameTooLong,          ENAMETOOLONG),
     PCREAT_ERROR_CODE(ReadOnlyFilesystem,   EROFS),
+
+    PCREAT_ERROR_CODE(RestartSyscall,       __ELASTERROR + 1),
     PCREAT_ERROR_CODE(_SIZEEXTEND,          0x7fffffff)
 }
 #ifdef __cplusplus
@@ -66,5 +70,7 @@ typedef enum
 #else
 PErrorCode;
 #endif
+
+inline const char* p_strerror(PErrorCode error) { return strerror((int)error); }
 
 #undef PCREAT_ERROR_CODE

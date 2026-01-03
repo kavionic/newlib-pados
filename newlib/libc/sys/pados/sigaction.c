@@ -16,27 +16,14 @@
  * limitations under the License.
  */
 
-#pragma once
-
+#include <unistd.h>
 #include <stdint.h>
-#include <sys/pados_types.h>
-#include <sys/pados_error_codes.h>
-#include <sys/pados_threads.h>
+#include <errno.h>
 
-typedef struct PThreadControlBlock
+#include <sys/pados_syscalls.h>
+#include <PadOS/SyscallReturns.h>
+
+int sigaction(int sigNum, const struct sigaction* action, struct sigaction* outPrevAction)
 {
-    void* Ptr1;
-    void* Ptr2;
-} PThreadControlBlock;
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-extern PThreadControlBlock* __current_thread_control_block;
-
-PErrorCode thread_spawn(thread_id* outHandle, const PThreadAttribs* attribs, ThreadEntryPoint_t entryPoint, void* arguments);
-
-#ifdef __cplusplus
+    return PErrorCodeUpdateErrno(__sigaction(sigNum, action, outPrevAction));
 }
-#endif

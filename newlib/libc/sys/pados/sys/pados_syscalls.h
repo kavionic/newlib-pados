@@ -27,6 +27,7 @@
 #include <sys/pados_error_codes.h>
 #include <sys/pados_threads.h>
 #include <sys/pados_mutex.h>
+#include <PadOS/Threads.h>
 #include <PadOS/ThreadLocal.h>
 #include <PadOS/ObjectWaitGroup.h>
 #include <PadOS/BootMode.h>
@@ -183,7 +184,11 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_system_log_add_message                      139
 #define SYS_add_serial_command_handler                  140
 #define SYS_serial_command_send_data                    141
-#define SYS_COUNT                                       142
+#define SYS_spawn_execve                                142
+#define SYS_sigaction                                   143
+#define SYS_COUNT                                       144
+#define SYS_sigreturn                                   (SYS_COUNT + 0)
+#define SYS_process_signals                             (SYS_COUNT + 1)
 
 #define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME SIGNATURE;
 
