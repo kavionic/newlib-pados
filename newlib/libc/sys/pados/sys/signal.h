@@ -35,38 +35,112 @@ typedef __sigset_t sigset_t;
     NOTE: P1003.1c/D10, p. 34 adds sigev_notify_function and
           sigev_notify_attributes to the sigevent structure.  */
 
-union sigval
+typedef union sigval
 {
   int    sival_int;    /* Integer signal value */
   void  *sival_ptr;    /* Pointer signal value */
-};
+} sigval_t;
 
-struct sigevent
+typedef struct sigevent
 {
-  int              sigev_notify;               /* Notification type */
-  int              sigev_signo;                /* Signal number */
-  union sigval     sigev_value;                /* Signal value */
+    sigval_t        sigev_value;    /* Signal value */
+    int             sigev_signo;    /* Signal number */
+    int             sigev_notify;   /* Notification type */
+    void          (*sigev_notify_function)(sigval_t); /* Notification function */
+    pthread_attr_t* sigev_notify_attributes; /* Notification attributes */
+} sigevent_t;
 
-  void           (*sigev_notify_function)( union sigval );
-                                               /* Notification function */
-  pthread_attr_t  *sigev_notify_attributes;    /* Notification Attributes */
-};
 
 /* Signal Actions, P1003.1b-1993, p. 64 */
 /* si_code values, p. 66 */
 
-#define SI_USER    1    /* Sent by a user. kill(), abort(), etc */
-#define SI_QUEUE   2    /* Sent by sigqueue() */
-#define SI_TIMER   3    /* Sent by expiration of a timer_settime() timer */
-#define SI_ASYNCIO 4    /* Indicates completion of asycnhronous IO */
-#define SI_MESGQ   5    /* Indicates arrival of a message at an empty queue */
+#define SI_QUEUE    -1      /* Sent by sigqueue. */
+#define SI_TIMER    -2      /* Sent by timer expiration. */
+#define SI_MESGQ    -3      /* Sent by real time mesq state change (currently unimplemented). */
+#define SI_ASYNCIO  -4      /* Sent by AIO completion (currently unimplemented). */
+#define SI_USER     0       /* Sent by kill, raise, pthread_kill. */
+#define SI_KERNEL   0x80    /* Sent by system. */
+
+/* SIGILL */
+#define ILL_ILLOPC  1       /* Illegal opcode. */
+#define ILL_ILLOPN  2       /* Illegal operand. */
+#define ILL_ILLADR  3       /* Illegal addressing mode. */
+#define ILL_ILLTRP  4       /* Illegal trap. */
+#define ILL_PRVOPC  5       /* Privileged opcode. */
+#define ILL_PRVREG  6       /* Privileged register. */
+#define ILL_COPROC  7       /* Co-processor error. */
+#define ILL_BADSTK  8       /* Internal stack error. */
+
+/* SIGFPE */
+#define FPE_INTDIV  1       /* Integer divide by zero. */
+#define FPE_INTOVF  2       /* Integer overflow. */
+#define FPE_FLTDIV  3       /* Floating point divide by zero. */
+#define FPE_FLTOVF  4       /* Floating point overflow. */
+#define FPE_FLTUND  5       /* Floating point underflow. */
+#define FPE_FLTRES  6       /* Floating point inexact result. */
+#define FPE_FLTINV  7       /* Floating point invalid operation. */
+#define FPE_FLTSUB  8       /* Subscript out of range. */
+
+/* SIGSEGV */
+#define SEGV_MAPERR 1       /* Address not mapped to object. */
+#define SEGV_ACCERR 2       /* Invalid permissions for mapped object. */
+
+/* SIGBUS */
+#define BUS_ADRALN  1       /* Invalid address alignment.  */
+#define BUS_ADRERR  2       /* Non-existent physical address.  */
+#define BUS_OBJERR  3       /* Object specific hardware error.  */
+
+/* SIGTRAP */
+#define TRAP_BRKPT  1       /* Process breakpoint. */
+#define TRAP_TRACE  2       /* Process trace trap. */
+
+/* SIGCHLD */
+#define CLD_EXITED      1   /* Child has exited. */
+#define CLD_KILLED      2   /* Child was killed. */
+#define CLD_DUMPED      3   /* Child terminated abnormally. */
+#define CLD_TRAPPED     4   /* Traced child has trapped. */
+#define CLD_STOPPED     5   /* Child has stopped. */
+#define CLD_CONTINUED   6   /* Stopped child has continued. */
+
+
+#define __SI_PAD_SIZE 31
 
 typedef struct
 {
-  int          si_signo;    /* Signal number */
-  int          si_code;     /* Cause of the signal */
-  union sigval si_value;    /* Signal value */
+    int     si_signo;   /* Signal number. */
+    int     si_code;    /* Signal code. */
+    pid_t   si_pid;     /* Sender's pid. */
+    uid_t   si_uid;     /* Sender's uid. */
+    int     si_errno;   /* The errno associated with signal. */
+
+    __extension__ union
+    {
+        __uint32_t __pad[__SI_PAD_SIZE];    /* Make total size divisible by 8 and give some room for future growth. */
+        __extension__ struct
+        {
+            __extension__ union
+            {
+                sigval_t si_sigval; /* Signal value. */
+                sigval_t si_value;  /* Signal value. */
+            };
+            __extension__ struct
+            {
+                timer_t si_tid;             /* Timer id. */
+                unsigned int si_overrun;    /* Overrun count. */
+            };
+        };
+        /* SIGCHLD */
+        __extension__ struct
+        {
+            int si_status;      /* Exit code. */
+            clock_t si_utime;   /* User time. */
+            clock_t si_stime;   /* System time. */
+        };
+
+        void* si_addr;  /* Faulting address for terminating signals. */
+    };
 } siginfo_t;
+
 
 
 #define SA_NOCLDSTOP 1              /* Do not generate SIGCHLD when children stop */
