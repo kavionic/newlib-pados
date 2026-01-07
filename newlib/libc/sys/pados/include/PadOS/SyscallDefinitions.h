@@ -109,8 +109,13 @@ PEXPAND_SYSCALL(PErrorCode,   , get_next_thread_info,   (ThreadInfo* info))
 PEXPAND_SYSCALL(PErrorCode,   , snooze_ns,              (bigtime_t delayNanos))
 PEXPAND_SYSCALL(PErrorCode,   , snooze_until_ns,        (bigtime_t resumeTimeNanos))
 PEXPAND_SYSCALL(PErrorCode,   , yield,                  ())
-PEXPAND_SYSCALL(PErrorCode,   , thread_kill,            (pid_t pid, int sig))
+PEXPAND_SYSCALL(PErrorCode, __, raise,                  (int sigNum))
+PEXPAND_SYSCALL(PErrorCode,   , thread_kill,            (thread_id threadID, int signo))
+PEXPAND_SYSCALL(PErrorCode,   , thread_sigqueue,        (thread_id threadID, int signo, union sigval value))
 PEXPAND_SYSCALL(PErrorCode, __, sigaction,              (int sigNum, const struct sigaction* action, struct sigaction* outPrevAction))
+PEXPAND_SYSCALL(PSysRetPair,__, signal,                 (int sigNum, _sig_func_ptr handler))
+PEXPAND_SYSCALL(PErrorCode, __, sigsuspend,             (const sigset_t* sigmask))
+PEXPAND_SYSCALL(PErrorCode,   , thread_sigmask,         (int how, const sigset_t* newSet, sigset_t* outOldSet))
 
 /*
  * Process functions

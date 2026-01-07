@@ -41,6 +41,7 @@ libc_a_SOURCES += \
 	%D%/posix_getdents.c \
 	%D%/pread.c \
 	%D%/pwrite.c \
+	%D%/raise.c \
 	%D%/readlink.c \
 	%D%/readlinkat.c \
 	%D%/read.c \
@@ -62,6 +63,8 @@ libc_a_SOURCES += \
 	%D%/sem_unlink.c \
 	%D%/sem_wait.c \
 	%D%/sigaction.c \
+	%D%/signal.c \
+	%D%/sigsuspend.c \
 	%D%/sleep.c \
 	%D%/stat.c \
 	%D%/stubs.c \

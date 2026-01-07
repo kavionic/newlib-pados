@@ -186,7 +186,13 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_serial_command_send_data                    141
 #define SYS_spawn_execve                                142
 #define SYS_sigaction                                   143
-#define SYS_COUNT                                       144
+#define SYS_thread_sigqueue                             144
+#define SYS_thread_sigmask                              145
+#define SYS_raise                                       146
+#define SYS_signal                                      147
+#define SYS_sigsuspend                                  148
+#define SYS_COUNT                                       149
+// Syscalls process in the exception handler. Not present in the syscall table.
 #define SYS_sigreturn                                   (SYS_COUNT + 0)
 #define SYS_process_signals                             (SYS_COUNT + 1)
 
