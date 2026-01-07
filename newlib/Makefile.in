@@ -628,6 +628,7 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/posix_getdents.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/pread.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/pwrite.c \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/raise.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/readlink.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/readlinkat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/read.c \
@@ -649,6 +650,8 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sem_unlink.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sem_wait.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sigaction.c \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/signal.c \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sigsuspend.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sleep.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/stat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/stubs.c \
@@ -1854,6 +1857,7 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-posix_getdents.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-pread.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-pwrite.$(OBJEXT) \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-raise.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-readlink.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-readlinkat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-read.$(OBJEXT) \
@@ -1875,6 +1879,8 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sem_unlink.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sem_wait.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sigaction.$(OBJEXT) \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-signal.$(OBJEXT) \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sigsuspend.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sleep.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-stat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-stubs.$(OBJEXT) \
@@ -7810,6 +7816,8 @@ libc/sys/pados/libc_a-pread.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 libc/sys/pados/libc_a-pwrite.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
+libc/sys/pados/libc_a-raise.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
+	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-readlink.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
@@ -7867,6 +7875,12 @@ libc/sys/pados/libc_a-sem_wait.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-sigaction.$(OBJEXT):  \
+	libc/sys/pados/$(am__dirstamp) \
+	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
+libc/sys/pados/libc_a-signal.$(OBJEXT):  \
+	libc/sys/pados/$(am__dirstamp) \
+	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
+libc/sys/pados/libc_a-sigsuspend.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-sleep.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
@@ -14436,6 +14450,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-posix_getdents.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-pread.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-pwrite.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-raise.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-read.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-readlink.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-readlinkat.Po@am__quote@
@@ -14457,6 +14472,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sem_unlink.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sem_wait.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sigaction.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-signal.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sleep.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-stat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-stubs.Po@am__quote@
@@ -32873,6 +32890,20 @@ libc/sys/pados/libc_a-pwrite.obj: libc/sys/pados/pwrite.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-pwrite.obj `if test -f 'libc/sys/pados/pwrite.c'; then $(CYGPATH_W) 'libc/sys/pados/pwrite.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/pwrite.c'; fi`
 
+libc/sys/pados/libc_a-raise.o: libc/sys/pados/raise.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-raise.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-raise.Tpo -c -o libc/sys/pados/libc_a-raise.o `test -f 'libc/sys/pados/raise.c' || echo '$(srcdir)/'`libc/sys/pados/raise.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-raise.Tpo libc/sys/pados/$(DEPDIR)/libc_a-raise.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/raise.c' object='libc/sys/pados/libc_a-raise.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-raise.o `test -f 'libc/sys/pados/raise.c' || echo '$(srcdir)/'`libc/sys/pados/raise.c
+
+libc/sys/pados/libc_a-raise.obj: libc/sys/pados/raise.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-raise.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-raise.Tpo -c -o libc/sys/pados/libc_a-raise.obj `if test -f 'libc/sys/pados/raise.c'; then $(CYGPATH_W) 'libc/sys/pados/raise.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/raise.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-raise.Tpo libc/sys/pados/$(DEPDIR)/libc_a-raise.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/raise.c' object='libc/sys/pados/libc_a-raise.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-raise.obj `if test -f 'libc/sys/pados/raise.c'; then $(CYGPATH_W) 'libc/sys/pados/raise.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/raise.c'; fi`
+
 libc/sys/pados/libc_a-readlink.o: libc/sys/pados/readlink.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-readlink.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-readlink.Tpo -c -o libc/sys/pados/libc_a-readlink.o `test -f 'libc/sys/pados/readlink.c' || echo '$(srcdir)/'`libc/sys/pados/readlink.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-readlink.Tpo libc/sys/pados/$(DEPDIR)/libc_a-readlink.Po
@@ -33166,6 +33197,34 @@ libc/sys/pados/libc_a-sigaction.obj: libc/sys/pados/sigaction.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/sigaction.c' object='libc/sys/pados/libc_a-sigaction.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sigaction.obj `if test -f 'libc/sys/pados/sigaction.c'; then $(CYGPATH_W) 'libc/sys/pados/sigaction.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sigaction.c'; fi`
+
+libc/sys/pados/libc_a-signal.o: libc/sys/pados/signal.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-signal.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-signal.Tpo -c -o libc/sys/pados/libc_a-signal.o `test -f 'libc/sys/pados/signal.c' || echo '$(srcdir)/'`libc/sys/pados/signal.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-signal.Tpo libc/sys/pados/$(DEPDIR)/libc_a-signal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/signal.c' object='libc/sys/pados/libc_a-signal.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-signal.o `test -f 'libc/sys/pados/signal.c' || echo '$(srcdir)/'`libc/sys/pados/signal.c
+
+libc/sys/pados/libc_a-signal.obj: libc/sys/pados/signal.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-signal.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-signal.Tpo -c -o libc/sys/pados/libc_a-signal.obj `if test -f 'libc/sys/pados/signal.c'; then $(CYGPATH_W) 'libc/sys/pados/signal.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/signal.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-signal.Tpo libc/sys/pados/$(DEPDIR)/libc_a-signal.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/signal.c' object='libc/sys/pados/libc_a-signal.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-signal.obj `if test -f 'libc/sys/pados/signal.c'; then $(CYGPATH_W) 'libc/sys/pados/signal.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/signal.c'; fi`
+
+libc/sys/pados/libc_a-sigsuspend.o: libc/sys/pados/sigsuspend.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-sigsuspend.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Tpo -c -o libc/sys/pados/libc_a-sigsuspend.o `test -f 'libc/sys/pados/sigsuspend.c' || echo '$(srcdir)/'`libc/sys/pados/sigsuspend.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Tpo libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/sigsuspend.c' object='libc/sys/pados/libc_a-sigsuspend.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sigsuspend.o `test -f 'libc/sys/pados/sigsuspend.c' || echo '$(srcdir)/'`libc/sys/pados/sigsuspend.c
+
+libc/sys/pados/libc_a-sigsuspend.obj: libc/sys/pados/sigsuspend.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-sigsuspend.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Tpo -c -o libc/sys/pados/libc_a-sigsuspend.obj `if test -f 'libc/sys/pados/sigsuspend.c'; then $(CYGPATH_W) 'libc/sys/pados/sigsuspend.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sigsuspend.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Tpo libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/sigsuspend.c' object='libc/sys/pados/libc_a-sigsuspend.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sigsuspend.obj `if test -f 'libc/sys/pados/sigsuspend.c'; then $(CYGPATH_W) 'libc/sys/pados/sigsuspend.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sigsuspend.c'; fi`
 
 libc/sys/pados/libc_a-sleep.o: libc/sys/pados/sleep.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-sleep.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-sleep.Tpo -c -o libc/sys/pados/libc_a-sleep.o `test -f 'libc/sys/pados/sleep.c' || echo '$(srcdir)/'`libc/sys/pados/sleep.c
