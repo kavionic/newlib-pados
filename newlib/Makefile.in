@@ -602,6 +602,7 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fchmodat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fcntl.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fstat.c \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fstatat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/ftruncate.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/futimens.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/getcwd.c \
@@ -1831,6 +1832,7 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fchmodat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fcntl.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fstat.$(OBJEXT) \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fstatat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-ftruncate.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-futimens.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-getcwd.$(OBJEXT) \
@@ -7744,6 +7746,9 @@ libc/sys/pados/libc_a-fchmodat.$(OBJEXT):  \
 libc/sys/pados/libc_a-fcntl.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-fstat.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
+	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
+libc/sys/pados/libc_a-fstatat.$(OBJEXT):  \
+	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-ftruncate.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
@@ -14424,6 +14429,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fchmodat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fcntl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fstat.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-ftruncate.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-futimens.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-get_clock_time_hires_ns.Po@am__quote@
@@ -32525,6 +32531,20 @@ libc/sys/pados/libc_a-fstat.obj: libc/sys/pados/fstat.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/fstat.c' object='libc/sys/pados/libc_a-fstat.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-fstat.obj `if test -f 'libc/sys/pados/fstat.c'; then $(CYGPATH_W) 'libc/sys/pados/fstat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/fstat.c'; fi`
+
+libc/sys/pados/libc_a-fstatat.o: libc/sys/pados/fstatat.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-fstatat.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Tpo -c -o libc/sys/pados/libc_a-fstatat.o `test -f 'libc/sys/pados/fstatat.c' || echo '$(srcdir)/'`libc/sys/pados/fstatat.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Tpo libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/fstatat.c' object='libc/sys/pados/libc_a-fstatat.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-fstatat.o `test -f 'libc/sys/pados/fstatat.c' || echo '$(srcdir)/'`libc/sys/pados/fstatat.c
+
+libc/sys/pados/libc_a-fstatat.obj: libc/sys/pados/fstatat.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-fstatat.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Tpo -c -o libc/sys/pados/libc_a-fstatat.obj `if test -f 'libc/sys/pados/fstatat.c'; then $(CYGPATH_W) 'libc/sys/pados/fstatat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/fstatat.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Tpo libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/fstatat.c' object='libc/sys/pados/libc_a-fstatat.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-fstatat.obj `if test -f 'libc/sys/pados/fstatat.c'; then $(CYGPATH_W) 'libc/sys/pados/fstatat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/fstatat.c'; fi`
 
 libc/sys/pados/libc_a-ftruncate.o: libc/sys/pados/ftruncate.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-ftruncate.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-ftruncate.Tpo -c -o libc/sys/pados/libc_a-ftruncate.o `test -f 'libc/sys/pados/ftruncate.c' || echo '$(srcdir)/'`libc/sys/pados/ftruncate.c
