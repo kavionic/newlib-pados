@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Kurt Skauen. All rights reserved.
+ * Copyright (C) 2026 Kurt Skauen. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -17,16 +17,24 @@
  */
 
 #include <unistd.h>
-#include <stdint.h>
-#include <time.h>
-#include <errno.h>
+#include <fcntl.h>
+#include <sys/types.h>
 #include <sys/stat.h>
+
 #include "sys/pados_syscalls.h"
-#include <sched.h>
 
-
-__attribute__((weak)) void* __aeabi_read_tp(void) { return NULL; }
-__attribute__((weak)) void _start(void);
-__attribute__((weak)) void* _sbrk(ptrdiff_t nbytes) { return nullptr; }
-
-int __attribute__((weak)) pthread_setcancelstate(int state, int* oldstate) { return -1;  }
+int fstatat(int dirfd, const char* restrict path, struct stat* restrict statBuf, int flag)
+{
+    int openFlags = O_PATH;
+    if (flag & AT_SYMLINK_NOFOLLOW) {
+        openFlags |= O_NOFOLLOW;
+    }
+    const int fd = openat(dirfd, path, openFlags, 0);
+    if (fd != -1)
+    {
+        int result = fstat(fd, statBuf);
+        close(fd);
+        return result;
+    }
+    return -1;
+}

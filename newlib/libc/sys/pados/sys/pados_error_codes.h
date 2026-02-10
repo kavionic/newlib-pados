@@ -33,6 +33,7 @@ typedef enum
     PCREAT_ERROR_CODE(NoMemory,             ENOMEM),
     PCREAT_ERROR_CODE(NotImplemented,       ENOSYS),
     PCREAT_ERROR_CODE(InvalidArg,           EINVAL),
+    PCREAT_ERROR_CODE(MFILE,                EMFILE),
     PCREAT_ERROR_CODE(InvalidFileType,      EFTYPE),
     PCREAT_ERROR_CODE(Range,                ERANGE),
     PCREAT_ERROR_CODE(Fault,                EFAULT),
@@ -60,6 +61,7 @@ typedef enum
     PCREAT_ERROR_CODE(BrokenPipe,           EPIPE),
     PCREAT_ERROR_CODE(ConnectionRefused,    ECONNREFUSED),
     PCREAT_ERROR_CODE(NameTooLong,          ENAMETOOLONG),
+    PCREAT_ERROR_CODE(LOOP,                 ELOOP),
     PCREAT_ERROR_CODE(ReadOnlyFilesystem,   EROFS),
 
     PCREAT_ERROR_CODE(RestartSyscall,       __ELASTERROR + 1),

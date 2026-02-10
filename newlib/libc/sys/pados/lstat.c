@@ -25,7 +25,7 @@
 
 int lstat(const char* path, struct stat* statbuf)
 {
-    int fd = open(path, O_RDONLY | O_NOFOLLOW, 0);
+    int fd = open(path, O_PATH | O_NOFOLLOW, 0);
     if (fd != -1)
     {
         int result = fstat(fd, statbuf);

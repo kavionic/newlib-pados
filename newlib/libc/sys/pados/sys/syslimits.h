@@ -46,7 +46,7 @@
 //#define	SIGQUEUE_MAX /* Maximum number of queued signals that a process may send and have pending at the receiver(s) at any time. */
 //#define	SS_REPL_MAX /* The maximum number of replenishment operations that may be simultaneously pending for a particular sporadic server scheduler. */
 //#define	STREAM_MAX /* The number of streams that one process can have open at one time.If defined, it has the same value as FOPEN_MAX (see <stdio.h>). */
-//#define	SYMLOOP_MAX /* Maximum number of symbolic links that can be reliably traversed in the resolution of a pathname in the absence of a loop. */
+#define	SYMLOOP_MAX     40  /* Maximum number of symbolic links that can be reliably traversed in the resolution of a pathname in the absence of a loop. */
 //#define	TIMER_MAX /* Maximum number of timers per process supported by the implementation. */
 //#define	TRACE_EVENT_NAME_MAX /* Maximum length of the trace event name. */
 //#define	TRACE_NAME_MAX /* Maximum length of the trace generation version string or of the trace stream name. */

@@ -70,6 +70,8 @@ static const uint32_t WFSSTAT_NAME = 0x0001;
 
 static const uint32_t  FSINFO_VERSION = 1;
 
+typedef struct stat stat_t;
+
 #if defined(__cplusplus) && __cplusplus >= 201103L
 
 enum class PLogSeverity : uint8_t;

@@ -15,6 +15,7 @@ libc_a_SOURCES += \
 	%D%/fchmodat.c \
 	%D%/fcntl.c \
 	%D%/fstat.c \
+	%D%/fstatat.c \
 	%D%/ftruncate.c \
 	%D%/futimens.c \
 	%D%/getcwd.c \

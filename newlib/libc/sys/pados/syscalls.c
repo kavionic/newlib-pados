@@ -33,3 +33,5 @@
   }
 
 #include <PadOS/SyscallDefinitions.h>
+
+#undef PEXPAND_SYSCALL
