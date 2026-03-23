@@ -23,7 +23,7 @@
 #include <sys/pados_syscalls.h>
 #include <PadOS/SyscallReturns.h>
 
-_sig_func_ptr _signal_r(struct _reent* ptr, int sigNum, _sig_func_ptr func)
+_sig_func_ptr signal(int sigNum, _sig_func_ptr func)
 {
     const PSysRetPair result = __signal(sigNum, func);
     if (PSysRetResult(result) == PErrorCode_Success)

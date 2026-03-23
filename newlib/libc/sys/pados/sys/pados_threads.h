@@ -21,6 +21,7 @@
 #include <sys/pados_types.h>
 
 typedef void* (*ThreadEntryPoint_t)(void*);
+typedef void  (*ThreadEntryTrampoline_t)(ThreadEntryPoint_t, void*);
 
 
 typedef enum

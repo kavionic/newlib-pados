@@ -36,6 +36,7 @@ extern "C" {
 extern PThreadControlBlock* __current_thread_control_block;
 
 PErrorCode thread_spawn(thread_id* outHandle, const PThreadAttribs* attribs, ThreadEntryPoint_t entryPoint, void* arguments);
+void thread_exit(void* returnValue);
 
 #ifdef __cplusplus
 }

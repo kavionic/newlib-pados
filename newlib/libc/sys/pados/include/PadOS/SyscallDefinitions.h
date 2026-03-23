@@ -16,6 +16,8 @@
  * limitations under the License.
  */
 
+struct PThreadUserData;
+
 #ifdef __cplusplus
 enum class ObjectWaitMode : int;
 enum class DigitalPinID : uint32_t;
@@ -97,8 +99,8 @@ PEXPAND_SYSCALL(PErrorCode,     __, set_clock_resolution_ns,    (clockid_t clock
  */
 
 PEXPAND_SYSCALL(PErrorCode,   , thread_attribs_init,    (PThreadAttribs* attribs))
-PEXPAND_SYSCALL(PErrorCode, __, thread_spawn,           (thread_id* outHandle, const PThreadAttribs* attribs, PThreadControlBlock* tlsBlock, ThreadEntryPoint_t entryPoint, void* arguments))
-PEXPAND_SYSCALL(__attribute__((noreturn)) void, , thread_exit, (void* returnValue))
+PEXPAND_SYSCALL(PErrorCode, __, thread_spawn,           (thread_id* outHandle, const PThreadAttribs* attribs, PThreadUserData* threadData, ThreadEntryTrampoline_t entryTrampoline, ThreadEntryPoint_t entryPoint, void* arguments))
+PEXPAND_SYSCALL(__attribute__((noreturn)) void, , thread_terminate, (void* returnValue))
 PEXPAND_SYSCALL(PErrorCode,   , thread_detach,          (thread_id handle))
 PEXPAND_SYSCALL(PErrorCode,   , thread_join,            (thread_id handle, void** outReturnValue))
 PEXPAND_SYSCALL(thread_id,    , get_thread_id,          ())
@@ -109,6 +111,23 @@ PEXPAND_SYSCALL(PErrorCode,   , get_next_thread_info,   (ThreadInfo* info))
 PEXPAND_SYSCALL(PErrorCode,   , snooze_ns,              (bigtime_t delayNanos))
 PEXPAND_SYSCALL(PErrorCode,   , snooze_until_ns,        (bigtime_t resumeTimeNanos))
 PEXPAND_SYSCALL(PErrorCode,   , yield,                  ())
+
+/*
+ * Process functions
+ */
+
+
+PEXPAND_SYSCALL(PErrorCode,     __, spawn_execve,   (pid_t* outPID, ThreadEntryTrampoline_t entryTrampoline, const char* name, int priority, PThreadUserData* threadData, char* const argv[], char* const envp[]))
+PEXPAND_SYSCALL(PSysRetPair,    __, getpid,         (void))
+PEXPAND_SYSCALL(__attribute__((noreturn)) void, _, exit, (int exitCode))
+PEXPAND_SYSCALL(PErrorCode,     __, sysconf,        (int name, long* outValue))
+PEXPAND_SYSCALL(PErrorCode,     __, reboot,         (BootMode bootMode))
+
+/*
+ * Signal functions
+ */
+
+PEXPAND_SYSCALL(PErrorCode, __, kill,                   (pid_t pid, int sig))
 PEXPAND_SYSCALL(PErrorCode, __, raise,                  (int sigNum))
 PEXPAND_SYSCALL(PErrorCode,   , thread_kill,            (thread_id threadID, int signo))
 PEXPAND_SYSCALL(PErrorCode,   , thread_sigqueue,        (thread_id threadID, int signo, union sigval value))
@@ -116,18 +135,6 @@ PEXPAND_SYSCALL(PErrorCode, __, sigaction,              (int sigNum, const struc
 PEXPAND_SYSCALL(PSysRetPair,__, signal,                 (int sigNum, _sig_func_ptr handler))
 PEXPAND_SYSCALL(PErrorCode, __, sigsuspend,             (const sigset_t* sigmask))
 PEXPAND_SYSCALL(PErrorCode,   , thread_sigmask,         (int how, const sigset_t* newSet, sigset_t* outOldSet))
-
-/*
- * Process functions
- */
-
-
-PEXPAND_SYSCALL(PErrorCode,     __, spawn_execve,   (const char* name, int priority, PThreadControlBlock* tlsBlock, char* const argv[], char* const envp[]))
-PEXPAND_SYSCALL(PSysRetPair,    __, getpid,         (void))
-PEXPAND_SYSCALL(PErrorCode,     __, kill,           (pid_t pid, int sig))
-PEXPAND_SYSCALL(__attribute__((noreturn)) void, _, exit, (int exitCode))
-PEXPAND_SYSCALL(PErrorCode,     __, sysconf,        (int name, long* outValue))
-PEXPAND_SYSCALL(PErrorCode,     __, reboot,         (BootMode bootMode))
 
 /*
  * Handle object functions

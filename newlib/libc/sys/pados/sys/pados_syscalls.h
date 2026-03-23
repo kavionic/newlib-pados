@@ -89,7 +89,7 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_set_clock_resolution_ns                     44 
 #define SYS_thread_attribs_init                         45 
 #define SYS_thread_spawn                                46 
-#define SYS_thread_exit                                 47 
+#define SYS_thread_terminate                            47 
 #define SYS_thread_detach                               48 
 #define SYS_thread_join                                 49 
 #define SYS_get_thread_id                               50 
@@ -195,6 +195,7 @@ static_assert(sizeof(PSysRetPair) == 8);
 // Syscalls process in the exception handler. Not present in the syscall table.
 #define SYS_sigreturn                                   (SYS_COUNT + 0)
 #define SYS_process_signals                             (SYS_COUNT + 1)
+#define SYS_thread_exit                                 (SYS_COUNT + 2)
 
 #define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME SIGNATURE;
 
