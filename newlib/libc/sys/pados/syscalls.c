@@ -20,16 +20,19 @@
 #include <stdint.h>
 #include <time.h>
 #include <errno.h>
+#include <assert.h>
 #include <sys/stat.h>
 #include "sys/pados_syscalls.h"
 #include <sched.h>
 
 #define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) \
-  __attribute__((naked)) RETTYPE FPREFIX##FNAME SIGNATURE { \
-    __asm volatile ( \
-        "ldr r12, =%0                           \n" \
-        "svc 0                                  \n" \
-        :: "i"(SYS_##FNAME) : "r12", "memory", "cc");                 \
+  __attribute__((weak)) RETTYPE FPREFIX##FNAME SIGNATURE { \
+    assert(!"syscall stub called"); \
+  }
+
+#define PEXPAND_SYSCALL2(EPILOGUE, RETTYPE, FPREFIX, FNAME, SIGNATURE) \
+  __attribute__((weak)) RETTYPE FPREFIX##FNAME(PDECL_LIST(SIGNATURE)) { \
+    assert(!"syscall stub called"); \
   }
 
 #include <PadOS/SyscallDefinitions.h>

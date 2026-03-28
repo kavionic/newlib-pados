@@ -99,25 +99,45 @@ PEXPAND_SYSCALL(PErrorCode,     __, set_clock_resolution_ns,    (clockid_t clock
  */
 
 PEXPAND_SYSCALL(PErrorCode,   , thread_attribs_init,    (PThreadAttribs* attribs))
-PEXPAND_SYSCALL(PErrorCode, __, thread_spawn,           (thread_id* outHandle, const PThreadAttribs* attribs, PThreadUserData* threadData, ThreadEntryTrampoline_t entryTrampoline, ThreadEntryPoint_t entryPoint, void* arguments))
+PEXPAND_SYSCALL(PErrorCode, __, thread_spawn,           (thread_id* outHandle, const PThreadAttribs* attribs, struct PThreadUserData* threadData, ThreadEntryTrampoline_t entryTrampoline, ThreadEntryPoint_t entryPoint, void* arguments))
 PEXPAND_SYSCALL(__attribute__((noreturn)) void, , thread_terminate, (void* returnValue))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_passthrough, PErrorCode,   , thread_cancel,
+    PARGS1((pid_t, threadID)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_passthrough, PErrorCode,   , thread_setcancelstate,
+    PARGS2((PThreadCancelState, state), (PThreadCancelState*, outOldState)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_passthrough, PErrorCode, , thread_setcanceltype,
+    PARGS2((PThreadCancelType, type), (PThreadCancelType*, outOldType)))
+
 PEXPAND_SYSCALL(PErrorCode,   , thread_detach,          (thread_id handle))
 PEXPAND_SYSCALL(PErrorCode,   , thread_join,            (thread_id handle, void** outReturnValue))
-PEXPAND_SYSCALL(thread_id,    , get_thread_id,          ())
+PEXPAND_SYSCALL(thread_id,  __, get_thread_id,          ())
 PEXPAND_SYSCALL(PErrorCode,   , thread_set_priority,    (thread_id handle, int priority))
 PEXPAND_SYSCALL(PErrorCode,   , thread_get_priority,    (thread_id handle, int* outPriority))
-PEXPAND_SYSCALL(PErrorCode,   , get_thread_info,        (handle_id handle, ThreadInfo* info))
-PEXPAND_SYSCALL(PErrorCode,   , get_next_thread_info,   (ThreadInfo* info))
-PEXPAND_SYSCALL(PErrorCode,   , snooze_ns,              (bigtime_t delayNanos))
-PEXPAND_SYSCALL(PErrorCode,   , snooze_until_ns,        (bigtime_t resumeTimeNanos))
-PEXPAND_SYSCALL(PErrorCode,   , yield,                  ())
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt, PErrorCode,   , get_thread_info,
+    PARGS2((handle_id, handle), (ThreadInfo*, info)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt, PErrorCode,   , get_next_thread_info,
+    PARGS1((ThreadInfo*, info)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt, PErrorCode,   , snooze_ns,
+    PARGS1((bigtime_t, delayNanos)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt, PErrorCode,   , snooze_until_ns,
+    PARGS1((bigtime_t, resumeTimeNanos)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt, PErrorCode,   , yield,
+    PARGS0())
 
 /*
  * Process functions
  */
 
 
-PEXPAND_SYSCALL(PErrorCode,     __, spawn_execve,   (pid_t* outPID, ThreadEntryTrampoline_t entryTrampoline, const char* name, int priority, PThreadUserData* threadData, char* const argv[], char* const envp[]))
+PEXPAND_SYSCALL(PErrorCode,     __, spawn_execve,   (pid_t* outPID, ThreadEntryTrampoline_t entryTrampoline, const char* name, int priority, struct PThreadUserData* threadData, char* const argv[], char* const envp[]))
 PEXPAND_SYSCALL(PSysRetPair,    __, getpid,         (void))
 PEXPAND_SYSCALL(__attribute__((noreturn)) void, _, exit, (int exitCode))
 PEXPAND_SYSCALL(PErrorCode,     __, sysconf,        (int name, long* outValue))
@@ -184,14 +204,29 @@ PEXPAND_SYSCALL(PErrorCode, , mutex_islocked,                   (sem_id handle))
  * Condition variable functions
  */
 
-PEXPAND_SYSCALL(PErrorCode, , condition_var_create,             (handle_id* outHandle, const char* name, clockid_t clockID))
-PEXPAND_SYSCALL(PErrorCode, , condition_var_delete,             (handle_id handle))
-PEXPAND_SYSCALL(PErrorCode, , condition_var_wait,               (handle_id handle, handle_id mutexHandle))
-PEXPAND_SYSCALL(PErrorCode, , condition_var_wait_timeout_ns,    (handle_id handle, handle_id mutexHandle, bigtime_t timeout))
-PEXPAND_SYSCALL(PErrorCode, , condition_var_wait_deadline_ns,   (handle_id handle, handle_id mutexHandle, bigtime_t deadline))
-PEXPAND_SYSCALL(PErrorCode, , condition_var_wait_clock_ns,      (handle_id handle, handle_id mutexHandle, clockid_t clockID, bigtime_t deadline))
-PEXPAND_SYSCALL(PErrorCode, , condition_var_wakeup,             (handle_id handle, int threadCount))
-PEXPAND_SYSCALL(PErrorCode, , condition_var_wakeup_all,         (handle_id handle))
+PEXPAND_SYSCALL(PErrorCode,     , condition_var_create,             (handle_id* outHandle, const char* name, clockid_t clockID))
+PEXPAND_SYSCALL(PErrorCode,     , condition_var_delete,             (handle_id handle))
+
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt,  PErrorCode,  , condition_var_wait,
+    PARGS2((handle_id, handle), (handle_id, mutexHandle)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt, PErrorCode,   , condition_var_wait_timeout_ns,
+    PARGS3((handle_id, handle), (handle_id, mutexHandle), (bigtime_t, timeout)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt, PErrorCode,   , condition_var_wait_deadline_ns,
+    PARGS3((handle_id, handle), (handle_id, mutexHandle), (bigtime_t, deadline)))
+
+PEXPAND_SYSCALL2(_SYSEPILOGUE_cancelpnt, PErrorCode,   , condition_var_wait_clock_ns,
+    PARGS4((handle_id, handle), (handle_id, mutexHandle), (clockid_t, clockID), (bigtime_t, deadline)))
+
+PEXPAND_SYSCALL(PErrorCode,     , condition_var_wakeup,             (handle_id handle, int threadCount))
+PEXPAND_SYSCALL(PErrorCode,     , condition_var_wakeup_all,         (handle_id handle))
+
+//PErrorCode condition_var_wait(handle_id handle, handle_id mutexHandle);
+//PErrorCode condition_var_wait_timeout_ns(handle_id handle, handle_id mutexHandle, bigtime_t timeout);
+//PErrorCode condition_var_wait_deadline_ns(handle_id handle, handle_id mutexHandle, bigtime_t deadline);
+//PErrorCode condition_var_wait_clock_ns(handle_id handle, handle_id mutexHandle, clockid_t clockID, bigtime_t deadline);
 
 /*
  * Object wait group functions

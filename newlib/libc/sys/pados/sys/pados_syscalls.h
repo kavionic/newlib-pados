@@ -31,6 +31,7 @@
 #include <PadOS/ThreadLocal.h>
 #include <PadOS/ObjectWaitGroup.h>
 #include <PadOS/BootMode.h>
+#include <PadOS/SyscallReturns.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -191,17 +192,22 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_raise                                       146
 #define SYS_signal                                      147
 #define SYS_sigsuspend                                  148
-#define SYS_COUNT                                       149
+#define SYS_thread_cancel                               149
+#define SYS_thread_setcancelstate                       150
+#define SYS_thread_setcanceltype                        151
+#define SYS_COUNT                                       152
 // Syscalls process in the exception handler. Not present in the syscall table.
 #define SYS_sigreturn                                   (SYS_COUNT + 0)
 #define SYS_process_signals                             (SYS_COUNT + 1)
 #define SYS_thread_exit                                 (SYS_COUNT + 2)
 
 #define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME SIGNATURE;
+#define PEXPAND_SYSCALL2(EPILOGUE, RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME(PDECL_LIST(SIGNATURE));
 
 #include <PadOS/SyscallDefinitions.h>
 
 #undef PEXPAND_SYSCALL
+#undef PEXPAND_SYSCALL2
 
 #ifdef __cplusplus
 }

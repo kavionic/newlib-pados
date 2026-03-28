@@ -351,27 +351,32 @@ int pthread_attr_getguardsize(const pthread_attr_t* attr, size_t* guardsize)
 
 int pthread_cancel(pthread_t thread)
 {
-    return ENOSYS;
+    return thread_cancel(thread);
 }
 
 void pthread_testcancel(void)
 {
+    thread_testcancel();
 }
 
-_Thread_local int gt_dummy_pthread_cancelstate = PTHREAD_CANCEL_ENABLE;
-int pthread_setcancelstate(int state, int* oldstate)
+int pthread_setcancelstate(int state, int* outOldState)
 {
-    *oldstate = gt_dummy_pthread_cancelstate;
-    gt_dummy_pthread_cancelstate = state;
-    return 0;
+    PThreadCancelState oldState;
+    const int result = thread_setcancelstate((PThreadCancelState)state, &oldState);
+    if (result == 0 && outOldState != nullptr) {
+        *outOldState = oldState;
+    }
+    return result;
 }
 
-_Thread_local int gt_dummy_pthread_canceltype = PTHREAD_CANCEL_DEFERRED;
-int pthread_setcanceltype(int type, int* oldtype)
+int pthread_setcanceltype(int type, int* outOldType)
 {
-    *oldtype = gt_dummy_pthread_canceltype;
-    gt_dummy_pthread_canceltype = type;
-    return 0;
+    PThreadCancelType oldType;
+    const int result = thread_setcanceltype((PThreadCancelType)type, &oldType);
+    if (result == 0 && outOldType != nullptr) {
+        *outOldType = oldType;
+    }
+    return result;
 }
 
 int pthread_once(pthread_once_t* once_control, void (*init_routine)(void))

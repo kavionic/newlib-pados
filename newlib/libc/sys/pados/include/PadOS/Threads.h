@@ -23,6 +23,18 @@
 #include <sys/pados_error_codes.h>
 #include <sys/pados_threads.h>
 
+typedef enum
+{
+    THREAD_CANCEL_ENABLE,
+    THREAD_CANCEL_DISABLE
+} PThreadCancelState;
+
+typedef enum
+{
+    THREAD_CANCEL_DEFERRED,
+    THREAD_CANCEL_ASYNCHRONOUS
+} PThreadCancelType;
+
 typedef struct PThreadControlBlock
 {
     void* Ptr1;
@@ -35,8 +47,13 @@ extern "C" {
 
 extern PThreadControlBlock* __current_thread_control_block;
 
-PErrorCode thread_spawn(thread_id* outHandle, const PThreadAttribs* attribs, ThreadEntryPoint_t entryPoint, void* arguments);
-void thread_exit(void* returnValue);
+pid_t       get_thread_id();
+PErrorCode  thread_spawn(pid_t* outHandle, const PThreadAttribs* attribs, ThreadEntryPoint_t entryPoint, void* arguments);
+void        thread_exit(void* returnValue);
+PErrorCode  thread_cancel(pid_t threadID);
+void        thread_testcancel(void);
+PErrorCode  thread_setcancelstate(PThreadCancelState state, PThreadCancelState* outOldState);
+PErrorCode  thread_setcanceltype(PThreadCancelType type, PThreadCancelType* outOldType);
 
 #ifdef __cplusplus
 }
