@@ -276,6 +276,8 @@ PEXPAND_SYSCALL(PErrorCode, , digital_pin_write,                (DigitalPinID pi
 
 PEXPAND_SYSCALL(PErrorCode, , write_backup_register,    (size_t registerID, uint32_t value))
 PEXPAND_SYSCALL(PErrorCode, , read_backup_register,     (size_t registerID, uint32_t* outValue))
+PEXPAND_SYSCALL(bool,       , has_nmi_status,            ())
+PEXPAND_SYSCALL(PErrorCode, , log_and_clear_nmi_status,  ())
 
 PEXPAND_SYSCALL(PErrorCode, , beep_seconds,             (float duration))
 

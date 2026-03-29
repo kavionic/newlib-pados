@@ -195,7 +195,9 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_thread_cancel                               149
 #define SYS_thread_setcancelstate                       150
 #define SYS_thread_setcanceltype                        151
-#define SYS_COUNT                                       152
+#define SYS_has_nmi_status                              152
+#define SYS_log_and_clear_nmi_status                    153
+#define SYS_COUNT                                       154
 // Syscalls process in the exception handler. Not present in the syscall table.
 #define SYS_sigreturn                                   (SYS_COUNT + 0)
 #define SYS_process_signals                             (SYS_COUNT + 1)
