@@ -22,9 +22,7 @@
 #include <sys/pados_syscalls.h>
 #include <PadOS/SyscallReturns.h>
 
-#include "reent.h"
-
-int _close_r(struct _reent* reent, int file)
+int _close(int file)
 {
     return PErrorCodeUpdateErrno(__close(file));
 }

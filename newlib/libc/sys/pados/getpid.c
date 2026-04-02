@@ -22,9 +22,7 @@
 #include <sys/pados_syscalls.h>
 #include <PadOS/SyscallReturns.h>
 
-#include "reent.h"
-
-int _getpid_r(struct _reent*)
+int _getpid(void)
 {
     return PSysRetUpdateErrno(__getpid());
 }

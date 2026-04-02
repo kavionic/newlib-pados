@@ -20,11 +20,10 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-int _kill_r(struct _reent* reent, pid_t pid, int sig)
+int _kill(pid_t pid, int sig)
 {
     return PErrorCodeUpdateErrno(__kill(pid, sig));
 }

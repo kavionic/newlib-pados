@@ -20,11 +20,10 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-int _fstat_r(struct _reent* ptr, int fd, struct stat* pstat)
+int _fstat(int fd, struct stat* pstat)
 {
     return PErrorCodeUpdateErrno(__fstat(fd, pstat));
 }

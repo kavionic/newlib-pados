@@ -20,11 +20,10 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-int _isatty_r(struct _reent*, int fd)
+int _isatty(int fd)
 {
     return PErrorCodeUpdateErrno(__isatty(fd));
 }

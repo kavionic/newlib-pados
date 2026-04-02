@@ -20,10 +20,9 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _getentropy_r(struct _reent*, void*, size_t)
+int _getentropy(void* buf, size_t len)
 {
     errno = ENOSYS;
     return -1;

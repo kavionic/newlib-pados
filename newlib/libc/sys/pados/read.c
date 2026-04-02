@@ -20,11 +20,10 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-_ssize_t _read_r(struct _reent* reent, int fd, void* buffer, size_t length)
+_ssize_t _read(int fd, void* buffer, size_t length)
 {
     return PSysRetUpdateErrno(__read(fd, buffer, length));
 }

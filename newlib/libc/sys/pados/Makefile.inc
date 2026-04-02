@@ -50,7 +50,6 @@ libc_a_SOURCES += \
 	%D%/rename.c \
 	%D%/reopen_file.c \
 	%D%/rmdir.c \
-	%D%/sbrk.c \
 	%D%/sched_yield.c \
 	%D%/sem_clockwait.c \
 	%D%/sem_close.c \

@@ -16,12 +16,11 @@
  * limitations under the License.
  */
 
-#include "reent.h"
 #include <stdarg.h>
 #include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-int _open_r(struct _reent* reent, const char* path, int flags, int mode)
+int _open(const char* path, int flags, int mode)
 {
     return PSysRetUpdateErrno(__open(path, flags, mode));
 }

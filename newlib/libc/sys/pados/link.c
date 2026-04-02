@@ -20,10 +20,9 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _link_r(struct _reent*, const char*, const char*)
+int _link(const char* path1, const char* path2)
 {
     errno = ENOSYS;
     return -1;

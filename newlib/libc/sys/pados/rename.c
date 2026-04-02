@@ -20,11 +20,10 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 #include <PadOS/SyscallReturns.h>
 
-int _rename_r(struct _reent*, const char* oldPath, const char* newPath)
+int _rename(const char* oldPath, const char* newPath)
 {
     return PErrorCodeUpdateErrno(__rename(oldPath, newPath));
 }

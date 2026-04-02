@@ -20,11 +20,10 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 
-_CLOCK_T_ _times_r(struct _reent*, struct tms*)
+_CLOCK_T_ _times(struct tms* buf)
 {
-    _REENT_ERRNO(reent) = ENOSYS;
+    errno = ENOSYS;
     return -1;
 }

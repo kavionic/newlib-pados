@@ -20,10 +20,9 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "sys/pados_syscalls.h"
 
-int _fcntl_r(struct _reent*, int fd, int cmd, int arg)
+int _fcntl(int fd, int cmd, int arg)
 {
     int output = 0;
     const PErrorCode result = __fcntl(fd, cmd, arg, &output);
@@ -33,7 +32,7 @@ int _fcntl_r(struct _reent*, int fd, int cmd, int arg)
     }
     else
     {
-        _REENT_ERRNO(reent) = result;
+        errno = result;
         return -1;
     }
 }

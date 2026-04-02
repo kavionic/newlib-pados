@@ -20,10 +20,9 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include "PadOS/Time.h"
 
-int _gettimeofday_r(struct _reent*, struct timeval* time, void* __tzp)
+int _gettimeofday(struct timeval* time, void* __tzp)
 {
     bigtime_t timeNs = get_real_time_ns();
     time->tv_sec = (time_t)(timeNs / 1000000000);

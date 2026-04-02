@@ -20,11 +20,10 @@
 #include <stdint.h>
 #include <errno.h>
 
-#include "reent.h"
 #include <sys/pados_syscalls.h>
 #include <PadOS/SyscallReturns.h>
 
-_ssize_t _write_r(struct _reent* reent, int fd, const void* buffer, size_t length)
+_ssize_t _write(int fd, const void* buffer, size_t length)
 {
     return PSysRetUpdateErrno(__write(fd, buffer, length));
 }
