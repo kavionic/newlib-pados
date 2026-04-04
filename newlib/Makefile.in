@@ -586,56 +586,38 @@ check_PROGRAMS =
 
 @HAVE_LIBC_SYS_OR1K_DIR_TRUE@am__append_53 = libc/sys/or1k/getreent.S libc/sys/or1k/mlock.c
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@am__append_54 = \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/chdir.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/chmod.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/clock_getcpuclockid.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/clock_getres.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/clock_gettime.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/clock_setres.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/clock_settime.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/close.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/crt0.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/dup.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/dup2.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/exit.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fchmod.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fchmodat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fcntl.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fstat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fstatat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/ftruncate.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/futimens.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/getcwd.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/getdents.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/getentropy.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/getpid.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/gettimeofday.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/get_clock_time_hires_ns.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/get_clock_time_ns.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/get_clock_time_offset_ns.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/isatty.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/kill.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/link.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/lseek.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/lstat.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/message_port_receive.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/message_port_receive_deadline_ns.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/message_port_receive_timeout_ns.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/mkdir.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/mkdirat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/nanosleep.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/open.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/openat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/posix_getdents.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/pread.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/pwrite.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/raise.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/readlink.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/readlinkat.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/read.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/readv.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/rename.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/reopen_file.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/rmdir.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sched_yield.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sem_clockwait.c \
@@ -649,11 +631,7 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sem_trywait.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sem_unlink.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sem_wait.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sigaction.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/signal.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sigsuspend.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/sleep.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/stat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/stubs.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/symlink.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/symlinkat.c \
@@ -667,9 +645,7 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/usleep.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/utime.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/utimensat.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/utimes.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/write.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/writev.c
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/utimes.c
 
 @HAVE_LIBC_SYS_RDOS_DIR_TRUE@am__append_55 = \
 @HAVE_LIBC_SYS_RDOS_DIR_TRUE@	libc/sys/rdos/chown.c libc/sys/rdos/close.c libc/sys/rdos/execve.c libc/sys/rdos/fork.c libc/sys/rdos/fstat.c libc/sys/rdos/getenv.c \
@@ -1815,56 +1791,38 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_NETWARE_DIR_TRUE@	libc/sys/netware/libc_a-link.$(OBJEXT)
 @HAVE_LIBC_SYS_OR1K_DIR_TRUE@am__objects_64 = libc/sys/or1k/libc_a-getreent.$(OBJEXT) \
 @HAVE_LIBC_SYS_OR1K_DIR_TRUE@	libc/sys/or1k/libc_a-mlock.$(OBJEXT)
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@am__objects_65 = libc/sys/pados/libc_a-chdir.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-chmod.$(OBJEXT) \
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@am__objects_65 = libc/sys/pados/libc_a-chmod.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-clock_getcpuclockid.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-clock_getres.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-clock_gettime.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-clock_setres.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-clock_settime.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-close.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-crt0.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-dup.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-dup2.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-exit.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fchmod.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fchmodat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fcntl.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fstat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fstatat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-ftruncate.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-futimens.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-getcwd.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-getdents.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-getentropy.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-getpid.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-gettimeofday.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-get_clock_time_hires_ns.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-get_clock_time_ns.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-get_clock_time_offset_ns.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-isatty.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-kill.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-link.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-lseek.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-lstat.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-message_port_receive.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-message_port_receive_deadline_ns.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-message_port_receive_timeout_ns.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-mkdir.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-mkdirat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-nanosleep.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-open.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-openat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-posix_getdents.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-pread.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-pwrite.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-raise.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-readlink.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-readlinkat.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-read.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-readv.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-rename.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-reopen_file.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-rmdir.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sched_yield.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sem_clockwait.$(OBJEXT) \
@@ -1878,11 +1836,7 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sem_trywait.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sem_unlink.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sem_wait.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sigaction.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-signal.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sigsuspend.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-sleep.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-stat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-stubs.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-symlink.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-symlinkat.$(OBJEXT) \
@@ -1896,9 +1850,7 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-usleep.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-utime.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-utimensat.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-utimes.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-write.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-writev.$(OBJEXT)
+@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-utimes.$(OBJEXT)
 @HAVE_LIBC_SYS_RDOS_DIR_TRUE@am__objects_66 = libc/sys/rdos/libc_a-chown.$(OBJEXT) \
 @HAVE_LIBC_SYS_RDOS_DIR_TRUE@	libc/sys/rdos/libc_a-close.$(OBJEXT) \
 @HAVE_LIBC_SYS_RDOS_DIR_TRUE@	libc/sys/rdos/libc_a-execve.$(OBJEXT) \
@@ -7706,8 +7658,6 @@ libc/sys/pados/$(am__dirstamp):
 libc/sys/pados/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) libc/sys/pados/$(DEPDIR)
 	@: > libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-chdir.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-chmod.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-clock_getcpuclockid.$(OBJEXT):  \
@@ -7725,13 +7675,7 @@ libc/sys/pados/libc_a-clock_setres.$(OBJEXT):  \
 libc/sys/pados/libc_a-clock_settime.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-close.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-crt0.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-dup.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-dup2.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-exit.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
@@ -7742,8 +7686,6 @@ libc/sys/pados/libc_a-fchmodat.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-fcntl.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-fstat.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-fstatat.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
@@ -7763,9 +7705,6 @@ libc/sys/pados/libc_a-getdents.$(OBJEXT):  \
 libc/sys/pados/libc_a-getentropy.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-getpid.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-gettimeofday.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
@@ -7778,25 +7717,11 @@ libc/sys/pados/libc_a-get_clock_time_ns.$(OBJEXT):  \
 libc/sys/pados/libc_a-get_clock_time_offset_ns.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-isatty.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-kill.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-link.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-lseek.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-lstat.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-message_port_receive.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-message_port_receive_deadline_ns.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-message_port_receive_timeout_ns.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-mkdir.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
@@ -7814,27 +7739,10 @@ libc/sys/pados/libc_a-openat.$(OBJEXT):  \
 libc/sys/pados/libc_a-posix_getdents.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-pread.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-pwrite.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-raise.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-readlink.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-readlinkat.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-read.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-readv.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-rename.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-reopen_file.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-rmdir.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
@@ -7875,18 +7783,7 @@ libc/sys/pados/libc_a-sem_unlink.$(OBJEXT):  \
 libc/sys/pados/libc_a-sem_wait.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-sigaction.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-signal.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-sigsuspend.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-sleep.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-stat.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-stubs.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
@@ -7925,11 +7822,6 @@ libc/sys/pados/libc_a-utimensat.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-utimes.$(OBJEXT):  \
-	libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-write.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-writev.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/rdos/$(am__dirstamp):
@@ -14409,22 +14301,17 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/netware/$(DEPDIR)/libc_a-link.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/or1k/$(DEPDIR)/libc_a-getreent.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/or1k/$(DEPDIR)/libc_a-mlock.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-chdir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-chmod.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-clock_getcpuclockid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-clock_getres.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-clock_gettime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-clock_setres.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-clock_settime.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-close.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-crt0.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-dup.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-dup2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-exit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fchmod.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fchmodat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fcntl.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fstat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-ftruncate.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-futimens.Po@am__quote@
@@ -14434,31 +14321,18 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-getcwd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-getdents.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-getentropy.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-getpid.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-gettimeofday.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-isatty.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-kill.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-link.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-lseek.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-lstat.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_deadline_ns.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_timeout_ns.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-mkdir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-mkdirat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-nanosleep.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-open.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-openat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-posix_getdents.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-pread.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-pwrite.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-raise.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-read.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-readlink.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-readlinkat.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-readv.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-rename.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-reopen_file.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-rmdir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sched_yield.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sem_clockwait.Po@am__quote@
@@ -14472,11 +14346,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sem_trywait.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sem_unlink.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sem_wait.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sigaction.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-signal.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-sleep.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-stat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-stubs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-symlink.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-symlinkat.Po@am__quote@
@@ -14491,8 +14361,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-utime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-utimensat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-utimes.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-write.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-writev.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/rdos/$(DEPDIR)/libc_a-chown.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/rdos/$(DEPDIR)/libc_a-close.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/rdos/$(DEPDIR)/libc_a-execve.Po@am__quote@
@@ -32303,20 +32171,6 @@ libc/sys/or1k/libc_a-mlock.obj: libc/sys/or1k/mlock.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/or1k/libc_a-mlock.obj `if test -f 'libc/sys/or1k/mlock.c'; then $(CYGPATH_W) 'libc/sys/or1k/mlock.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/or1k/mlock.c'; fi`
 
-libc/sys/pados/libc_a-chdir.o: libc/sys/pados/chdir.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-chdir.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-chdir.Tpo -c -o libc/sys/pados/libc_a-chdir.o `test -f 'libc/sys/pados/chdir.c' || echo '$(srcdir)/'`libc/sys/pados/chdir.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-chdir.Tpo libc/sys/pados/$(DEPDIR)/libc_a-chdir.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/chdir.c' object='libc/sys/pados/libc_a-chdir.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-chdir.o `test -f 'libc/sys/pados/chdir.c' || echo '$(srcdir)/'`libc/sys/pados/chdir.c
-
-libc/sys/pados/libc_a-chdir.obj: libc/sys/pados/chdir.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-chdir.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-chdir.Tpo -c -o libc/sys/pados/libc_a-chdir.obj `if test -f 'libc/sys/pados/chdir.c'; then $(CYGPATH_W) 'libc/sys/pados/chdir.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/chdir.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-chdir.Tpo libc/sys/pados/$(DEPDIR)/libc_a-chdir.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/chdir.c' object='libc/sys/pados/libc_a-chdir.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-chdir.obj `if test -f 'libc/sys/pados/chdir.c'; then $(CYGPATH_W) 'libc/sys/pados/chdir.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/chdir.c'; fi`
-
 libc/sys/pados/libc_a-chmod.o: libc/sys/pados/chmod.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-chmod.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-chmod.Tpo -c -o libc/sys/pados/libc_a-chmod.o `test -f 'libc/sys/pados/chmod.c' || echo '$(srcdir)/'`libc/sys/pados/chmod.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-chmod.Tpo libc/sys/pados/$(DEPDIR)/libc_a-chmod.Po
@@ -32401,20 +32255,6 @@ libc/sys/pados/libc_a-clock_settime.obj: libc/sys/pados/clock_settime.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-clock_settime.obj `if test -f 'libc/sys/pados/clock_settime.c'; then $(CYGPATH_W) 'libc/sys/pados/clock_settime.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/clock_settime.c'; fi`
 
-libc/sys/pados/libc_a-close.o: libc/sys/pados/close.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-close.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-close.Tpo -c -o libc/sys/pados/libc_a-close.o `test -f 'libc/sys/pados/close.c' || echo '$(srcdir)/'`libc/sys/pados/close.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-close.Tpo libc/sys/pados/$(DEPDIR)/libc_a-close.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/close.c' object='libc/sys/pados/libc_a-close.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-close.o `test -f 'libc/sys/pados/close.c' || echo '$(srcdir)/'`libc/sys/pados/close.c
-
-libc/sys/pados/libc_a-close.obj: libc/sys/pados/close.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-close.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-close.Tpo -c -o libc/sys/pados/libc_a-close.obj `if test -f 'libc/sys/pados/close.c'; then $(CYGPATH_W) 'libc/sys/pados/close.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/close.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-close.Tpo libc/sys/pados/$(DEPDIR)/libc_a-close.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/close.c' object='libc/sys/pados/libc_a-close.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-close.obj `if test -f 'libc/sys/pados/close.c'; then $(CYGPATH_W) 'libc/sys/pados/close.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/close.c'; fi`
-
 libc/sys/pados/libc_a-crt0.o: libc/sys/pados/crt0.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-crt0.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-crt0.Tpo -c -o libc/sys/pados/libc_a-crt0.o `test -f 'libc/sys/pados/crt0.c' || echo '$(srcdir)/'`libc/sys/pados/crt0.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-crt0.Tpo libc/sys/pados/$(DEPDIR)/libc_a-crt0.Po
@@ -32428,34 +32268,6 @@ libc/sys/pados/libc_a-crt0.obj: libc/sys/pados/crt0.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/crt0.c' object='libc/sys/pados/libc_a-crt0.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-crt0.obj `if test -f 'libc/sys/pados/crt0.c'; then $(CYGPATH_W) 'libc/sys/pados/crt0.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/crt0.c'; fi`
-
-libc/sys/pados/libc_a-dup.o: libc/sys/pados/dup.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-dup.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-dup.Tpo -c -o libc/sys/pados/libc_a-dup.o `test -f 'libc/sys/pados/dup.c' || echo '$(srcdir)/'`libc/sys/pados/dup.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-dup.Tpo libc/sys/pados/$(DEPDIR)/libc_a-dup.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/dup.c' object='libc/sys/pados/libc_a-dup.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-dup.o `test -f 'libc/sys/pados/dup.c' || echo '$(srcdir)/'`libc/sys/pados/dup.c
-
-libc/sys/pados/libc_a-dup.obj: libc/sys/pados/dup.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-dup.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-dup.Tpo -c -o libc/sys/pados/libc_a-dup.obj `if test -f 'libc/sys/pados/dup.c'; then $(CYGPATH_W) 'libc/sys/pados/dup.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/dup.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-dup.Tpo libc/sys/pados/$(DEPDIR)/libc_a-dup.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/dup.c' object='libc/sys/pados/libc_a-dup.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-dup.obj `if test -f 'libc/sys/pados/dup.c'; then $(CYGPATH_W) 'libc/sys/pados/dup.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/dup.c'; fi`
-
-libc/sys/pados/libc_a-dup2.o: libc/sys/pados/dup2.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-dup2.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-dup2.Tpo -c -o libc/sys/pados/libc_a-dup2.o `test -f 'libc/sys/pados/dup2.c' || echo '$(srcdir)/'`libc/sys/pados/dup2.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-dup2.Tpo libc/sys/pados/$(DEPDIR)/libc_a-dup2.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/dup2.c' object='libc/sys/pados/libc_a-dup2.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-dup2.o `test -f 'libc/sys/pados/dup2.c' || echo '$(srcdir)/'`libc/sys/pados/dup2.c
-
-libc/sys/pados/libc_a-dup2.obj: libc/sys/pados/dup2.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-dup2.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-dup2.Tpo -c -o libc/sys/pados/libc_a-dup2.obj `if test -f 'libc/sys/pados/dup2.c'; then $(CYGPATH_W) 'libc/sys/pados/dup2.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/dup2.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-dup2.Tpo libc/sys/pados/$(DEPDIR)/libc_a-dup2.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/dup2.c' object='libc/sys/pados/libc_a-dup2.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-dup2.obj `if test -f 'libc/sys/pados/dup2.c'; then $(CYGPATH_W) 'libc/sys/pados/dup2.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/dup2.c'; fi`
 
 libc/sys/pados/libc_a-exit.o: libc/sys/pados/exit.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-exit.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-exit.Tpo -c -o libc/sys/pados/libc_a-exit.o `test -f 'libc/sys/pados/exit.c' || echo '$(srcdir)/'`libc/sys/pados/exit.c
@@ -32512,20 +32324,6 @@ libc/sys/pados/libc_a-fcntl.obj: libc/sys/pados/fcntl.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/fcntl.c' object='libc/sys/pados/libc_a-fcntl.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-fcntl.obj `if test -f 'libc/sys/pados/fcntl.c'; then $(CYGPATH_W) 'libc/sys/pados/fcntl.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/fcntl.c'; fi`
-
-libc/sys/pados/libc_a-fstat.o: libc/sys/pados/fstat.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-fstat.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-fstat.Tpo -c -o libc/sys/pados/libc_a-fstat.o `test -f 'libc/sys/pados/fstat.c' || echo '$(srcdir)/'`libc/sys/pados/fstat.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-fstat.Tpo libc/sys/pados/$(DEPDIR)/libc_a-fstat.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/fstat.c' object='libc/sys/pados/libc_a-fstat.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-fstat.o `test -f 'libc/sys/pados/fstat.c' || echo '$(srcdir)/'`libc/sys/pados/fstat.c
-
-libc/sys/pados/libc_a-fstat.obj: libc/sys/pados/fstat.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-fstat.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-fstat.Tpo -c -o libc/sys/pados/libc_a-fstat.obj `if test -f 'libc/sys/pados/fstat.c'; then $(CYGPATH_W) 'libc/sys/pados/fstat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/fstat.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-fstat.Tpo libc/sys/pados/$(DEPDIR)/libc_a-fstat.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/fstat.c' object='libc/sys/pados/libc_a-fstat.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-fstat.obj `if test -f 'libc/sys/pados/fstat.c'; then $(CYGPATH_W) 'libc/sys/pados/fstat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/fstat.c'; fi`
 
 libc/sys/pados/libc_a-fstatat.o: libc/sys/pados/fstatat.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-fstatat.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-fstatat.Tpo -c -o libc/sys/pados/libc_a-fstatat.o `test -f 'libc/sys/pados/fstatat.c' || echo '$(srcdir)/'`libc/sys/pados/fstatat.c
@@ -32611,20 +32409,6 @@ libc/sys/pados/libc_a-getentropy.obj: libc/sys/pados/getentropy.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-getentropy.obj `if test -f 'libc/sys/pados/getentropy.c'; then $(CYGPATH_W) 'libc/sys/pados/getentropy.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/getentropy.c'; fi`
 
-libc/sys/pados/libc_a-getpid.o: libc/sys/pados/getpid.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-getpid.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-getpid.Tpo -c -o libc/sys/pados/libc_a-getpid.o `test -f 'libc/sys/pados/getpid.c' || echo '$(srcdir)/'`libc/sys/pados/getpid.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-getpid.Tpo libc/sys/pados/$(DEPDIR)/libc_a-getpid.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/getpid.c' object='libc/sys/pados/libc_a-getpid.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-getpid.o `test -f 'libc/sys/pados/getpid.c' || echo '$(srcdir)/'`libc/sys/pados/getpid.c
-
-libc/sys/pados/libc_a-getpid.obj: libc/sys/pados/getpid.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-getpid.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-getpid.Tpo -c -o libc/sys/pados/libc_a-getpid.obj `if test -f 'libc/sys/pados/getpid.c'; then $(CYGPATH_W) 'libc/sys/pados/getpid.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/getpid.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-getpid.Tpo libc/sys/pados/$(DEPDIR)/libc_a-getpid.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/getpid.c' object='libc/sys/pados/libc_a-getpid.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-getpid.obj `if test -f 'libc/sys/pados/getpid.c'; then $(CYGPATH_W) 'libc/sys/pados/getpid.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/getpid.c'; fi`
-
 libc/sys/pados/libc_a-gettimeofday.o: libc/sys/pados/gettimeofday.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-gettimeofday.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-gettimeofday.Tpo -c -o libc/sys/pados/libc_a-gettimeofday.o `test -f 'libc/sys/pados/gettimeofday.c' || echo '$(srcdir)/'`libc/sys/pados/gettimeofday.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-gettimeofday.Tpo libc/sys/pados/$(DEPDIR)/libc_a-gettimeofday.Po
@@ -32681,34 +32465,6 @@ libc/sys/pados/libc_a-get_clock_time_offset_ns.obj: libc/sys/pados/get_clock_tim
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-get_clock_time_offset_ns.obj `if test -f 'libc/sys/pados/get_clock_time_offset_ns.c'; then $(CYGPATH_W) 'libc/sys/pados/get_clock_time_offset_ns.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/get_clock_time_offset_ns.c'; fi`
 
-libc/sys/pados/libc_a-isatty.o: libc/sys/pados/isatty.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-isatty.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-isatty.Tpo -c -o libc/sys/pados/libc_a-isatty.o `test -f 'libc/sys/pados/isatty.c' || echo '$(srcdir)/'`libc/sys/pados/isatty.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-isatty.Tpo libc/sys/pados/$(DEPDIR)/libc_a-isatty.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/isatty.c' object='libc/sys/pados/libc_a-isatty.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-isatty.o `test -f 'libc/sys/pados/isatty.c' || echo '$(srcdir)/'`libc/sys/pados/isatty.c
-
-libc/sys/pados/libc_a-isatty.obj: libc/sys/pados/isatty.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-isatty.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-isatty.Tpo -c -o libc/sys/pados/libc_a-isatty.obj `if test -f 'libc/sys/pados/isatty.c'; then $(CYGPATH_W) 'libc/sys/pados/isatty.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/isatty.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-isatty.Tpo libc/sys/pados/$(DEPDIR)/libc_a-isatty.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/isatty.c' object='libc/sys/pados/libc_a-isatty.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-isatty.obj `if test -f 'libc/sys/pados/isatty.c'; then $(CYGPATH_W) 'libc/sys/pados/isatty.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/isatty.c'; fi`
-
-libc/sys/pados/libc_a-kill.o: libc/sys/pados/kill.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-kill.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-kill.Tpo -c -o libc/sys/pados/libc_a-kill.o `test -f 'libc/sys/pados/kill.c' || echo '$(srcdir)/'`libc/sys/pados/kill.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-kill.Tpo libc/sys/pados/$(DEPDIR)/libc_a-kill.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/kill.c' object='libc/sys/pados/libc_a-kill.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-kill.o `test -f 'libc/sys/pados/kill.c' || echo '$(srcdir)/'`libc/sys/pados/kill.c
-
-libc/sys/pados/libc_a-kill.obj: libc/sys/pados/kill.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-kill.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-kill.Tpo -c -o libc/sys/pados/libc_a-kill.obj `if test -f 'libc/sys/pados/kill.c'; then $(CYGPATH_W) 'libc/sys/pados/kill.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/kill.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-kill.Tpo libc/sys/pados/$(DEPDIR)/libc_a-kill.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/kill.c' object='libc/sys/pados/libc_a-kill.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-kill.obj `if test -f 'libc/sys/pados/kill.c'; then $(CYGPATH_W) 'libc/sys/pados/kill.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/kill.c'; fi`
-
 libc/sys/pados/libc_a-link.o: libc/sys/pados/link.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-link.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-link.Tpo -c -o libc/sys/pados/libc_a-link.o `test -f 'libc/sys/pados/link.c' || echo '$(srcdir)/'`libc/sys/pados/link.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-link.Tpo libc/sys/pados/$(DEPDIR)/libc_a-link.Po
@@ -32750,48 +32506,6 @@ libc/sys/pados/libc_a-lstat.obj: libc/sys/pados/lstat.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/lstat.c' object='libc/sys/pados/libc_a-lstat.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-lstat.obj `if test -f 'libc/sys/pados/lstat.c'; then $(CYGPATH_W) 'libc/sys/pados/lstat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/lstat.c'; fi`
-
-libc/sys/pados/libc_a-message_port_receive.o: libc/sys/pados/message_port_receive.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-message_port_receive.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive.Tpo -c -o libc/sys/pados/libc_a-message_port_receive.o `test -f 'libc/sys/pados/message_port_receive.c' || echo '$(srcdir)/'`libc/sys/pados/message_port_receive.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive.Tpo libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/message_port_receive.c' object='libc/sys/pados/libc_a-message_port_receive.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-message_port_receive.o `test -f 'libc/sys/pados/message_port_receive.c' || echo '$(srcdir)/'`libc/sys/pados/message_port_receive.c
-
-libc/sys/pados/libc_a-message_port_receive.obj: libc/sys/pados/message_port_receive.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-message_port_receive.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive.Tpo -c -o libc/sys/pados/libc_a-message_port_receive.obj `if test -f 'libc/sys/pados/message_port_receive.c'; then $(CYGPATH_W) 'libc/sys/pados/message_port_receive.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/message_port_receive.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive.Tpo libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/message_port_receive.c' object='libc/sys/pados/libc_a-message_port_receive.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-message_port_receive.obj `if test -f 'libc/sys/pados/message_port_receive.c'; then $(CYGPATH_W) 'libc/sys/pados/message_port_receive.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/message_port_receive.c'; fi`
-
-libc/sys/pados/libc_a-message_port_receive_deadline_ns.o: libc/sys/pados/message_port_receive_deadline_ns.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-message_port_receive_deadline_ns.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_deadline_ns.Tpo -c -o libc/sys/pados/libc_a-message_port_receive_deadline_ns.o `test -f 'libc/sys/pados/message_port_receive_deadline_ns.c' || echo '$(srcdir)/'`libc/sys/pados/message_port_receive_deadline_ns.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_deadline_ns.Tpo libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_deadline_ns.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/message_port_receive_deadline_ns.c' object='libc/sys/pados/libc_a-message_port_receive_deadline_ns.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-message_port_receive_deadline_ns.o `test -f 'libc/sys/pados/message_port_receive_deadline_ns.c' || echo '$(srcdir)/'`libc/sys/pados/message_port_receive_deadline_ns.c
-
-libc/sys/pados/libc_a-message_port_receive_deadline_ns.obj: libc/sys/pados/message_port_receive_deadline_ns.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-message_port_receive_deadline_ns.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_deadline_ns.Tpo -c -o libc/sys/pados/libc_a-message_port_receive_deadline_ns.obj `if test -f 'libc/sys/pados/message_port_receive_deadline_ns.c'; then $(CYGPATH_W) 'libc/sys/pados/message_port_receive_deadline_ns.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/message_port_receive_deadline_ns.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_deadline_ns.Tpo libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_deadline_ns.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/message_port_receive_deadline_ns.c' object='libc/sys/pados/libc_a-message_port_receive_deadline_ns.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-message_port_receive_deadline_ns.obj `if test -f 'libc/sys/pados/message_port_receive_deadline_ns.c'; then $(CYGPATH_W) 'libc/sys/pados/message_port_receive_deadline_ns.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/message_port_receive_deadline_ns.c'; fi`
-
-libc/sys/pados/libc_a-message_port_receive_timeout_ns.o: libc/sys/pados/message_port_receive_timeout_ns.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-message_port_receive_timeout_ns.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_timeout_ns.Tpo -c -o libc/sys/pados/libc_a-message_port_receive_timeout_ns.o `test -f 'libc/sys/pados/message_port_receive_timeout_ns.c' || echo '$(srcdir)/'`libc/sys/pados/message_port_receive_timeout_ns.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_timeout_ns.Tpo libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_timeout_ns.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/message_port_receive_timeout_ns.c' object='libc/sys/pados/libc_a-message_port_receive_timeout_ns.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-message_port_receive_timeout_ns.o `test -f 'libc/sys/pados/message_port_receive_timeout_ns.c' || echo '$(srcdir)/'`libc/sys/pados/message_port_receive_timeout_ns.c
-
-libc/sys/pados/libc_a-message_port_receive_timeout_ns.obj: libc/sys/pados/message_port_receive_timeout_ns.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-message_port_receive_timeout_ns.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_timeout_ns.Tpo -c -o libc/sys/pados/libc_a-message_port_receive_timeout_ns.obj `if test -f 'libc/sys/pados/message_port_receive_timeout_ns.c'; then $(CYGPATH_W) 'libc/sys/pados/message_port_receive_timeout_ns.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/message_port_receive_timeout_ns.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_timeout_ns.Tpo libc/sys/pados/$(DEPDIR)/libc_a-message_port_receive_timeout_ns.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/message_port_receive_timeout_ns.c' object='libc/sys/pados/libc_a-message_port_receive_timeout_ns.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-message_port_receive_timeout_ns.obj `if test -f 'libc/sys/pados/message_port_receive_timeout_ns.c'; then $(CYGPATH_W) 'libc/sys/pados/message_port_receive_timeout_ns.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/message_port_receive_timeout_ns.c'; fi`
 
 libc/sys/pados/libc_a-mkdir.o: libc/sys/pados/mkdir.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-mkdir.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-mkdir.Tpo -c -o libc/sys/pados/libc_a-mkdir.o `test -f 'libc/sys/pados/mkdir.c' || echo '$(srcdir)/'`libc/sys/pados/mkdir.c
@@ -32877,48 +32591,6 @@ libc/sys/pados/libc_a-posix_getdents.obj: libc/sys/pados/posix_getdents.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-posix_getdents.obj `if test -f 'libc/sys/pados/posix_getdents.c'; then $(CYGPATH_W) 'libc/sys/pados/posix_getdents.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/posix_getdents.c'; fi`
 
-libc/sys/pados/libc_a-pread.o: libc/sys/pados/pread.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-pread.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-pread.Tpo -c -o libc/sys/pados/libc_a-pread.o `test -f 'libc/sys/pados/pread.c' || echo '$(srcdir)/'`libc/sys/pados/pread.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-pread.Tpo libc/sys/pados/$(DEPDIR)/libc_a-pread.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/pread.c' object='libc/sys/pados/libc_a-pread.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-pread.o `test -f 'libc/sys/pados/pread.c' || echo '$(srcdir)/'`libc/sys/pados/pread.c
-
-libc/sys/pados/libc_a-pread.obj: libc/sys/pados/pread.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-pread.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-pread.Tpo -c -o libc/sys/pados/libc_a-pread.obj `if test -f 'libc/sys/pados/pread.c'; then $(CYGPATH_W) 'libc/sys/pados/pread.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/pread.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-pread.Tpo libc/sys/pados/$(DEPDIR)/libc_a-pread.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/pread.c' object='libc/sys/pados/libc_a-pread.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-pread.obj `if test -f 'libc/sys/pados/pread.c'; then $(CYGPATH_W) 'libc/sys/pados/pread.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/pread.c'; fi`
-
-libc/sys/pados/libc_a-pwrite.o: libc/sys/pados/pwrite.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-pwrite.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-pwrite.Tpo -c -o libc/sys/pados/libc_a-pwrite.o `test -f 'libc/sys/pados/pwrite.c' || echo '$(srcdir)/'`libc/sys/pados/pwrite.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-pwrite.Tpo libc/sys/pados/$(DEPDIR)/libc_a-pwrite.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/pwrite.c' object='libc/sys/pados/libc_a-pwrite.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-pwrite.o `test -f 'libc/sys/pados/pwrite.c' || echo '$(srcdir)/'`libc/sys/pados/pwrite.c
-
-libc/sys/pados/libc_a-pwrite.obj: libc/sys/pados/pwrite.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-pwrite.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-pwrite.Tpo -c -o libc/sys/pados/libc_a-pwrite.obj `if test -f 'libc/sys/pados/pwrite.c'; then $(CYGPATH_W) 'libc/sys/pados/pwrite.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/pwrite.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-pwrite.Tpo libc/sys/pados/$(DEPDIR)/libc_a-pwrite.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/pwrite.c' object='libc/sys/pados/libc_a-pwrite.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-pwrite.obj `if test -f 'libc/sys/pados/pwrite.c'; then $(CYGPATH_W) 'libc/sys/pados/pwrite.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/pwrite.c'; fi`
-
-libc/sys/pados/libc_a-raise.o: libc/sys/pados/raise.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-raise.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-raise.Tpo -c -o libc/sys/pados/libc_a-raise.o `test -f 'libc/sys/pados/raise.c' || echo '$(srcdir)/'`libc/sys/pados/raise.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-raise.Tpo libc/sys/pados/$(DEPDIR)/libc_a-raise.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/raise.c' object='libc/sys/pados/libc_a-raise.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-raise.o `test -f 'libc/sys/pados/raise.c' || echo '$(srcdir)/'`libc/sys/pados/raise.c
-
-libc/sys/pados/libc_a-raise.obj: libc/sys/pados/raise.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-raise.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-raise.Tpo -c -o libc/sys/pados/libc_a-raise.obj `if test -f 'libc/sys/pados/raise.c'; then $(CYGPATH_W) 'libc/sys/pados/raise.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/raise.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-raise.Tpo libc/sys/pados/$(DEPDIR)/libc_a-raise.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/raise.c' object='libc/sys/pados/libc_a-raise.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-raise.obj `if test -f 'libc/sys/pados/raise.c'; then $(CYGPATH_W) 'libc/sys/pados/raise.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/raise.c'; fi`
-
 libc/sys/pados/libc_a-readlink.o: libc/sys/pados/readlink.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-readlink.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-readlink.Tpo -c -o libc/sys/pados/libc_a-readlink.o `test -f 'libc/sys/pados/readlink.c' || echo '$(srcdir)/'`libc/sys/pados/readlink.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-readlink.Tpo libc/sys/pados/$(DEPDIR)/libc_a-readlink.Po
@@ -32946,62 +32618,6 @@ libc/sys/pados/libc_a-readlinkat.obj: libc/sys/pados/readlinkat.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/readlinkat.c' object='libc/sys/pados/libc_a-readlinkat.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-readlinkat.obj `if test -f 'libc/sys/pados/readlinkat.c'; then $(CYGPATH_W) 'libc/sys/pados/readlinkat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/readlinkat.c'; fi`
-
-libc/sys/pados/libc_a-read.o: libc/sys/pados/read.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-read.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-read.Tpo -c -o libc/sys/pados/libc_a-read.o `test -f 'libc/sys/pados/read.c' || echo '$(srcdir)/'`libc/sys/pados/read.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-read.Tpo libc/sys/pados/$(DEPDIR)/libc_a-read.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/read.c' object='libc/sys/pados/libc_a-read.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-read.o `test -f 'libc/sys/pados/read.c' || echo '$(srcdir)/'`libc/sys/pados/read.c
-
-libc/sys/pados/libc_a-read.obj: libc/sys/pados/read.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-read.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-read.Tpo -c -o libc/sys/pados/libc_a-read.obj `if test -f 'libc/sys/pados/read.c'; then $(CYGPATH_W) 'libc/sys/pados/read.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/read.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-read.Tpo libc/sys/pados/$(DEPDIR)/libc_a-read.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/read.c' object='libc/sys/pados/libc_a-read.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-read.obj `if test -f 'libc/sys/pados/read.c'; then $(CYGPATH_W) 'libc/sys/pados/read.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/read.c'; fi`
-
-libc/sys/pados/libc_a-readv.o: libc/sys/pados/readv.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-readv.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-readv.Tpo -c -o libc/sys/pados/libc_a-readv.o `test -f 'libc/sys/pados/readv.c' || echo '$(srcdir)/'`libc/sys/pados/readv.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-readv.Tpo libc/sys/pados/$(DEPDIR)/libc_a-readv.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/readv.c' object='libc/sys/pados/libc_a-readv.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-readv.o `test -f 'libc/sys/pados/readv.c' || echo '$(srcdir)/'`libc/sys/pados/readv.c
-
-libc/sys/pados/libc_a-readv.obj: libc/sys/pados/readv.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-readv.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-readv.Tpo -c -o libc/sys/pados/libc_a-readv.obj `if test -f 'libc/sys/pados/readv.c'; then $(CYGPATH_W) 'libc/sys/pados/readv.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/readv.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-readv.Tpo libc/sys/pados/$(DEPDIR)/libc_a-readv.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/readv.c' object='libc/sys/pados/libc_a-readv.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-readv.obj `if test -f 'libc/sys/pados/readv.c'; then $(CYGPATH_W) 'libc/sys/pados/readv.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/readv.c'; fi`
-
-libc/sys/pados/libc_a-rename.o: libc/sys/pados/rename.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-rename.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-rename.Tpo -c -o libc/sys/pados/libc_a-rename.o `test -f 'libc/sys/pados/rename.c' || echo '$(srcdir)/'`libc/sys/pados/rename.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-rename.Tpo libc/sys/pados/$(DEPDIR)/libc_a-rename.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/rename.c' object='libc/sys/pados/libc_a-rename.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-rename.o `test -f 'libc/sys/pados/rename.c' || echo '$(srcdir)/'`libc/sys/pados/rename.c
-
-libc/sys/pados/libc_a-rename.obj: libc/sys/pados/rename.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-rename.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-rename.Tpo -c -o libc/sys/pados/libc_a-rename.obj `if test -f 'libc/sys/pados/rename.c'; then $(CYGPATH_W) 'libc/sys/pados/rename.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/rename.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-rename.Tpo libc/sys/pados/$(DEPDIR)/libc_a-rename.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/rename.c' object='libc/sys/pados/libc_a-rename.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-rename.obj `if test -f 'libc/sys/pados/rename.c'; then $(CYGPATH_W) 'libc/sys/pados/rename.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/rename.c'; fi`
-
-libc/sys/pados/libc_a-reopen_file.o: libc/sys/pados/reopen_file.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-reopen_file.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-reopen_file.Tpo -c -o libc/sys/pados/libc_a-reopen_file.o `test -f 'libc/sys/pados/reopen_file.c' || echo '$(srcdir)/'`libc/sys/pados/reopen_file.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-reopen_file.Tpo libc/sys/pados/$(DEPDIR)/libc_a-reopen_file.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/reopen_file.c' object='libc/sys/pados/libc_a-reopen_file.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-reopen_file.o `test -f 'libc/sys/pados/reopen_file.c' || echo '$(srcdir)/'`libc/sys/pados/reopen_file.c
-
-libc/sys/pados/libc_a-reopen_file.obj: libc/sys/pados/reopen_file.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-reopen_file.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-reopen_file.Tpo -c -o libc/sys/pados/libc_a-reopen_file.obj `if test -f 'libc/sys/pados/reopen_file.c'; then $(CYGPATH_W) 'libc/sys/pados/reopen_file.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/reopen_file.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-reopen_file.Tpo libc/sys/pados/$(DEPDIR)/libc_a-reopen_file.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/reopen_file.c' object='libc/sys/pados/libc_a-reopen_file.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-reopen_file.obj `if test -f 'libc/sys/pados/reopen_file.c'; then $(CYGPATH_W) 'libc/sys/pados/reopen_file.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/reopen_file.c'; fi`
 
 libc/sys/pados/libc_a-rmdir.o: libc/sys/pados/rmdir.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-rmdir.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-rmdir.Tpo -c -o libc/sys/pados/libc_a-rmdir.o `test -f 'libc/sys/pados/rmdir.c' || echo '$(srcdir)/'`libc/sys/pados/rmdir.c
@@ -33185,48 +32801,6 @@ libc/sys/pados/libc_a-sem_wait.obj: libc/sys/pados/sem_wait.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sem_wait.obj `if test -f 'libc/sys/pados/sem_wait.c'; then $(CYGPATH_W) 'libc/sys/pados/sem_wait.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sem_wait.c'; fi`
 
-libc/sys/pados/libc_a-sigaction.o: libc/sys/pados/sigaction.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-sigaction.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-sigaction.Tpo -c -o libc/sys/pados/libc_a-sigaction.o `test -f 'libc/sys/pados/sigaction.c' || echo '$(srcdir)/'`libc/sys/pados/sigaction.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-sigaction.Tpo libc/sys/pados/$(DEPDIR)/libc_a-sigaction.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/sigaction.c' object='libc/sys/pados/libc_a-sigaction.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sigaction.o `test -f 'libc/sys/pados/sigaction.c' || echo '$(srcdir)/'`libc/sys/pados/sigaction.c
-
-libc/sys/pados/libc_a-sigaction.obj: libc/sys/pados/sigaction.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-sigaction.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-sigaction.Tpo -c -o libc/sys/pados/libc_a-sigaction.obj `if test -f 'libc/sys/pados/sigaction.c'; then $(CYGPATH_W) 'libc/sys/pados/sigaction.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sigaction.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-sigaction.Tpo libc/sys/pados/$(DEPDIR)/libc_a-sigaction.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/sigaction.c' object='libc/sys/pados/libc_a-sigaction.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sigaction.obj `if test -f 'libc/sys/pados/sigaction.c'; then $(CYGPATH_W) 'libc/sys/pados/sigaction.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sigaction.c'; fi`
-
-libc/sys/pados/libc_a-signal.o: libc/sys/pados/signal.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-signal.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-signal.Tpo -c -o libc/sys/pados/libc_a-signal.o `test -f 'libc/sys/pados/signal.c' || echo '$(srcdir)/'`libc/sys/pados/signal.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-signal.Tpo libc/sys/pados/$(DEPDIR)/libc_a-signal.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/signal.c' object='libc/sys/pados/libc_a-signal.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-signal.o `test -f 'libc/sys/pados/signal.c' || echo '$(srcdir)/'`libc/sys/pados/signal.c
-
-libc/sys/pados/libc_a-signal.obj: libc/sys/pados/signal.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-signal.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-signal.Tpo -c -o libc/sys/pados/libc_a-signal.obj `if test -f 'libc/sys/pados/signal.c'; then $(CYGPATH_W) 'libc/sys/pados/signal.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/signal.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-signal.Tpo libc/sys/pados/$(DEPDIR)/libc_a-signal.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/signal.c' object='libc/sys/pados/libc_a-signal.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-signal.obj `if test -f 'libc/sys/pados/signal.c'; then $(CYGPATH_W) 'libc/sys/pados/signal.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/signal.c'; fi`
-
-libc/sys/pados/libc_a-sigsuspend.o: libc/sys/pados/sigsuspend.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-sigsuspend.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Tpo -c -o libc/sys/pados/libc_a-sigsuspend.o `test -f 'libc/sys/pados/sigsuspend.c' || echo '$(srcdir)/'`libc/sys/pados/sigsuspend.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Tpo libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/sigsuspend.c' object='libc/sys/pados/libc_a-sigsuspend.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sigsuspend.o `test -f 'libc/sys/pados/sigsuspend.c' || echo '$(srcdir)/'`libc/sys/pados/sigsuspend.c
-
-libc/sys/pados/libc_a-sigsuspend.obj: libc/sys/pados/sigsuspend.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-sigsuspend.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Tpo -c -o libc/sys/pados/libc_a-sigsuspend.obj `if test -f 'libc/sys/pados/sigsuspend.c'; then $(CYGPATH_W) 'libc/sys/pados/sigsuspend.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sigsuspend.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Tpo libc/sys/pados/$(DEPDIR)/libc_a-sigsuspend.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/sigsuspend.c' object='libc/sys/pados/libc_a-sigsuspend.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sigsuspend.obj `if test -f 'libc/sys/pados/sigsuspend.c'; then $(CYGPATH_W) 'libc/sys/pados/sigsuspend.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sigsuspend.c'; fi`
-
 libc/sys/pados/libc_a-sleep.o: libc/sys/pados/sleep.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-sleep.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-sleep.Tpo -c -o libc/sys/pados/libc_a-sleep.o `test -f 'libc/sys/pados/sleep.c' || echo '$(srcdir)/'`libc/sys/pados/sleep.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-sleep.Tpo libc/sys/pados/$(DEPDIR)/libc_a-sleep.Po
@@ -33240,20 +32814,6 @@ libc/sys/pados/libc_a-sleep.obj: libc/sys/pados/sleep.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/sleep.c' object='libc/sys/pados/libc_a-sleep.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-sleep.obj `if test -f 'libc/sys/pados/sleep.c'; then $(CYGPATH_W) 'libc/sys/pados/sleep.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/sleep.c'; fi`
-
-libc/sys/pados/libc_a-stat.o: libc/sys/pados/stat.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-stat.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-stat.Tpo -c -o libc/sys/pados/libc_a-stat.o `test -f 'libc/sys/pados/stat.c' || echo '$(srcdir)/'`libc/sys/pados/stat.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-stat.Tpo libc/sys/pados/$(DEPDIR)/libc_a-stat.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/stat.c' object='libc/sys/pados/libc_a-stat.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-stat.o `test -f 'libc/sys/pados/stat.c' || echo '$(srcdir)/'`libc/sys/pados/stat.c
-
-libc/sys/pados/libc_a-stat.obj: libc/sys/pados/stat.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-stat.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-stat.Tpo -c -o libc/sys/pados/libc_a-stat.obj `if test -f 'libc/sys/pados/stat.c'; then $(CYGPATH_W) 'libc/sys/pados/stat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/stat.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-stat.Tpo libc/sys/pados/$(DEPDIR)/libc_a-stat.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/stat.c' object='libc/sys/pados/libc_a-stat.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-stat.obj `if test -f 'libc/sys/pados/stat.c'; then $(CYGPATH_W) 'libc/sys/pados/stat.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/stat.c'; fi`
 
 libc/sys/pados/libc_a-stubs.o: libc/sys/pados/stubs.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-stubs.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-stubs.Tpo -c -o libc/sys/pados/libc_a-stubs.o `test -f 'libc/sys/pados/stubs.c' || echo '$(srcdir)/'`libc/sys/pados/stubs.c
@@ -33450,34 +33010,6 @@ libc/sys/pados/libc_a-utimes.obj: libc/sys/pados/utimes.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/utimes.c' object='libc/sys/pados/libc_a-utimes.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-utimes.obj `if test -f 'libc/sys/pados/utimes.c'; then $(CYGPATH_W) 'libc/sys/pados/utimes.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/utimes.c'; fi`
-
-libc/sys/pados/libc_a-write.o: libc/sys/pados/write.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-write.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-write.Tpo -c -o libc/sys/pados/libc_a-write.o `test -f 'libc/sys/pados/write.c' || echo '$(srcdir)/'`libc/sys/pados/write.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-write.Tpo libc/sys/pados/$(DEPDIR)/libc_a-write.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/write.c' object='libc/sys/pados/libc_a-write.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-write.o `test -f 'libc/sys/pados/write.c' || echo '$(srcdir)/'`libc/sys/pados/write.c
-
-libc/sys/pados/libc_a-write.obj: libc/sys/pados/write.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-write.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-write.Tpo -c -o libc/sys/pados/libc_a-write.obj `if test -f 'libc/sys/pados/write.c'; then $(CYGPATH_W) 'libc/sys/pados/write.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/write.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-write.Tpo libc/sys/pados/$(DEPDIR)/libc_a-write.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/write.c' object='libc/sys/pados/libc_a-write.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-write.obj `if test -f 'libc/sys/pados/write.c'; then $(CYGPATH_W) 'libc/sys/pados/write.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/write.c'; fi`
-
-libc/sys/pados/libc_a-writev.o: libc/sys/pados/writev.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-writev.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-writev.Tpo -c -o libc/sys/pados/libc_a-writev.o `test -f 'libc/sys/pados/writev.c' || echo '$(srcdir)/'`libc/sys/pados/writev.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-writev.Tpo libc/sys/pados/$(DEPDIR)/libc_a-writev.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/writev.c' object='libc/sys/pados/libc_a-writev.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-writev.o `test -f 'libc/sys/pados/writev.c' || echo '$(srcdir)/'`libc/sys/pados/writev.c
-
-libc/sys/pados/libc_a-writev.obj: libc/sys/pados/writev.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-writev.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-writev.Tpo -c -o libc/sys/pados/libc_a-writev.obj `if test -f 'libc/sys/pados/writev.c'; then $(CYGPATH_W) 'libc/sys/pados/writev.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/writev.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-writev.Tpo libc/sys/pados/$(DEPDIR)/libc_a-writev.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/writev.c' object='libc/sys/pados/libc_a-writev.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-writev.obj `if test -f 'libc/sys/pados/writev.c'; then $(CYGPATH_W) 'libc/sys/pados/writev.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/writev.c'; fi`
 
 libc/sys/rdos/libc_a-chown.o: libc/sys/rdos/chown.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/rdos/libc_a-chown.o -MD -MP -MF libc/sys/rdos/$(DEPDIR)/libc_a-chown.Tpo -c -o libc/sys/rdos/libc_a-chown.o `test -f 'libc/sys/rdos/chown.c' || echo '$(srcdir)/'`libc/sys/rdos/chown.c
