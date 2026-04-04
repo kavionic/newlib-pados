@@ -22,5 +22,5 @@
 
 int mkdirat(int dirfd, const char* path, mode_t mode)
 {
-    return PErrorCodeUpdateErrno(__create_directory(dirfd, path, mode));
+    return __create_directory(dirfd, path, mode);
 }

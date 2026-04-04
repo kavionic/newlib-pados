@@ -81,6 +81,7 @@ inline int PErrorCodeUpdateErrno_impl(PErrorCode result)
 #define PARGS4(a1,a2,a3,a4)            (4, a1,a2,a3,a4)
 #define PARGS5(a1,a2,a3,a4,a5)         (5, a1,a2,a3,a4,a5)
 #define PARGS6(a1,a2,a3,a4,a5,a6)      (6, a1,a2,a3,a4,a5,a6)
+#define PARGS7(a1,a2,a3,a4,a5,a6,a7)   (7, a1,a2,a3,a4,a5,a6,a7)
 
 #define PARGC(args) PARGC_ args
 #define PARGC_(n, ...) n
@@ -88,21 +89,23 @@ inline int PErrorCodeUpdateErrno_impl(PErrorCode result)
 // Typed parameter list
 #define PDECL_LIST(args)  PDECL_LIST_(PARGC(args), args)
 #define PDECL_LIST_(n, args) __CONCAT(PDECL_LIST_, n) args
-#define PDECL_LIST_0(n)                    void
-#define PDECL_LIST_1(n,a1)                 PARG_DECL(a1)
-#define PDECL_LIST_2(n,a1,a2)              PARG_DECL(a1), PARG_DECL(a2)
-#define PDECL_LIST_3(n,a1,a2,a3)           PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3)
-#define PDECL_LIST_4(n,a1,a2,a3,a4)        PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3), PARG_DECL(a4)
-#define PDECL_LIST_5(n,a1,a2,a3,a4,a5)     PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3), PARG_DECL(a4), PARG_DECL(a5)
-#define PDECL_LIST_6(n,a1,a2,a3,a4,a5,a6)  PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3), PARG_DECL(a4), PARG_DECL(a5), PARG_DECL(a6)
+#define PDECL_LIST_0(n)                      void
+#define PDECL_LIST_1(n,a1)                   PARG_DECL(a1)
+#define PDECL_LIST_2(n,a1,a2)                PARG_DECL(a1), PARG_DECL(a2)
+#define PDECL_LIST_3(n,a1,a2,a3)             PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3)
+#define PDECL_LIST_4(n,a1,a2,a3,a4)          PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3), PARG_DECL(a4)
+#define PDECL_LIST_5(n,a1,a2,a3,a4,a5)       PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3), PARG_DECL(a4), PARG_DECL(a5)
+#define PDECL_LIST_6(n,a1,a2,a3,a4,a5,a6)    PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3), PARG_DECL(a4), PARG_DECL(a5), PARG_DECL(a6)
+#define PDECL_LIST_7(n,a1,a2,a3,a4,a5,a6,a7) PARG_DECL(a1), PARG_DECL(a2), PARG_DECL(a3), PARG_DECL(a4), PARG_DECL(a5), PARG_DECL(a6), PARG_DECL(a7)
 
 // Name-only argument list
 #define PNAME_LIST(args)  PNAME_LIST_(PARGC(args), args)
 #define PNAME_LIST_(n, args) __CONCAT(PNAME_LIST_, n) args
 #define PNAME_LIST_0(n)                    /* empty */
-#define PNAME_LIST_1(n,a1)                 PARG_NAME(a1)
-#define PNAME_LIST_2(n,a1,a2)              PARG_NAME(a1), PARG_NAME(a2)
-#define PNAME_LIST_3(n,a1,a2,a3)           PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3)
-#define PNAME_LIST_4(n,a1,a2,a3,a4)        PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3), PARG_NAME(a4)
-#define PNAME_LIST_5(n,a1,a2,a3,a4,a5)     PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3), PARG_NAME(a4), PARG_NAME(a5)
-#define PNAME_LIST_6(n,a1,a2,a3,a4,a5,a6)  PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3), PARG_NAME(a4), PARG_NAME(a5), PARG_NAME(a6)
+#define PNAME_LIST_1(n,a1)                   PARG_NAME(a1)
+#define PNAME_LIST_2(n,a1,a2)                PARG_NAME(a1), PARG_NAME(a2)
+#define PNAME_LIST_3(n,a1,a2,a3)             PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3)
+#define PNAME_LIST_4(n,a1,a2,a3,a4)          PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3), PARG_NAME(a4)
+#define PNAME_LIST_5(n,a1,a2,a3,a4,a5)       PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3), PARG_NAME(a4), PARG_NAME(a5)
+#define PNAME_LIST_6(n,a1,a2,a3,a4,a5,a6)    PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3), PARG_NAME(a4), PARG_NAME(a5), PARG_NAME(a6)
+#define PNAME_LIST_7(n,a1,a2,a3,a4,a5,a6,a7) PARG_NAME(a1), PARG_NAME(a2), PARG_NAME(a3), PARG_NAME(a4), PARG_NAME(a5), PARG_NAME(a6), PARG_NAME(a7)

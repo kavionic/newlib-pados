@@ -23,5 +23,5 @@
 
 int _unlink(const char* path)
 {
-    return PErrorCodeUpdateErrno(__unlink_file(AT_FDCWD, path));
+    return __unlink_file(AT_FDCWD, path);
 }

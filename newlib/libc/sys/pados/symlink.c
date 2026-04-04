@@ -23,5 +23,5 @@
 
 int symlink(const char* targetPath, const char* symlinkPath)
 {
-    return PErrorCodeUpdateErrno(__symlink(targetPath, AT_FDCWD, symlinkPath));
+    return __symlink(targetPath, AT_FDCWD, symlinkPath);
 }

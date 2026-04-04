@@ -30,5 +30,5 @@ int openat(int dirfd, const char* path, int flags, ...)
     mode = va_arg(ap, mode_t);
     va_end(ap);
 
-    return PSysRetUpdateErrno(__openat(dirfd, path, flags, mode));
+    return __openat(dirfd, path, flags, mode);
 }

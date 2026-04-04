@@ -25,13 +25,13 @@
 #include "sys/pados_syscalls.h"
 #include <sched.h>
 
-#define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) \
-  __attribute__((weak)) RETTYPE FPREFIX##FNAME SIGNATURE { \
-    assert(!"syscall stub called"); \
-  }
 
-#define PEXPAND_SYSCALL2(EPILOGUE, RETTYPE, FPREFIX, FNAME, SIGNATURE) \
+#define PEXPAND_SYSCALL(EPILOGUE, RETTYPE, RETTYPE_SYS, FPREFIX, FNAME, SIGNATURE) \
   __attribute__((weak)) RETTYPE FPREFIX##FNAME(PDECL_LIST(SIGNATURE)) { \
+    if (is_debugger_attached()) \
+    { \
+        __asm volatile ("bkpt 0"); \
+    } \
     assert(!"syscall stub called"); \
   }
 

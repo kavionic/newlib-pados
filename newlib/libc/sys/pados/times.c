@@ -22,6 +22,8 @@
 
 #include "sys/pados_syscalls.h"
 
+struct tms;
+
 _CLOCK_T_ _times(struct tms* buf)
 {
     errno = ENOSYS;

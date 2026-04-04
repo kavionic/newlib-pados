@@ -23,5 +23,5 @@
 
 ssize_t readlink(const char* path, char* buffer, size_t bufferSize)
 {
-    return PSysRetUpdateErrno(__readlink(AT_FDCWD, path, buffer, bufferSize));
+    return __readlink(AT_FDCWD, path, buffer, bufferSize);
 }

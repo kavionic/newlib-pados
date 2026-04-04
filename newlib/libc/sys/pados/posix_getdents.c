@@ -24,5 +24,5 @@
 
 int posix_getdents(int fd, void* dp, size_t bufSize, int flags)
 {
-    return PSysRetUpdateErrno(__read_directory(fd, dp, bufSize));
+    return __read_directory(fd, dp, bufSize);
 }

@@ -37,22 +37,24 @@ PErrorCode mount(const char* devicePath, const char* directoryPath, const char* 
 #ifdef __cplusplus
 }
 
+#include <sys/unistd.h>
+#include <sys/fcntl.h>
 #include <sys/pados_syscalls.h>
 #include <System/ExceptionHandling.h>
 
 inline int open_trw(const char* path, int flags, int mode = 0)
 {
-    return PERROR_SYSRET_THROW_ON_FAIL(__open(path, flags, mode));
+    return PERROR_SYSRET_THROW_ON_FAIL(____open(path, flags, mode));
 }
 
 inline int read_trw(int file, void* buffer, size_t length)
 {
-    return PERROR_SYSRET_THROW_ON_FAIL(__read(file, buffer, length));
+    return PERROR_SYSRET_THROW_ON_FAIL(___read(file, buffer, length));
 }
 
 inline int write_trw(int file, const void* buffer, size_t length)
 {
-    return PERROR_SYSRET_THROW_ON_FAIL(__write(file, buffer, length));
+    return PERROR_SYSRET_THROW_ON_FAIL(___write(file, buffer, length));
 }
 
 inline void device_control_trw(int handle, int request, const void* inData, size_t inDataLength, void* outData, size_t outDataLength)

@@ -1,54 +1,36 @@
 libc_a_SOURCES += \
-	%D%/chdir.c \
 	%D%/chmod.c \
 	%D%/clock_getcpuclockid.c \
 	%D%/clock_getres.c \
 	%D%/clock_gettime.c \
 	%D%/clock_setres.c \
 	%D%/clock_settime.c \
-	%D%/close.c \
 	%D%/crt0.c \
-	%D%/dup.c \
-	%D%/dup2.c \
 	%D%/exit.c \
 	%D%/fchmod.c \
 	%D%/fchmodat.c \
 	%D%/fcntl.c \
-	%D%/fstat.c \
 	%D%/fstatat.c \
 	%D%/ftruncate.c \
 	%D%/futimens.c \
 	%D%/getcwd.c \
 	%D%/getdents.c \
 	%D%/getentropy.c \
-	%D%/getpid.c \
 	%D%/gettimeofday.c \
 	%D%/get_clock_time_hires_ns.c \
 	%D%/get_clock_time_ns.c \
 	%D%/get_clock_time_offset_ns.c \
-	%D%/isatty.c \
-	%D%/kill.c \
 	%D%/link.c \
 	%D%/lseek.c \
 	%D%/lstat.c \
-	%D%/message_port_receive.c \
-	%D%/message_port_receive_deadline_ns.c \
-	%D%/message_port_receive_timeout_ns.c \
 	%D%/mkdir.c \
 	%D%/mkdirat.c \
 	%D%/nanosleep.c \
 	%D%/open.c \
 	%D%/openat.c \
 	%D%/posix_getdents.c \
-	%D%/pread.c \
-	%D%/pwrite.c \
-	%D%/raise.c \
 	%D%/readlink.c \
 	%D%/readlinkat.c \
-	%D%/read.c \
-	%D%/readv.c \
-	%D%/rename.c \
-	%D%/reopen_file.c \
 	%D%/rmdir.c \
 	%D%/sched_yield.c \
 	%D%/sem_clockwait.c \
@@ -62,11 +44,7 @@ libc_a_SOURCES += \
 	%D%/sem_trywait.c \
 	%D%/sem_unlink.c \
 	%D%/sem_wait.c \
-	%D%/sigaction.c \
-	%D%/signal.c \
-	%D%/sigsuspend.c \
 	%D%/sleep.c \
-	%D%/stat.c \
 	%D%/stubs.c \
 	%D%/symlink.c \
 	%D%/symlinkat.c \
@@ -80,6 +58,4 @@ libc_a_SOURCES += \
 	%D%/usleep.c \
 	%D%/utime.c \
 	%D%/utimensat.c \
-	%D%/utimes.c \
-	%D%/write.c \
-	%D%/writev.c
+	%D%/utimes.c

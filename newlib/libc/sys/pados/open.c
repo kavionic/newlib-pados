@@ -22,5 +22,5 @@
 
 int _open(const char* path, int flags, int mode)
 {
-    return PSysRetUpdateErrno(__open(path, flags, mode));
+    return __open(path, flags, mode);
 }

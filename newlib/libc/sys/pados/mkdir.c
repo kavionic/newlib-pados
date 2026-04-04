@@ -23,5 +23,5 @@
 
 int mkdir(const char* path, mode_t mode)
 {
-    return PErrorCodeUpdateErrno(__create_directory(AT_FDCWD, path, mode));
+    return __create_directory(AT_FDCWD, path, mode);
 }

@@ -57,13 +57,13 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_isatty                                      11 
 #define SYS_seek                                        12 
 #define SYS_read                                        13 
-#define SYS_read_pos                                    14 
+#define SYS_pread                                       14 
 #define SYS_readv                                       15 
-#define SYS_readv_pos                                   16 
+#define SYS_preadv                                      16 
 #define SYS_write                                       17 
-#define SYS_write_pos                                   18 
+#define SYS_pwrite                                      18 
 #define SYS_writev                                      19 
-#define SYS_writev_pos                                  20 
+#define SYS_pwritev                                     20 
 #define SYS_device_control                              21 
 #define SYS_create_directory                            22 
 #define SYS_read_directory                              23 
@@ -203,13 +203,17 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_process_signals                             (SYS_COUNT + 1)
 #define SYS_thread_exit                                 (SYS_COUNT + 2)
 
-#define PEXPAND_SYSCALL(RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME SIGNATURE;
-#define PEXPAND_SYSCALL2(EPILOGUE, RETTYPE, FPREFIX, FNAME, SIGNATURE) RETTYPE FPREFIX##FNAME(PDECL_LIST(SIGNATURE));
+#define PEXPAND_SYSCALL(EPILOGUE, RETTYPE, RETTYPE_SYS, FPREFIX, FNAME, SIGNATURE) \
+    RETTYPE_SYS __##FPREFIX##FNAME(PDECL_LIST(SIGNATURE)); \
+    RETTYPE FPREFIX##FNAME(PDECL_LIST(SIGNATURE));
+
+#define PEXPAND_SYSCALL_NORET(EPILOGUE, RETTYPE, RETTYPE_SYS, FPREFIX, FNAME, SIGNATURE) \
+    __attribute__((noreturn)) RETTYPE FPREFIX##FNAME(PDECL_LIST(SIGNATURE));
 
 #include <PadOS/SyscallDefinitions.h>
 
 #undef PEXPAND_SYSCALL
-#undef PEXPAND_SYSCALL2
+#undef PEXPAND_SYSCALL_NORET
 
 #ifdef __cplusplus
 }

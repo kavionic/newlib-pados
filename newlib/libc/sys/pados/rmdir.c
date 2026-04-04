@@ -23,5 +23,5 @@
 
 int rmdir(const char* path)
 {
-    return PErrorCodeUpdateErrno(__remove_directory(AT_FDCWD, path));
+    return __remove_directory(AT_FDCWD, path);
 }
