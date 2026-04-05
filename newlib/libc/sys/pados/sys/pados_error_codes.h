@@ -49,6 +49,7 @@ typedef enum
     PCREAT_ERROR_CODE(NoSuchProcess,        ESRCH),
     PCREAT_ERROR_CODE(Overflow,             EOVERFLOW),
     PCREAT_ERROR_CODE(BadFile,              EBADF),
+    PCREAT_ERROR_CODE(CHILD,                ECHILD),
     PCREAT_ERROR_CODE(IsDirectory,          EISDIR),
     PCREAT_ERROR_CODE(NotDirectory,         ENOTDIR),
     PCREAT_ERROR_CODE(NotEmpty,             ENOTEMPTY),
