@@ -185,7 +185,7 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_system_log_add_message                      139
 #define SYS_add_serial_command_handler                  140
 #define SYS_serial_command_send_data                    141
-#define SYS_spawn_execve                                142
+#define SYS_posix_spawn                                 142
 #define SYS_sigaction                                   143
 #define SYS_thread_sigqueue                             144
 #define SYS_thread_sigmask                              145

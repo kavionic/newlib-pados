@@ -250,12 +250,12 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_cancelpnt, PErrorCode, PErrorCode,   , yield,
  */
 
 
-PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, PErrorCode, PErrorCode, __, spawn_execve,
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, __, posix_spawn,
     PARGS7(
         (pid_t*, outPID),
         (ThreadEntryTrampoline_t, entryTrampoline),
-        (const char*, name),
-        (int, priority),
+        (const char*, path),
+        (int, schedpriority),
         (struct PThreadUserData*, threadData),
         (char* const *, argv),
         (char* const *, envp)
