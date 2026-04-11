@@ -197,7 +197,26 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_thread_setcanceltype                        151
 #define SYS_has_nmi_status                              152
 #define SYS_log_and_clear_nmi_status                    153
-#define SYS_COUNT                                       154
+#define SYS_posix_spawnattr_init                        154
+#define SYS_posix_spawnattr_destroy                     155
+#define SYS_posix_spawnattr_getflags                    156
+#define SYS_posix_spawnattr_setflags                    157
+#define SYS_posix_spawnattr_getpgroup                   158
+#define SYS_posix_spawnattr_setpgroup                   159
+#define SYS_posix_spawnattr_getschedparam               160
+#define SYS_posix_spawnattr_setschedparam               161
+#define SYS_posix_spawnattr_getschedpolicy              162
+#define SYS_posix_spawnattr_setschedpolicy              163
+#define SYS_posix_spawnattr_getsigdefault               164
+#define SYS_posix_spawnattr_setsigdefault               165
+#define SYS_posix_spawnattr_getsigmask                  166
+#define SYS_posix_spawnattr_setsigmask                  167
+#define SYS_setpgid                                     168
+#define SYS_getuid                                      169
+#define SYS_getgid                                      170
+#define SYS_seteuid                                     171
+#define SYS_setegid                                     172
+#define SYS_COUNT                                       173
 // Syscalls process in the exception handler. Not present in the syscall table.
 #define SYS_sigreturn                                   (SYS_COUNT + 0)
 #define SYS_process_signals                             (SYS_COUNT + 1)

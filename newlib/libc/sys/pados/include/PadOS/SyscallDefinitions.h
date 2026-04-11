@@ -16,6 +16,8 @@
  * limitations under the License.
  */
 
+#include <spawn.h>
+
 struct PThreadUserData;
 
 #ifdef __cplusplus
@@ -255,12 +257,69 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, __, posix_spawn,
         (pid_t*, outPID),
         (ThreadEntryTrampoline_t, entryTrampoline),
         (const char*, path),
-        (int, schedpriority),
+        (const struct __posix_spawnattr*, attr),
         (struct PThreadUserData*, threadData),
         (char* const *, argv),
         (char* const *, envp)
     )
 )
+
+// posix_spawnattr_XXX: POSIX requires returning the error number directly (not via errno).
+// _SYSEPILOGUE_passthrough passes PErrorCode directly as the int return value.
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, __, posix_spawnattr_init,
+    PARGS2((struct __posix_spawnattr*, attr), (size_t, attrSize)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, __, posix_spawnattr_destroy,
+    PARGS1((struct __posix_spawnattr*, attr)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_getflags,
+    PARGS2((const posix_spawnattr_t* __restrict, attr), (short* __restrict, flags)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_setflags,
+    PARGS2((posix_spawnattr_t*, attr), (short, flags)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_getpgroup,
+    PARGS2((const posix_spawnattr_t* __restrict, attr), (pid_t* __restrict, pgroup)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_setpgroup,
+    PARGS2((posix_spawnattr_t*, attr), (pid_t, pgroup)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_getschedparam,
+    PARGS2((const posix_spawnattr_t* __restrict, attr), (struct sched_param* __restrict, schedparam)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_setschedparam,
+    PARGS2((posix_spawnattr_t* __restrict, attr), (const struct sched_param* __restrict, schedparam)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_getschedpolicy,
+    PARGS2((const posix_spawnattr_t* __restrict, attr), (int* __restrict, schedpolicy)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_setschedpolicy,
+    PARGS2((posix_spawnattr_t*, attr), (int, schedpolicy)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_getsigdefault,
+    PARGS2((const posix_spawnattr_t* __restrict, attr), (sigset_t* __restrict, sigdefault)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_setsigdefault,
+    PARGS2((posix_spawnattr_t* __restrict, attr), (const sigset_t* __restrict, sigdefault)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_getsigmask,
+    PARGS2((const posix_spawnattr_t* __restrict, attr), (sigset_t* __restrict, sigmask)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_setsigmask,
+    PARGS2((posix_spawnattr_t* __restrict, attr), (const sigset_t* __restrict, sigmask)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , setpgid,
+    PARGS2((pid_t, pid), (pid_t, pgid)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, uid_t, PSysRetPair, , getuid, PARGS0())
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, gid_t, PSysRetPair, , getgid, PARGS0())
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , seteuid,
+    PARGS1((uid_t, uid)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , setegid,
+    PARGS1((gid_t, gid)))
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, pid_t, PSysRetPair,    _, getpid,
     PARGS0())
