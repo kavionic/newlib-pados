@@ -216,7 +216,8 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_getgid                                      170
 #define SYS_seteuid                                     171
 #define SYS_setegid                                     172
-#define SYS_COUNT                                       173
+#define SYS_fchdir                                      173
+#define SYS_COUNT                                       174
 // Syscalls process in the exception handler. Not present in the syscall table.
 #define SYS_sigreturn                                   (SYS_COUNT + 0)
 #define SYS_process_signals                             (SYS_COUNT + 1)

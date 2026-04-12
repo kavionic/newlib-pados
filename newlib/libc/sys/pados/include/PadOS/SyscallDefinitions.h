@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Kurt Skauen. All rights reserved.
+ * Copyright (C) 2025-2026 Kurt Skauen. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -257,7 +257,7 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, __, posix_spawn,
         (pid_t*, outPID),
         (ThreadEntryTrampoline_t, entryTrampoline),
         (const char*, path),
-        (const struct __posix_spawnattr*, attr),
+        (const struct PPosixSpawnAttribs*, attr),
         (struct PThreadUserData*, threadData),
         (char* const *, argv),
         (char* const *, envp)
@@ -267,10 +267,10 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, __, posix_spawn,
 // posix_spawnattr_XXX: POSIX requires returning the error number directly (not via errno).
 // _SYSEPILOGUE_passthrough passes PErrorCode directly as the int return value.
 PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, __, posix_spawnattr_init,
-    PARGS2((struct __posix_spawnattr*, attr), (size_t, attrSize)))
+    PARGS2((struct PPosixSpawnAttribs*, attr), (size_t, attrSize)))
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, __, posix_spawnattr_destroy,
-    PARGS1((struct __posix_spawnattr*, attr)))
+    PARGS1((struct PPosixSpawnAttribs*, attr)))
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_getflags,
     PARGS2((const posix_spawnattr_t* __restrict, attr), (short* __restrict, flags)))
@@ -320,6 +320,9 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , seteuid,
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , setegid,
     PARGS1((gid_t, gid)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , fchdir,
+    PARGS1((int, fd)))
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, pid_t, PSysRetPair,    _, getpid,
     PARGS0())

@@ -33,6 +33,7 @@ libc_a_SOURCES += \
 	%D%/readlinkat.c \
 	%D%/rmdir.c \
 	%D%/sched_yield.c \
+	%D%/sigset.c \
 	%D%/sem_clockwait.c \
 	%D%/sem_close.c \
 	%D%/sem_destroy.c \
