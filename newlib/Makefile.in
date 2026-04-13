@@ -593,7 +593,6 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/clock_setres.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/clock_settime.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/crt0.c \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/exit.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fchmod.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fchmodat.c \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/fcntl.c \
@@ -1799,7 +1798,6 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-clock_setres.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-clock_settime.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-crt0.$(OBJEXT) \
-@HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-exit.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fchmod.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fchmodat.$(OBJEXT) \
 @HAVE_LIBC_SYS_PADOS_DIR_TRUE@	libc/sys/pados/libc_a-fcntl.$(OBJEXT) \
@@ -7678,8 +7676,6 @@ libc/sys/pados/libc_a-clock_settime.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-crt0.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
-	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
-libc/sys/pados/libc_a-exit.$(OBJEXT): libc/sys/pados/$(am__dirstamp) \
 	libc/sys/pados/$(DEPDIR)/$(am__dirstamp)
 libc/sys/pados/libc_a-fchmod.$(OBJEXT):  \
 	libc/sys/pados/$(am__dirstamp) \
@@ -14313,7 +14309,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-clock_setres.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-clock_settime.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-crt0.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-exit.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fchmod.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fchmodat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/sys/pados/$(DEPDIR)/libc_a-fcntl.Po@am__quote@
@@ -32274,20 +32269,6 @@ libc/sys/pados/libc_a-crt0.obj: libc/sys/pados/crt0.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/crt0.c' object='libc/sys/pados/libc_a-crt0.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-crt0.obj `if test -f 'libc/sys/pados/crt0.c'; then $(CYGPATH_W) 'libc/sys/pados/crt0.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/crt0.c'; fi`
-
-libc/sys/pados/libc_a-exit.o: libc/sys/pados/exit.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-exit.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-exit.Tpo -c -o libc/sys/pados/libc_a-exit.o `test -f 'libc/sys/pados/exit.c' || echo '$(srcdir)/'`libc/sys/pados/exit.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-exit.Tpo libc/sys/pados/$(DEPDIR)/libc_a-exit.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/exit.c' object='libc/sys/pados/libc_a-exit.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-exit.o `test -f 'libc/sys/pados/exit.c' || echo '$(srcdir)/'`libc/sys/pados/exit.c
-
-libc/sys/pados/libc_a-exit.obj: libc/sys/pados/exit.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-exit.obj -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-exit.Tpo -c -o libc/sys/pados/libc_a-exit.obj `if test -f 'libc/sys/pados/exit.c'; then $(CYGPATH_W) 'libc/sys/pados/exit.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/exit.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/sys/pados/$(DEPDIR)/libc_a-exit.Tpo libc/sys/pados/$(DEPDIR)/libc_a-exit.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/sys/pados/exit.c' object='libc/sys/pados/libc_a-exit.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/pados/libc_a-exit.obj `if test -f 'libc/sys/pados/exit.c'; then $(CYGPATH_W) 'libc/sys/pados/exit.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/pados/exit.c'; fi`
 
 libc/sys/pados/libc_a-fchmod.o: libc/sys/pados/fchmod.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/sys/pados/libc_a-fchmod.o -MD -MP -MF libc/sys/pados/$(DEPDIR)/libc_a-fchmod.Tpo -c -o libc/sys/pados/libc_a-fchmod.o `test -f 'libc/sys/pados/fchmod.c' || echo '$(srcdir)/'`libc/sys/pados/fchmod.c
