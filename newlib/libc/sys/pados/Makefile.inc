@@ -6,7 +6,6 @@ libc_a_SOURCES += \
 	%D%/clock_setres.c \
 	%D%/clock_settime.c \
 	%D%/crt0.c \
-	%D%/exit.c \
 	%D%/fchmod.c \
 	%D%/fchmodat.c \
 	%D%/fcntl.c \

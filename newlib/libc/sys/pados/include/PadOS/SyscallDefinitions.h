@@ -17,6 +17,7 @@
  */
 
 #include <spawn.h>
+#include <sys/wait.h>
 
 struct PThreadUserData;
 
@@ -311,6 +312,8 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, int, PErrorCode, , posix_spawnattr_set
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , setpgid,
     PARGS2((pid_t, pid), (pid_t, pgid)))
 
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, pid_t, PSysRetPair, , getpgrp, PARGS0())
+
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, uid_t, PSysRetPair, , getuid, PARGS0())
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, gid_t, PSysRetPair, , getgid, PARGS0())
@@ -323,6 +326,15 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , setegid,
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , fchdir,
     PARGS1((int, fd)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, pid_t, PSysRetPair, , wait,
+    PARGS1((int*, status)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, pid_t, PSysRetPair, , waitpid,
+    PARGS3((pid_t, pid), (int*, status), (int, options)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , waitid,
+    PARGS4((idtype_t, idtype), (id_t, id), (siginfo_t*, infop), (int, options)))
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, pid_t, PSysRetPair,    _, getpid,
     PARGS0())
