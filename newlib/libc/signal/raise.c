@@ -40,7 +40,7 @@ to vary from one implementation to another.
 Required OS subroutines: <<getpid>>, <<kill>>.
 */
 
-#ifndef SIGNAL_PROVIDED
+#ifdef SIGNAL_PROVIDED
 
 int _dummy_raise;
 
