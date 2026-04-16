@@ -367,7 +367,7 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, PErrorCode, PErrorCode,   , thread_sig
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , sigaction,
     PARGS3((int, sigNum), (const struct sigaction*, action), (struct sigaction*, outPrevAction)))
 
-PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, _sig_func_ptr, PSysRetPair,__, signal,
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_sysretpair, _sig_func_ptr, PSysRetPair,, signal,
     PARGS2((int, sigNum), (_sig_func_ptr, handler)))
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , sigsuspend,
@@ -375,6 +375,9 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , sigsuspend,
 
 PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, PErrorCode, PErrorCode,   , thread_sigmask,
     PARGS3((int, how), (const sigset_t*, newSet), (sigset_t*, outOldSet)))
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , sigpending,
+    PARGS1((sigset_t*, outSet)))
 
 /*
  * Handle object functions

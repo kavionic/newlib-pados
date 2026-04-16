@@ -473,7 +473,7 @@ case "${host}" in
 	newlib_cv_initfinit_array=yes
 	newlib_reent_thread_local=yes
 	newlib_cflags="${newlib_cflags} -D_NO_GETLOGIN -D_NO_GETPWENT -D_NO_GETUT -D_NO_GETPASS -D_NO_SIGSET -D_NO_WORDEXP -D_NO_POPEN -D_NO_POSIX_SPAWN -DNO_FORK -DNO_EXEC"
-	newlib_cflags="${newlib_cflags} -ffunction-sections -fdata-sections -mno-unaligned-access"
+	newlib_cflags="${newlib_cflags} -ffunction-sections -fdata-sections -mno-unaligned-access -DSIGNAL_PROVIDED"
 	;;
   arm*-*-*)
 	sys_dir=arm
