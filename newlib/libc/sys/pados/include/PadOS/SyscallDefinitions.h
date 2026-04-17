@@ -379,6 +379,9 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, PErrorCode, PErrorCode,   , thread_sig
 PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , sigpending,
     PARGS1((sigset_t*, outSet)))
 
+PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , sigprocmask,
+    PARGS3((int, how), (const sigset_t*, set), (sigset_t*, oset)))
+
 /*
  * Handle object functions
  */
