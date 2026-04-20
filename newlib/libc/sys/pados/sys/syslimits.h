@@ -61,7 +61,7 @@
 #define	MAX_INPUT       255     /* Minimum number of bytes for which space is available in a terminal input queue; therefore, the maximum number of bytes a conforming application may require to be typed as input before reading them. */
 #define	NAME_MAX        255     /* Maximum number of bytes in a filename(not including terminating null). */
 #define	PATH_MAX        4096    /* Maximum number of bytes in a pathname, including the terminating null character. */
-#define	PIPE_BUF        512     /* Maximum number of bytes that is guaranteed to be atomic when writing to a pipe. */
+#define	PIPE_BUF        4096    /* Maximum number of bytes that is guaranteed to be atomic when writing to a pipe. */
 //#define	POSIX_ALLOC_SIZE_MIN /* Minimum number of bytes of storage actually allocated for any portion of a file. */
 //#define	POSIX_REC_INCR_XFER_SIZE /* Recommended increment for file transfer sizes between the {POSIX_REC_MIN_XFER_SIZE} and {POSIX_REC_MAX_XFER_SIZE} values. */
 //#define	POSIX_REC_MAX_XFER_SIZE /* Maximum recommended file transfer size. */

@@ -65,6 +65,7 @@ typedef enum
     PCREAT_ERROR_CODE(NameTooLong,          ENAMETOOLONG),
     PCREAT_ERROR_CODE(LOOP,                 ELOOP),
     PCREAT_ERROR_CODE(ReadOnlyFilesystem,   EROFS),
+    PCREAT_ERROR_CODE(SPIPE,                ESPIPE),
 
     PCREAT_ERROR_CODE(RestartSyscall,       __ELASTERROR + 1),
     PCREAT_ERROR_CODE(_SIZEEXTEND,          0x7fffffff)

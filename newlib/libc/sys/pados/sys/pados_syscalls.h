@@ -223,7 +223,8 @@ static_assert(sizeof(PSysRetPair) == 8);
 #define SYS_getpgrp                                     177
 #define SYS_sigpending                                  178
 #define SYS_sigprocmask                                 179
-#define SYS_COUNT                                       180
+#define SYS_pipe                                        180
+#define SYS_COUNT                                       181
 // Syscalls process in the exception handler. Not present in the syscall table.
 #define SYS_sigreturn                                   (SYS_COUNT + 0)
 #define SYS_process_signals                             (SYS_COUNT + 1)
