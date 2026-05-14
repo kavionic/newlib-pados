@@ -549,7 +549,7 @@ int pthread_cond_init(pthread_cond_t* cond, const pthread_condattr_t* attr)
     {
         if (!attr->is_initialized)
         {
-            return PErrorCode_InvalidArg;
+            return PErrorCode_INVAL;
         }
         clockID = attr->clock;
     }
