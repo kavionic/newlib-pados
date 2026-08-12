@@ -17,6 +17,7 @@
  */
 
 #include <unistd.h>
+#include <pwd.h>
 #include <stdint.h>
 #include <time.h>
 #include <errno.h>
@@ -30,3 +31,26 @@ __attribute__((weak)) void _start(void);
 __attribute__((weak)) void* _sbrk(ptrdiff_t nbytes) { return nullptr; }
 
 int __attribute__((weak)) pthread_setcancelstate(int state, int* oldstate) { return -1;  }
+
+char* __attribute__((weak)) getlogin(void)
+{
+    errno = ENOSYS;
+    return NULL;
+}
+
+struct passwd* __attribute__((weak)) getpwnam(const char* name)
+{
+    errno = ENOSYS;
+    return NULL;
+}
+
+struct passwd* __attribute__((weak)) getpwuid(uid_t userID)
+{
+    errno = ENOSYS;
+    return NULL;
+}
+
+int __attribute__((weak)) issetugid(void)
+{
+    return 0;
+}

@@ -386,6 +386,13 @@ PEXPAND_SYSCALL(_SYSEPILOGUE_errno_errorcode, int, PErrorCode, , pipe,
     PARGS1((int*, pipefd)))
 
 /*
+ * Unit test functions
+ */
+
+PEXPAND_SYSCALL(_SYSEPILOGUE_passthrough, PErrorCode, PErrorCode, , run_kernel_unit_tests,
+    PARGS0())
+
+/*
  * Handle object functions
  */
 

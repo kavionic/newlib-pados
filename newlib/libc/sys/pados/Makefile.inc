@@ -48,7 +48,6 @@ libc_a_SOURCES += \
 	%D%/stubs.c \
 	%D%/symlink.c \
 	%D%/symlinkat.c \
-	%D%/syscalls.c \
 	%D%/sysconf.c \
 	%D%/times.c \
 	%D%/timespec_get.c \
